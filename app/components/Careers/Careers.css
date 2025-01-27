@@ -1,0 +1,51 @@
+/*Sale Image*/
+.img_sale {
+    position: relative;
+    
+}
+
+.img_sale img {
+    width: 100%;
+    
+}
+
+.imgsale_box {
+    
+    
+    width: 400px;
+    
+   
+    position: absolute;
+    top: 7%;
+    left: 10%;
+    /* animation in positioning */
+    animation-duration: 2s;
+    animation-name: zoom;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+
+/* animations in positioning */
+@keyframes zoom {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .imgsale_box{
+       width: 60%;
+       padding: 10px;
+       border-radius: 10px;
+       top: 100px;
+       left: 50px;
+
+      }
+    }
