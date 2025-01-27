@@ -1,5 +1,5 @@
 // pages/_document.js
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Html, Head } from 'next/document';
 import Page from "../components/page.tsx";
 
 export default function Document() {
