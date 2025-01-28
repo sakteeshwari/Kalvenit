@@ -45,7 +45,7 @@ const Footer = () => {
 
       {/* Footer Logo */}
       <div className="lg:flex items-center gap-5">
-        <img src="/assets/kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" />
+        <img src="/assets/Kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" />
         <img src="/assets/footerimg1.png" className="mt-2" alt="Footer Image" />
       </div>
 
