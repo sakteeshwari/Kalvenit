@@ -25,16 +25,24 @@ const Address = () => {
                     From ideas, innovation to execution –
                 </p>
                 <p className="text-lg lg:mt-6 lg:text-4xl mt-2 text-black slide-up">
-                    Let YASH be the catalyst for growth!
+                    Let Kalven Software Solutions be the catalyst for growth!
                 </p>
 
                 {/* Button */}
                 <div className="py-3 text-xl lg:text-2xl slide-up mt-6 lg:mt-16">
-                    <button className="flex items-center space-x-2 text-red-500 hover:text-red-700 font-medium">
-                        <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full hover:bg-red-100">
+                    <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                        {/* Border animation */}
+                        <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+
+
+                        {/* Content */}
+                        <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
                             <ArrowRight className="w-4 h-4" />
                         </div>
-                        <span>Explore More</span>
+                        <div className="hidden group-hover:block z-10">
+                            <span>&rarr;</span>
+                        </div>
+                        <span className="z-10">Know more</span>
                     </button>
                 </div>
             </div>

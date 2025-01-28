@@ -4,7 +4,7 @@ import React from "react";
 
 const SolutionsSection = () => {
   const solutions = [
-    "YASH4HANA",
+    "KALVEN4HANA",
     "Factory Process Automation",
     "Healthcare & Tele-medicine",
     "Digital Shop Floor",

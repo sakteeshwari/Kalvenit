@@ -3,73 +3,101 @@ import './Footer.css';
 import { FaTwitter, FaLinkedin, FaYoutube, FaInstagram, FaFacebook, FaPinterest } from 'react-icons/fa';
 
 const Footer = () => {
-  return (
-    <div className="bg-black  text-white p-6 lg:p-32">
-      {/* Quick Links Section */}
-      <div className="flex flex-col  lg:flex-row lg:items-start lg:gap-7">
-        <h1 className="text-yellow-400   lg:text-xl mb-4 lg:mb-0">Quick Links :</h1>
-        <div className="grid grid-cols-1 text-sm sm:grid-cols-2 lg:flex lg:gap-10 gap-4">
-          <p>SAP</p>
-          <p>Digitalization</p>
-          <p>Modernization</p>
-          <p>Cloud & Infrastructure Management Services</p>
-          <p>Cyber Security Services</p>
-          <p>IoT</p>
-        </div>
-      </div>
+  const quickLinks = [
+    'SAP',
+    'Digitalization',
+    'Modernization',
+    'Cloud & Infrastructure Management Services',
+    'Cyber Security Services',
+    'IoT',
+  ];
 
-      <hr style={{ borderColor: 'white' }} className="my-6" />
+  const subsidiaries = [
+    'Aaseya IT Services',
+    'Codiant Technologies',
+    'Intellents',
+  ];
+
+  const socialLinks = [
+    { icon: FaTwitter, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: FaLinkedin, url: 'https://www.linkedin.com', label: 'LinkedIn' },
+    { icon: FaYoutube, url: 'https://www.youtube.com', label: 'YouTube' },
+    { icon: FaInstagram, url: 'https://www.instagram.com', label: 'Instagram' },
+    { icon: FaFacebook, url: 'https://www.facebook.com', label: 'Facebook' },
+    { icon: FaPinterest, url: 'https://www.pinterest.com', label: 'Pinterest' },
+  ];
+
+  return (
+    <div className="bg-black text-white p-6 cursor-pointer lg:p-32">
+      {/* Quick Links Section */}
+      <Section title="Quick Links">
+        <Grid items={quickLinks} />
+      </Section>
+
+      <hr className="border-white my-6" />
 
       {/* Subsidiaries Section */}
-      <div className="flex flex-col lg:flex-row lg:items-start lg:gap-7">
-        <h1 className="text-yellow-400 text-sm  lg:text-xl mb-4 lg:mb-0">Subsidiaries :</h1>
-        <div className="grid grid-cols-1 text-sm sm:grid-cols-2 lg:flex lg:gap-10 gap-4">
-          <p>Aaseya IT Services</p>
-          <p>Codiant Technologies</p>
-          <p>Intellents</p>
+      <Section title="Subsidiaries">
+        <Grid items={subsidiaries} />
+      </Section>
+
+      <hr className="border-white my-6" />
+
+      {/* Footer Logo */}
+      <div className="lg:flex items-center gap-5">
+        <img src="/assets/kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" />
+        <img src="/assets/footerimg1.png" className="mt-2" alt="Footer Image" />
+      </div>
+
+      <hr className="border-white my-6" />
+
+      {/* Footer Policies */}
+      <div className="text-sm text-center">
+        <p className="leading-loose">
+          CSR / Site Map / Legal / Privacy Policy / Payment Policy / Modern Slavery Act Policy
+        </p>
+        <p className="pt-3 text-gray-400">
+          Copyright &copy; 2024. Kalven Software Solutions Technologies. All Rights Reserved.
+        </p>
+
+        {/* Social Media Section */}
+        <div className="mt-6">
+          <h1 className="text-yellow-400 text-lg mb-4">Follow Us:</h1>
+          <div className="flex justify-center gap-6 text-2xl">
+            {socialLinks.map(({ icon: Icon, url, label }) => (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="hover:text-yellow-400 transition-colors"
+              >
+                <Icon />
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-
-      <hr style={{ borderColor: 'white' }} className="my-6" />
-
-    {/* footer logo */}
-      <div className='lg:flex items-center gap-5'>
-      <img src="/assets/kalven-logo.png" className='lg:w-60 w-52' alt="" />
-      <img src="/assets/footerimg1.png" className='mt-2' alt="" />
-      </div>
-
-      <hr style={{ borderColor: 'white' }} className="my-6" />
-
-      <div className='text-sm text-center '>
-        <p className='leading-loose'>CSR/ Site Map/ Legal/ Privacy policy/ Payment policy/ Modern Slavery Act Policy</p>
-        <p className='pt-3 text-gray-400'>Copyright &copy; 2024. YASH Technologies. All Rights Reserved.</p>
-         {/* Social Media Section */}
-      <div className="text-center mt-6">
-        <h1 className="text-yellow-400 text-lg mb-4">Follow Us:</h1>
-        <div className="flex justify-center gap-6 text-2xl">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <FaTwitter className="hover:text-yellow-400 transition-colors" />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FaLinkedin className="hover:text-yellow-400 transition-colors" />
-          </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <FaYoutube className="hover:text-yellow-400 transition-colors" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <FaInstagram className="hover:text-yellow-400 transition-colors" />
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <FaFacebook className="hover:text-yellow-400 transition-colors" />
-          </a>
-          <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-            <FaPinterest className="hover:text-yellow-400 transition-colors" />
-          </a>
-        </div>
-      </div>
       </div>
     </div>
   );
 };
+
+const Section = ({ title, children }) => (
+  <div className="flex flex-col lg:flex-row lg:items-start lg:gap-7">
+    <h1 className="text-yellow-400 lg:text-xl mb-4 lg:mb-0">{title}:</h1>
+    {children}
+  </div>
+);
+
+const Grid = ({ items }) => (
+  <div className="grid grid-cols-1 text-sm sm:grid-cols-2 lg:flex lg:gap-10 gap-4">
+    {items.map((item, index) => (
+      <p key={index} className="hover:underline">
+        {item}
+      </p>
+    ))}
+  </div>
+);
 
 export default Footer;

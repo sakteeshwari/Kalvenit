@@ -35,7 +35,7 @@ const Befuture = () => {
         BE FUTURE READY
       </h1>
       <h1 className="text-black text-3xl slide-up">
-        YASH Perspectives <span className="text-red-700">.</span>
+        Kalven Software Solutions Perspectives <span className="text-red-700">.</span>
       </h1>
       <p className="text-blue-600 pt-4 text-right font-medium cursor-pointer mb-6">
         View ALL Blogs &nbsp; &rarr;
@@ -56,11 +56,19 @@ const Befuture = () => {
             <h2 className="text-xl font-semibold mb-2">{solution.title}</h2>
             <p className="text-gray-700 mb-4 hover:underline cursor-pointer">{solution.description}</p>
             <div className="py-3 text-lg slide-up">
-              <button className="flex items-center space-x-2 text-red-500 hover:text-red-700 font-medium">
-                <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full hover:bg-red-100">
+              <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                {/* Border animation */}
+                <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+
+
+                {/* Content */}
+                <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
                   <ArrowRight className="w-4 h-4" />
                 </div>
-                <span>Know more</span>
+                <div className="hidden group-hover:block z-10">
+                  <span>&rarr;</span>
+                </div>
+                <span className="z-10">Know more</span>
               </button>
             </div>
           </div>

@@ -1,8 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import "./CoEs.css"
+import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const CoEs = () => {
+
+    const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
     const data = [
         {
             title: "SAP",
@@ -75,22 +79,20 @@ const CoEs = () => {
     };
 
     return (
-        <div className="bg-gray-200 p-6 mt-6">
+        <div className="bg-gray-200 p-6   mt-6">
             {/* Title */}
-            <h1 className="text-purple-900 text-2xl font-semibold mb-4 slide-up">CoEs</h1>
-            <h1 className="text-black text-3xl slide-up">
+            <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4  ${inView ? "slide-up" : ""}`}>CoEs</h1>
+            <h1 ref={elementRef} className={`text-black text-3xl  ${inView ? "slide-up" : ""}`}>
                 Change gears <span className="text-red-600 font-semibold">.</span>{"  "}
-                 Accelerate <span className="text-red-600 font-semibold">.</span> Drive
+                Accelerate <span className="text-red-600 font-semibold">.</span> Drive
                 value <span className="text-red-600 font-semibold">.</span>
             </h1>
-
-            {/* Carousel Container */}
-            <div className="relative mt-6 xl:mx-10   shadow-lg rounded-lg overflow-hidden mx-auto">
+            <div className="relative mt-6 xl:mx-10 rounded-lg overflow-hidden mx-auto">
                 {/* Arrow Buttons */}
                 <button
                     onClick={handlePrev}
                     disabled={currentIndex === 0}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full hover:bg-gray-300 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="absolute left-2 lg:left-12 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full hover:bg-gray-300 z-10 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <ArrowLeft className="w-6 h-6 text-gray-600" />
                 </button>
@@ -104,36 +106,52 @@ const CoEs = () => {
                 </button>
 
                 {/* Cards */}
-                <div className="flex  overflow-hidden">
-
+                <div className="flex lg:p-10 overflow-hidden">
                     <div
                         className="flex gap-5 transition-transform duration-500"
                         style={{
-                            transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                            transform: `translateX(-${currentIndex * 10.1}%)`, // Each card is 33.33% of the container
                         }}
                     >
                         {data.map((item, index) => (
-
                             <div
                                 key={index}
-                                className="w-1/3 bg-white  sm:w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4"
+                                className="bg-white lg:rounded-lg p-5 coes-box w-[33.33%]" // Ensure each card is exactly 33.33% of the container
                             >
-                                <h3 className="text-lg font-bold mb-2  slide-up">{item.title}</h3>
-                                <p className="text-gray-700 slide-up">{item.description}</p>
-                                <div className=" p-4 rounded  flex flex-col items-center text-center">
+                                <h3
+                                    ref={elementRef}
+                                    className={`text-lg font-bold mb-2  ${inView ? "slide-up" : ""}`}
+                                >
+                                    {item.title}
+                                </h3>
+                                <p
+                                    ref={elementRef}
+                                    className={`text-gray-700 ${inView ? "slide-up" : ""}`}
+                                >
+                                    {item.description}
+                                </p>
+                                <div className="p-4 rounded flex flex-col items-center text-center">
                                     <img
                                         src={item.img}
                                         alt={item.title}
-                                        className="w-32 h-32 mb-4"
+                                        className="w-20 h-32 mb-4"
                                     />
-
                                 </div>
                                 <div className="py-3 text-lg slide-up">
-                                    <button className="flex items-center space-x-2 text-red-500 hover:text-red-700 font-medium">
-                                        <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full hover:bg-red-100">
+                                    <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                                        {/* Border animation */}
+                                        <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+
+
+                                        {/* Content */}
+                                        <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
                                             <ArrowRight className="w-4 h-4" />
                                         </div>
-                                        <span>Know more</span>
+                                        <div className="hidden group-hover:block z-10">
+                                            <span>&rarr;</span>
+                                        </div>
+                                        <span ref={elementRef} className={`z-10 ${inView ? "slide-up" : ""
+                                            }`}>Know more</span>
                                     </button>
                                 </div>
                             </div>
@@ -141,6 +159,8 @@ const CoEs = () => {
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 };

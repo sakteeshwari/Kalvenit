@@ -1,8 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import "./Serviceimg.css";
+import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const Serviceimg = () => {
+
+  const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
+
   const images = [
     {
       Label: "Digitalization",
@@ -69,8 +73,8 @@ const Serviceimg = () => {
                 alt={`slide-${index}`}
               />
               <div className="absolute bottom-0 w-full left-0  bg-black bg-opacity-50 text-white p-2 text-sm">
-               <h2 className="font-semibold text-red-500 text-lg shadow-xl slide-up"> {data.Label}</h2>
-                <p className=" slide-up">{data.Description}</p>
+               <h2 ref={elementRef} className={`font-semibold text-red-500 text-lg shadow-xl slide-up ${inView ? "slide-up" : ""}`}> {data.Label}</h2>
+                <p ref={elementRef} className={` slide-up ${inView ? "slide-up" : ""}`}>{data.Description}</p>
               </div>
               <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2 text-sm">
                 
