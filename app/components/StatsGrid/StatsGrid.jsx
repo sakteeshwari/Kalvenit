@@ -65,9 +65,9 @@ const StatsGrid = () => {
                     We Partner to Deliver <span className="text-red-600">.</span>
                 </h1>
 
-                <p className={`xl:text-lg p-3 text-black ${
+                <p className={`xl:text-lg p-3 text-black tracking-wide leading-relaxed ${
                         inView ? "slide-up" : ""
-                    }`}>
+                    }`} style={{wordSpacing: "0.1em"}}>
                     Kalven Software Solutions is a leading technology integrator specializing in helping clients reimagine operating models, enhance competitiveness, optimize costs,
                     foster exceptional stakeholder experiences and drive business transformation. With our unique 'glocal' approach, we consultatively partner clients across geographies as a robust local provider while allowing them to
                     take advantage of our market-leading portfolio of technology services, solutions, and products; globally. As a 'Partner of Choice' for 75 Fortune500 corporations, we foster long-term strategic relationships with clients across Manufacturing, Lifesciences, BFSI, Mining, and Healthcare,
