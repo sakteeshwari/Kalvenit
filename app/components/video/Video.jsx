@@ -18,7 +18,7 @@ const Video = () => {
           playsInline
           className="h-[] rounded-video w-full max-w-3xl lg:max-w-6xl"
         >
-          <source src="/assets/kelvinit.mp4" type="video/mp4" />
+          <source src="/assets/Kalvenit.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
