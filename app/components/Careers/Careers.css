@@ -1,97 +1,101 @@
-/*Sale Image*/
+/* Sale Image */
 .img_sale {
     position: relative;
-    
 }
 
 .img_sale img {
     width: 100%;
-    
 }
 
 .imgsale_box {
-    
-    
     width: 400px;
-    
-  padding: 4px;
+    padding: 4px;
     position: absolute;
     top: 13%;
-    left: 18%;
-    /* animation in positioning */
+    left: 8%;
     animation-duration: 2s;
     animation-name: zoom;
     opacity: 0;
     animation-fill-mode: forwards;
 }
 
-
-/* animations in positioning */
+/* Animations in positioning */
 @keyframes zoom {
     0% {
         transform: scale(0);
         opacity: 0;
     }
-
     100% {
         transform: scale(1);
         opacity: 1;
     }
 }
 
-@media screen and (min-width:1000px) {
-    .imgsale_box{
-       width: 60%;
-       padding: 10px;
-       border-radius: 10px;
-       top: 100px;
-       left: 50px;
-
-      }
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
     }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
+/* Apply slide-up animation when the element is in view */
+.slide-up {
+    animation: slideUp 1s ease-out forwards;
+}
 
-    /* Hover Effect */
+@media screen and (min-width: 1000px) {
+    .imgsale_box {
+        width: 60%;
+        padding: 10px;
+        border-radius: 10px;
+        top: 100px;
+        left: 50px;
+    }
+}
+
+/* Hover Effect */
 .group:hover .flex {
     transform: translateX(8px); /* Moves the button to the right */
     color: #9b4dca; /* Change text color */
-  }
-  
-  .group:hover .group-hover\:border-purple-500 {
-    border-color: #9b4dca; /* Add purple border when hovered */
-  }
-  
-  .group:hover .group-hover\:translate-x-2 {
-    transform: translateX(5px); /* Moves the arrow slightly to the right */
-  }
-  
-  .group:hover .group-hover\:text-purple-500 {
-    color: #9b4dca; /* Change text color to purple */
-  }
+}
 
-  @media (max-width: 500px) {
-    .imgsale_box{
+.group:hover .group-hover\:border-purple-500 {
+    border-color: #9b4dca; /* Add purple border when hovered */
+}
+
+.group:hover .group-hover\:translate-x-2 {
+    transform: translateX(5px); /* Moves the arrow slightly to the right */
+}
+
+.group:hover .group-hover\:text-purple-500 {
+    color: #9b4dca; /* Change text color to purple */
+}
+
+@media (max-width: 500px) {
+    .imgsale_box {
         width: 300px;
         top: 7px;
         left: 7%;
     }
-    .img-salebox-two{
+    .img-salebox-two {
         padding: 10px;
-        
     }
-    .img-salebox-two > h2{
+    .img-salebox-two > h2 {
         padding-top: 2px;
-        
     }
-    .img-salebox-two p{
+    .img-salebox-two p {
         padding-bottom: 2px;
-        font-size:22px;
+        font-size: 22px;
         width: 300px;
         margin-top: 2px;
     }
-    .know-more{
+    .know-more {
         padding-left: 0px;
         margin-top: 0;
         padding-top: 0;
     }
-  }
+}

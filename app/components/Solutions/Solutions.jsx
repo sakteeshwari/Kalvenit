@@ -1,6 +1,7 @@
 
 "use client";
 import React from "react";
+import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const SolutionsSection = () => {
   const solutions = [
@@ -11,6 +12,9 @@ const SolutionsSection = () => {
     "E-Learning",
     "SAP Solutions",
   ];
+  const [elementRef, inView] = useInView({ triggerOnce: true, threshold: 1 });
+
+  
 
   return (
     <section className="bg-blue-900 text-white p-6 pt-12 lg:py-12 lg:px-16 relative">
@@ -31,7 +35,7 @@ const SolutionsSection = () => {
                     : "border border-cyan-400"
                 }`}
               >
-                <div className="slide-up">{solution}</div>
+                <div ref={elementRef} className={` ${inView ? "slide-up" : ""} your-element-class`}>{solution}</div>
               </div>
             ))}
           </div>

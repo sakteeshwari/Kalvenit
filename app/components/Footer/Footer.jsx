@@ -57,7 +57,7 @@ const Footer = () => {
           CSR / Site Map / Legal / Privacy Policy / Payment Policy / Modern Slavery Act Policy
         </p>
         <p className="pt-3 text-gray-400">
-          Copyright &copy; 2024. Kalven Software Solutions Technologies. All Rights Reserved.
+          Copyright &copy; 2025. Kalven Software Solutions Technologies. All Rights Reserved.
         </p>
 
         {/* Social Media Section */}

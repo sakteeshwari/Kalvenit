@@ -1,6 +1,8 @@
+"use client"
 import React from "react";
 import "./Befuture.css";
 import { ArrowRight } from "lucide-react";
+import useInView from "../../hooks/useInView";
 
 const Befuture = () => {
   const Solutions = [
@@ -29,12 +31,14 @@ const Befuture = () => {
     },
   ];
 
+  const [elementRef, inView] = useInView(0.5); // Each card has its own ref
+
   return (
     <div className="p-6 pt-12 bg-gray-100">
-      <h1 className="text-purple-800 text-2xl font-semibold mb-4 slide-up">
+      <h1 ref={elementRef} className={`text-purple-800 text-2xl font-semibold mb-4 ${inView ? "slide-up" : ""}`}>
         BE FUTURE READY
       </h1>
-      <h1 className="text-black text-3xl slide-up">
+      <h1 ref={elementRef} className={`text-black text-3xl ${inView ? "slide-up" : ""}`}>
         Kalven Software Solutions Perspectives <span className="text-red-700">.</span>
       </h1>
       <p className="text-blue-600 pt-4 text-right font-medium cursor-pointer mb-6">
@@ -68,7 +72,7 @@ const Befuture = () => {
                 <div className="hidden group-hover:block z-10">
                   <span>&rarr;</span>
                 </div>
-                <span className="z-10">Know more</span>
+                <span ref={elementRef} className={`z-10 slide-up ${inView ? "slide-up" : ""}`}>Know more</span>
               </button>
             </div>
           </div>

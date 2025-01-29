@@ -6,12 +6,12 @@ import useInView from "../../hooks/useInView"; // Assuming your custom hook is i
 
 const Video = () => {
 
-  const [elementRef, inView] = useInView(0.4); // Trigger when 50% of the element is in view
+  const [elementRef, inView] = useInView(0.5); // Trigger when 50% of the element is in view
   return (
     <div className="mx-2 mt-2  xl:mt-10 mb-1 flex flex-col items-center">
       <h1
             ref={elementRef}
-            className={`text-2xl text-purple-700 text-center outlined-text p-4 lg:text-5xl transition-all duration-1000 ${
+            className={`text-2xl text-purple-700 text-center outlined-text p-4 lg:text-5xl transition-all duration-1000 slide-up ${
               inView ? "slide-up" : "" // Add slide-up when the element is in view
             }`}
           >

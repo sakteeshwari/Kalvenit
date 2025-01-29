@@ -24,4 +24,8 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.your-element-class {
+  will-change: transform;
+}
+
 
