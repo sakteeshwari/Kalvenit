@@ -51,7 +51,7 @@ const Befuture = () => {
             <img
               src={solution.images}
               alt={solution.title}
-              className=" h-64 w-96   rounded-t-lg mb-4"
+              className=" h-52 w-96   rounded-t-lg mb-4"
             />
             <h2 className="text-xl font-semibold mb-2">{solution.title}</h2>
             <p className="text-gray-700 mb-4 hover:underline cursor-pointer">{solution.description}</p>

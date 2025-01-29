@@ -306,7 +306,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex px-2 lg:px-4 2xl:px-6  shadow-lg ">
+    <nav className="flex px-2 lg:px-4 2xl:px-6 bg-white shadow-lg ">
       <div className="container  mx-auto flex items-center justify-between ">
         {/* Logo */}
         <div className="text-xl font-bold py-3">
