@@ -1,12 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import "./CoEs.css"
-import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
-
+import "./CoEs.css";
+import useInView from "../../hooks/useInView";
 const CoEs = () => {
-
-    const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
+    
     const data = [
         {
             title: "SAP",
@@ -64,6 +62,8 @@ const CoEs = () => {
         },
     ];
 
+    const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleNext = () => {
@@ -79,13 +79,21 @@ const CoEs = () => {
     };
 
     return (
-        <div className="bg-gray-200 p-6   mt-6">
+        <div className="bg-gray-200 p-6 mt-6">
             {/* Title */}
-            <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4  ${inView ? "slide-up" : ""}`}>CoEs</h1>
-            <h1 ref={elementRef} className={`text-black text-3xl  ${inView ? "slide-up" : ""}`}>
-                Change gears <span className="text-red-600 font-semibold">.</span>{"  "}
-                Accelerate <span className="text-red-600 font-semibold">.</span> Drive
-                value <span className="text-red-600 font-semibold">.</span>
+            <h1
+                ref={elementRef}
+                className={`text-purple-900 text-2xl font-semibold mb-4 slide-up ${inView ? "slide-up" : " "}`}
+            >
+                CoEs
+            </h1>
+            <h1
+                ref={elementRef}
+                className={`text-black text-3xl slide-up ${inView ? "slide-up" : ""}`}
+            >
+                Change gears <span className="text-red-600 font-semibold">.</span> Accelerate{" "}
+                <span className="text-red-600 font-semibold">.</span> Drive value{" "}
+                <span className="text-red-600 font-semibold">.</span>
             </h1>
             <div className="relative mt-6 xl:mx-10 rounded-lg overflow-hidden mx-auto">
                 {/* Arrow Buttons */}
@@ -110,23 +118,23 @@ const CoEs = () => {
                     <div
                         className="flex gap-5 transition-transform duration-500"
                         style={{
-                            transform: `translateX(-${currentIndex * 10.1}%)`, // Each card is 33.33% of the container
+                            transform: `translateX(-${currentIndex * 33.33}%)`, // Ensure the translation is 33.33% for each card
                         }}
                     >
                         {data.map((item, index) => (
                             <div
                                 key={index}
-                                className="bg-white lg:rounded-lg p-5 coes-box w-[33.33%]" // Ensure each card is exactly 33.33% of the container
+                                className="bg-white lg:rounded-lg p-5 coes-box w-[33.33%]" // Each card occupies 33.33% of the container
                             >
                                 <h3
                                     ref={elementRef}
-                                    className={`text-lg font-bold mb-2  ${inView ? "slide-up" : ""}`}
+                                    className={`text-lg font-bold mb-2 slide-up ${inView ? "slide-up" : ""}`}
                                 >
                                     {item.title}
                                 </h3>
                                 <p
                                     ref={elementRef}
-                                    className={`text-gray-700 ${inView ? "slide-up" : ""}`}
+                                    className={`text-gray-700 slide-up ${inView ? "slide-up" : ""}`}
                                 >
                                     {item.description}
                                 </p>
@@ -142,7 +150,6 @@ const CoEs = () => {
                                         {/* Border animation */}
                                         <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
 
-
                                         {/* Content */}
                                         <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
                                             <ArrowRight className="w-4 h-4" />
@@ -150,8 +157,12 @@ const CoEs = () => {
                                         <div className="hidden group-hover:block z-10">
                                             <span>&rarr;</span>
                                         </div>
-                                        <span ref={elementRef} className={`z-10 ${inView ? "slide-up" : ""
-                                            }`}>Know more</span>
+                                        <span
+                                            ref={elementRef}
+                                            className={`z-10 ${inView ? "slide-up" : ""}`}
+                                        >
+                                            Know more
+                                        </span>
                                     </button>
                                 </div>
                             </div>
@@ -159,8 +170,6 @@ const CoEs = () => {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };

@@ -14,10 +14,10 @@
     
     width: 400px;
     
-   
+  padding: 4px;
     position: absolute;
-    top: 7%;
-    left: 10%;
+    top: 13%;
+    left: 18%;
     /* animation in positioning */
     animation-duration: 2s;
     animation-name: zoom;
@@ -67,4 +67,31 @@
   
   .group:hover .group-hover\:text-purple-500 {
     color: #9b4dca; /* Change text color to purple */
+  }
+
+  @media (max-width: 500px) {
+    .imgsale_box{
+        width: 300px;
+        top: 7px;
+        left: 7%;
+    }
+    .img-salebox-two{
+        padding: 10px;
+        
+    }
+    .img-salebox-two > h2{
+        padding-top: 2px;
+        
+    }
+    .img-salebox-two p{
+        padding-bottom: 2px;
+        font-size:22px;
+        width: 300px;
+        margin-top: 2px;
+    }
+    .know-more{
+        padding-left: 0px;
+        margin-top: 0;
+        padding-top: 0;
+    }
   }

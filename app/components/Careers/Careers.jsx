@@ -13,12 +13,12 @@ const Careers = () => {
             {/* <!--Image Section--> */}
             <div className="img_sale">
                 <img src="/assets/happy.png" alt="section_image" />
-                <div ref={elementRef} className="imgsale_box  text-white border-4 hover:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] hover:border-yellow-500 hover:shadow-yellow-600 border-yellow-400 shadow-lg rounded-lg  transition-all duration-500">
-                    <div className='py-6 px-4'>
+                <div className="imgsale_box  text-white border-4 hover:shadow-[0px_10px_30px_rgba(0,0,0,0.5)] hover:border-yellow-500 hover:shadow-yellow-600 border-yellow-400 shadow-lg rounded-lg  transition-all duration-500 ">
+                    <div className=' img-salebox-two'>
                         <h2 className='slide-up lg:text-2xl'>CAREERS</h2>
                         <p className='slide-up mt-6 text-4xl lg:text-7xl lg:leading-relaxed'>Shape Your Future Join Kalven Today!</p>
                     </div>
-                    <div className="px-4 py-3 text-lg slide-up">
+                    <div className="px-4 py-3 text-lg slide-up know-more">
                         <button className="relative flex items-center space-x-2 text-white font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
                             {/* Border animation */}
                             <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-white rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
