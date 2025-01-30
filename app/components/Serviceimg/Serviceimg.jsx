@@ -7,14 +7,9 @@ import useInView from "../../hooks/useInView"; // Assuming your custom hook is i
 const Serviceimg = () => {
 
   const [elementRef, inView] = useInView(0.5); // Triggers when 50% of the element is in view
-  const [hasAnimated, setHasAnimated] = useState(false); // Initializing the state for tracking animation
+  
 
-  useEffect(() => {
-    if (inView && !hasAnimated) {
-      setHasAnimated(true); // Ensure animation runs only once
-    }
-  }, [inView, hasAnimated]); // Running effect when 'inView' or 'hasAnimated' state changes
-
+ 
   const images = [
     {
       Label: "Digitalization",
@@ -81,7 +76,7 @@ const Serviceimg = () => {
                 alt={`slide-${index}`}
               />
               <div className="absolute bottom-0 w-full left-0 bg-black bg-opacity-50 text-white p-2 text-sm">
-               <h2 ref={elementRef} className={`font-semibold text-red-500 text-lg shadow-xl  ${inView ? "slide-up" : ""}`}> {data.Label}</h2>
+               <h2  className={`font-semibold text-red-500 text-lg shadow-xl `}> {data.Label}</h2>
                 <p ref={elementRef} className={`  ${inView ? "slide-up" : ""} `}>{data.Description}</p>
               </div>
               <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2 text-sm">

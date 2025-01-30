@@ -57,7 +57,7 @@ const Befuture = () => {
               alt={solution.title}
               className=" h-52 w-96   rounded-t-lg mb-4"
             />
-            <h2 className="text-xl font-semibold mb-2">{solution.title}</h2>
+            <h2 className="text-xl font-semibold mb-2 text-black">{solution.title}</h2>
             <p className="text-gray-700 mb-4 hover:underline cursor-pointer">{solution.description}</p>
             <div className="py-3 text-lg slide-up">
               <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">

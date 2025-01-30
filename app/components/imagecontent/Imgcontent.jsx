@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import "./Imgcontent.css";
+import { motion } from "framer-motion";
 
 
 const Imgcontent = () => {
@@ -18,10 +19,20 @@ const Imgcontent = () => {
   return (
     <div className="content relative">
       {/* Shared Background Image */}
-      <img
+      <motion.img
         src="/assets/ai-studio-hero.webp"
         className="relative img-content w-full h-full"
         alt="Background"
+         // Initial animation when page loads
+      initial={{ opacity: 0, scale: 1.1 }} 
+      animate={{ opacity: 1, scale: 1 }} 
+      transition={{ duration: 1.5, ease: "easeOut" }}
+
+      // Hover animation for parallax effect
+      whileHover={{ scale: 1.05, rotate: 1 }}
+      
+      // Click effect
+      whileTap={{ scale: 0.95 }}
       />
 
       {/* Content Wrapper */}

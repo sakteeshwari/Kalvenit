@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./Navbar.css"
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
   };
 
   const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
+    setHoveredIndex(index);s
     setShowSubMenu(true); // Keep submenu visible
   };
 
@@ -32,13 +33,16 @@ const Navbar = () => {
   };
 
   const toggleItem = (index) => {
-    setHoveredIndex((prevIndex) => (prevIndex === index ? null : index));
-
-    setExpandedItems((prev) => ({
-      ...prev,
-      [index]: !prev[index], // Toggle the state of the specific item
-    }));
+    setExpandedItems((prev) => {
+      // If clicking the already open submenu, close it
+      if (prev[index]) {
+        return {}; // Close all submenus
+      } else {
+        return { [index]: true }; // Open only the clicked submenu
+      }
+    });
   };
+  
 
   const menuItems = [
     {
@@ -49,7 +53,7 @@ const Navbar = () => {
       ],
     },
     {
-      href: "/services",
+      href: "/servicepage",
       label: "Services",
       subItems: [ 
         { href: "/services/digitalization/digitalization", label: "Digitalization",  className: "font-bold text-black" },
@@ -306,12 +310,18 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex px-2 lg:px-4 2xl:px-6 bg-white shadow-lg ">
+    <nav className="flex px-2 sticky top-0 z-30 lg:px-4 2xl:px-6 bg-white shadow-lg ">
       <div className="container  mx-auto flex items-center justify-between ">
         {/* Logo */}
         <div className="text-xl font-bold py-3">
           <Link href="/">
-            <img src="/assets/Kalven-logo.png" className="h-12" alt="Logo" />
+            <motion.img src="/assets/Kalven-logo.png"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 120 }}
+            whileHover={{ scale: 1.1, rotate: 2 }} 
+            whileTap={{ scale: 0.9 }}
+             className="h-12" alt="Logo" />
           </Link>
         </div>
 
@@ -328,9 +338,7 @@ const Navbar = () => {
       <Link href={item.href} className="hover:text-purple-700 px-4 py-7">
         {item.label}
       </Link>
-      <p>
       
-      </p>
 
       {/* Submenu */}
       {item.subItems && showSubMenu && hoveredIndex === index && (
@@ -405,7 +413,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`bg-black text-white text-sm fixed flex flex-col divide-y divide-gray-700 z-20 lg:hidden top-20 right-0 transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`bg-black text-white text-sm fixed  flex flex-col divide-y divide-gray-700 z-20 lg:hidden top-[72px] right-0 transition-transform duration-500 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         style={{
           width: "100%",

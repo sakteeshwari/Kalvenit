@@ -5,23 +5,24 @@ import Serviceimg from "../Serviceimg/Serviceimg";
 import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const Services = () => {
-  const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
+  const [elementRef, inView] = useInView(1); // Trigger when 40% of the element is in view
  
 
   return (
-    <div className='bg-white p-4 mt-6'>
+    <div ref={elementRef}
+     className={`bg-white p-4 mt-6 slide-up ${inView ? "slide-up" : ""}`}>
       {/* Service title with animation */}
       <h1
-        ref={elementRef} // Add ref for the first header
-        className={`text-purple-800 text-2xl font-semibold mb-4 ${inView ? "slide-up" : ""}`}
+         // Add ref for the first header
+        className={`text-purple-800 text-2xl font-semibold mb-4 `}
       >
         SERVICES
       </h1>
 
       {/* Tagline with animation */}
       <h1
-        ref={elementRef} // Add ref for the second header
-        className={`text-black text-3xl ${inView ? "slide-up" : ""}`}
+         // Add ref for the second header
+        className={`text-black text-3xl `}
       >
         Agility. Resilience. Growth
       </h1>

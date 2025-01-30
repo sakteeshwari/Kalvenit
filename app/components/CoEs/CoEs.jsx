@@ -76,7 +76,7 @@ const CoEs = () => {
         }
     };
 
-    const [elementRef, inView] = useInView(0.5); // Each card has its own ref
+    const [elementRef, inView] = useInView(1); // Each card has its own ref
 
     return (
         <div className="bg-gray-200 p-6 mt-6">

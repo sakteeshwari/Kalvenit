@@ -2,11 +2,10 @@
 import React from 'react'
 import { ArrowRight } from "lucide-react";
 import "./Address.css";
-import useInView from "../../hooks/useInView";
 
 
 const Address = () => {
-    const [elementRef, inView] = useInView(0.5); // Each card has its own ref
+   
     return (
         <div className=" relative lg:p-20 w-full h-full">
             {/* Background Image */}
@@ -17,7 +16,7 @@ const Address = () => {
             />
 
             {/* Content Positioned Top-Left */}
-            <div ref={elementRef} className={`absolute top-5 left-5 opacity leading-snug lg:p-32 lg:pr-72  pr-28 lg:top-12 lg:left-12 text-white ${inView ? "slide-up" : ""}`}>
+            <div  className={`absolute top-5 left-5 opacity leading-snug lg:p-32 lg:pr-72  pr-28 lg:top-12 lg:left-12 text-white`}>
                 <h2 className="text-2xl lg:text-5xl font-semibold text-purple-900 xl:leading-relaxed slide-up address-heading">
                     Address current challenges
                     and get future-ready
