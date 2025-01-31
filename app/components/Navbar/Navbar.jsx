@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   const handleMouseEnter = (index) => {
-    setHoveredIndex(index);s
+    setHoveredIndex(index);
     setShowSubMenu(true); // Keep submenu visible
   };
 
@@ -53,7 +53,7 @@ const Navbar = () => {
       ],
     },
     {
-      href: "/servicepage",
+      href: "/services",
       label: "Services",
       subItems: [ 
         { href: "/services/digitalization/digitalization", label: "Digitalization",  className: "font-bold text-black" },

@@ -1,16 +1,14 @@
-// pages/_app.js
-"use client"
+""
 import "../styles/globals.css";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 
-export default function MyApp({ Homepage, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Navbar /> {/* Common Navbar */}
-      <Homepage {...pageProps} /> {/* Current page */}
-      
-      <Footer /> {/* Common Footer */}
+      <Navbar /> {/* Navbar shown on every page */}
+      <Component {...pageProps} /> {/* Current Page */}
+      <Footer /> {/* Footer shown on every page */}
     </>
   );
 }
