@@ -6,7 +6,8 @@ import Navbar from "../components/Navbar/Navbar.jsx"
 import Footer from "../components/Footer/Footer.jsx"
 import Inbox from "../components/Inbox/Inbox.jsx"
 import Servicestrending from "../components/Servicestrending/Servicestrending.jsx";
-
+import Servicesperspective from "../components/Servicesperspective/Servicesperspective.jsx";
+import Contactus from "../components/Contactus/Contactus.jsx";
 
  const services = () => {
  return(
@@ -15,6 +16,8 @@ import Servicestrending from "../components/Servicestrending/Servicestrending.js
   <Servicespageimg></Servicespageimg>
   <Servicespagecontent></Servicespagecontent>
   <Servicestrending></Servicestrending>
+  <Servicesperspective></Servicesperspective>
+  <Contactus></Contactus>
   <Inbox></Inbox>
   <Footer></Footer>
   </>

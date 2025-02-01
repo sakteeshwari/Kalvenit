@@ -108,7 +108,7 @@ const Servicestrending = () => {
 
   const [elementRef, inView] = useInView(1); // Each card has its own ref
   return (
-    <section className="relative w-full h-screen    overflow-hidden">
+    <section className="relative w-full h-screen  mt-10   overflow-hidden">
       {/* Title */}
       <div className="m-4 lg:px-20">
         <h1
@@ -125,7 +125,7 @@ const Servicestrending = () => {
       </div>
 
       {/* Card Carousel */}
-      <div className="relative h-72 flex items-center justify-center mt-10">
+      <div className="relative h-72   flex items-center justify-center lg:justify-evenly lg:gap-52  mt-10">
         {/* Left Arrow */}
         <button
           onClick={handlePrev}
@@ -139,30 +139,30 @@ const Servicestrending = () => {
         </button>
 
         {/* Cards */}
-        <div className="w-full mt-24  h-96 max-w-[90%] lg:max-w-[80%] flex-wrap overflow-hidden relative">
+        <div className="w-full mt-24 lg:flex lg:justify-evenly  h-96 max-w-[90%] lg:max-w-[90%]  overflow-hidden relative">
           {content.map((item, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-full flex-wrap  absolute top-0 left-0 transition-transform duration-700 ease-in-out"
-              style={{
-                transform: `translateX(${(index - scrollIndex) * 100}%)`,
-                opacity: scrollIndex === index ? 1 : 0, // Ensure only the active item is visible
-                transition: "transform 0.7s ease-in-out, opacity 0.3s ease-in-out",
-              }}
-            >
+           <div
+           key={index}
+           className={`flex-shrink-0 w-full lg:flex lg:gap-32 md:w-1/2 lg:w-1/3 absolute top-0 left-0 transition-transform duration-700 ease-in-out`}
+           style={{
+             transform: `translateX(${(index - scrollIndex) * 100}%)`,
+             opacity: scrollIndex === index || window.innerWidth >= 400 ? 1 : "", // Ensure at least two cards are visible on larger screens
+             transition: "transform 0.7s ease-in-out, opacity 0.3s ease-in-out",
+           }}
+         >
               <div
-                className="relative bg-cover w-72 bg-center rounded-lg shadow-lg h-[300px] sm:h-[500px] flex flex-col justify-between p-6 transform transition-all duration-500 ease-in-out hover:scale-110 hover:translate-y-[-10px]"
+                className="relative m-1 bg-cover w-72 bg-center rounded-lg shadow-lg h-[300px] sm:h-[500px] flex flex-col justify-between p-6 transform transition-all duration-500 ease-in-out hover:scale-110 hover:translate-y-[-10px]"
                 style={{
                   backgroundImage: `url(${item.image})`,
                 }}
               >
 
                 {/* Content */}
-                <div className="relative top-32 left-28 z-10 bg-gray-500 p-4 w-72 text-white ">
+                <div className="relative top-32 left-28 lg:top-36 z-10 bg-gray-500 p-4 w-72 text-white ">
                   <span className="bg-black text-sm px-2 py-1 rounded">
                     Case study
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold mt-4">
+                  <h3 className="text-lg sm:text-xl hover:underline font-bold mt-4">
                     {item.label}
                   </h3>
                   <p className="text-sm sm:text-base mt-2">{item.description}</p>
