@@ -56,7 +56,7 @@ const Servicesperspective = () => {
 
   return (
     <div className="relative w-full mb-10 -mt-20">
-      <h2 className="text-3xl mx-4 mb-10">
+      <h2 className="text-3xl mx-4 mb-10 lg:px-20">
         YASH Perspectives <span className="text-red-500 font-semibold">.</span>
       </h2>
       <div className="flex items-center m-4 mb-8 lg:mx-40 justify-between">
@@ -79,29 +79,29 @@ const Servicesperspective = () => {
 
       {/* Scrollable Section */}
       <div
-        ref={scrollRef}
-        className="flex gap-4 lg:gap-10 w-[450px] lg:w-[1200px] m-4 lg:mx-40 overflow-x-hidden scroll-smooth scrollbar-hide"
-      >
-        {cardData.map((card) => (
-          <div
-            key={card.id}
-            className="flex-shrink-0 bg-purple-100 w-[220px]  h-[400px] sm:w-1/2 lg:w-[370px]"
+            ref={scrollRef}
+            className="flex just gap-4 sm: lg:gap-10  2xl:w-[1200px] m-4 lg:mx-40 overflow-x-hidden scroll-smooth scrollbar-hide"
+          
           >
-           <div className="bg-white">
-           <img
-              src={card.image}
-              alt={card.title}
-              className="h-40 lg:h-48 object-cover  w-64  mb-4"
-            />
-           </div>
-           
-           <p className="text-sm px-2 text-purple-500 mb-2">{card.category}</p>
-            <h3 className="text-lg px-2 font-semibold tracking-wide">{card.title}</h3>
-            <p className="text-sm px-2 text-gray-500 mt-2">By, {card.author}</p>
-           
-          </div>
-        ))}
-      </div>
+            {cardData.map((card) => (
+              <div
+                key={card.id}
+                className="flex-shrink-0 bg-purple-100 w-[220px] h-[400px] sm:w-1/2 lg:w-[370px] group"
+              >
+                <div className="bg-white">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-40 lg:h-48 object-cover w-64 mb-4 group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                <p className="text-sm px-2 text-purple-500 mb-2">{card.category}</p>
+                <h3 className="text-lg px-2 font-semibold tracking-wide hover:underline cursor-pointer">{card.title}</h3>
+                <p className="text-sm px-2 text-gray-500 mt-2">By, {card.author}</p>
+              </div>
+            ))}
+                  </div>
     </div>
   );
 };

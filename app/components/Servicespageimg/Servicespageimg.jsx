@@ -44,7 +44,7 @@ const Servicespageimg = () => {
       className="text-3xl absolute top-10 w-[300px] left-5 sm:text-5xl sm:w-[500px] sm:leading-normal sm: lg:text-7xl lg:w-[800px] lg:left-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-white leading-normal lg:leading-snug tracking-wid z-20 text-shadow"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 4, ease: "easeOut" }}
     >
       Drive Operational Excellence, Innovation and Transformation.
     </motion.h2>

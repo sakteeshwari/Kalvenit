@@ -2,3 +2,103 @@ https://kalvenit.vercel.app/
 
 
 
+import React, { useRef } from "react";
+import "./Coespageperspectives.css";
+
+const Coesperspectives = () => {
+  const cardData = [
+    {
+      id: 1,
+      title: "Think, Work Manage Globally with Oracle E-Business Suite Applications both On-premis...",    
+      image: "/assets/coesperspectives1.png",
+      category: "Cloud, Enterprise Services, Oracle",
+      author: "Vrunda Sunil Kamat",
+    },
+    {
+      id: 2,
+      title: "Robotic Process Automation for SAP Integration Like Never Before",   
+      image: "/assets/coesperspectives2.png",
+      category: "Automation, SAP",
+      author: "Suresh Suravarapu",
+    },
+    {
+      id: 3,
+      title: "Kickstart integration with MuleSoft",
+      image: "/assets/coesperspectives3.png",
+      category: "Technology",
+      author: "Kriti Gujar",
+    },
+    {
+      id: 4,
+      title: "Mobility and IoT Adoption in Healthcare Industry",
+      image: "/assets/coesperspectives4.png",
+      category: "Technology",
+      author: "Samrat Bhave",
+    },
+    {
+      id: 5,
+      title: "How AI will transform Infrastructure...",
+      image: "/assets/coesperspectives5.png",
+      category: "Infrastructure Management Services",
+      author: "Sanjay Reddy Kakulavaram",
+    },
+  ];
+
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div className="relative w-full mb-10 px-4 lg:px-20">
+      <h2 className="text-3xl mb-6 text-center font-semibold">
+        KALVEN Perspectives <span className="text-red-500">.</span>
+      </h2>
+
+      {/* Scroll Buttons */}
+      <div className="flex justify-between items-center max-w-6xl mx-auto mb-4">
+        <button
+          onClick={() => scroll("left")}
+          className="p-3 bg-gray-200 text-purple-700 rounded-full shadow-md hover:bg-gray-400 transition"
+        >
+          ◀
+        </button>
+
+        <button
+          onClick={() => scroll("right")}
+          className="p-3 bg-gray-200 text-purple-700 rounded-full shadow-md hover:bg-gray-400 transition"
+        >
+          ▶
+        </button>
+      </div>
+
+      {/* Scrollable Card Section */}
+      <div
+        ref={scrollRef}
+        className="flex gap-4 lg:gap-6 w-full overflow-x-auto scroll-smooth scrollbar-hide px-2 lg:px-10"
+      >
+        {cardData.map((card) => (
+          <div key={card.id} className="flex-shrink-0 w-[250px] md:w-[300px] lg:w-[350px] bg-white p-4 rounded-lg shadow-lg transition hover:scale-105">
+            <div className="rounded-lg overflow-hidden">
+              <img
+                src={card.image}
+                alt={card.title}
+                className="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+            <p className="text-sm text-purple-500 mt-3">{card.category}</p>
+            <h3 className="text-lg font-semibold tracking-wide mt-2 hover:underline cursor-pointer">{card.title}</h3>
+            <p className="text-sm text-gray-500 mt-2">By, {card.author}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Coesperspectives;

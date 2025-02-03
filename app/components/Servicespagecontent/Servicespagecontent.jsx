@@ -58,7 +58,7 @@ const Servicespagecontent = () => {
           empower them to balance between their disparate legacy technology landscapes and emerging technologies.
         </p>
         <p className="mt-6 text-gray-800">
-          YASH Technologies has the right combination of experience, competencies, people, and architecting capabilities
+          KALVEN Software Solutions has the right combination of experience, competencies, people, and architecting capabilities
           in providing value-centric technology services and solutions for customers across industries. As a full-service
           technology partner, we offer a comprehensive suite of services across Enterprise Systems, Next-Gen Application
           Management, Cloud Solutions, Infrastructure services, etc. We leverage cutting-edge solution frameworks to enable
