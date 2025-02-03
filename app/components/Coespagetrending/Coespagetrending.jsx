@@ -70,6 +70,8 @@ const Coespagetrending = () => {
 
   // State for controlling scroll position
   const [scrollIndex, setScrollIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0); // Store window width
+
 
   // Handle navigation
   const handlePrev = () => {
@@ -85,16 +87,20 @@ const Coespagetrending = () => {
   };
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log(window.innerWidth);
+      setWindowWidth(window.innerWidth);
+
+      // Listen for window resize events
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 
 
-  useEffect(() => {
-    console.log("Current scroll index:", scrollIndex);
-  }, [scrollIndex]);
-
+  
   const [elementRef, inView] = useInView(1); // Each card has its own ref
+
   return (
     <section className="relative w-full h-screen  mt-10   overflow-hidden">
       {/* Title */}
@@ -134,7 +140,7 @@ const Coespagetrending = () => {
            className={`flex-shrink-0 w-full lg:flex lg:gap-32 md:w-1/2 lg:w-1/3 absolute top-0 left-0 transition-transform duration-700 ease-in-out`}
            style={{
              transform: `translateX(${(index - scrollIndex) * 100}%)`,
-             opacity: scrollIndex === index || window.innerWidth >= 400 ? 1 : "", // Ensure at least two cards are visible on larger screens
+             opacity: scrollIndex === index || windowWidth >= 400 ? 1 : "", // Ensure at least two cards are visible on larger screens
              transition: "transform 0.7s ease-in-out, opacity 0.3s ease-in-out",
            }}
          >
