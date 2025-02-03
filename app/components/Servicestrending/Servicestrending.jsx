@@ -119,7 +119,7 @@ const Servicestrending = () => {
 
   const [elementRef, inView] = useInView(1); // Each card has its own ref
   return (
-    <section className="relative w-full h-screen  mt-10   overflow-hidden">
+    <section className="relative w-full h-screen lg:mb-14  mt-10   overflow-hidden">
       {/* Title */}
       <div className="m-4 lg:px-20">
         <h1
