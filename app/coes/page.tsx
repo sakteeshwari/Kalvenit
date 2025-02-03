@@ -8,7 +8,7 @@ import Coespagecontent from "../components/Coespagecontent/Coespagecontent.jsx"
 import Coespageperspectives from "../components/Coespageperspectives/Coespageperspectives.jsx"
 import Coespagetrending from "../components/Coespagetrending/Coespagetrending.jsx"
 
- const Coes = () => {
+ const coes = () => {
  return(
   <>
   <Navbar></Navbar> 
@@ -23,4 +23,4 @@ import Coespagetrending from "../components/Coespagetrending/Coespagetrending.js
   );
 };
 
-export default Coes;
+export default coes;
