@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import "./CoEs.css";
+import "./Coescomp.css";
 import useInView from "../../hooks/useInView";
 
 const CoEs = () => {

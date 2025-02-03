@@ -4,7 +4,7 @@ import Imgcontent from "../components/imagecontent/Imgcontent";
 import Video from "../components/video/Video";
 import Partner from "../components/Partner/Partner";
 import Services from "../components/Servicescomp/Servicescomp";
-import CoEs from "../components/CoEs/CoEs";
+import CoEs from "../components/Coescomp/Coescomp";
 import Solutions from "../components/Solutions/Solutions";
 import Befuture from "../components/Befuture/Befuture";
 import Careers from "../components/Careers/Careers";
