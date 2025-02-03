@@ -37,7 +37,7 @@ const Coespageimg = () => {
       />
 
       {/* Content Wrapper */}
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-6 lg:p-20 z-20">
+      <div className="absolute -top-5 lg:top-0 left-0 w-full h-full flex items-center justify-center p-6 lg:p-20 z-20">
         {/* Toggle Content */}
         <div className="text-left transition-opacity duration-1000 opacity-100">
         <motion.h2

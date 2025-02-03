@@ -18,11 +18,11 @@ const Solutionspageimg = () => {
   return (
     <div className="content relative">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-40 lg:opacity-50 z-10"></div> {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black opacity-30 lg:opacity-50 z-10"></div> {/* Dark overlay */}
 
       {/* Shared Background Image */}
       <motion.img
-        src="/assets/coespageimg.png"
+        src="/assets/solutionspageimg.png"
         className="relative w-full h-full lg:h-[600px] object-cover"
         alt="Background"
         initial={{ opacity: 1, scale: 1.1 }} 
@@ -37,7 +37,7 @@ const Solutionspageimg = () => {
       />
 
       {/* Content Wrapper */}
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-6 lg:p-20 z-20">
+      <div className="absolute -top-3 lg:top-5 left-0 w-full h-full flex items-center justify-center p-6 lg:p-20 z-20">
         {/* Toggle Content */}
         <div className="text-left transition-opacity duration-1000 opacity-100">
         <motion.h2
@@ -46,7 +46,7 @@ const Solutionspageimg = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 4, ease: "easeOut" }}
     >
-      Experience Counts-Real Business Outcomes from KALVEN 
+      Chart your growth story with our best-in-class Solutions
     </motion.h2>
         </div>
       </div>

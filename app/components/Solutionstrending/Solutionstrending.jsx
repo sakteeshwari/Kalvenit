@@ -10,80 +10,42 @@ const Solutionstrending = () => {
   // Sample content with background images
   const content = [
     {
-      label: "Milkyway to the cloud, When the Dairy goes Digital...",
+      label: "Equipment manufacturer improves operational efficiency...",
 
-      image: "/assets/milkman.jpeg", // Replace with your image
+      image: "/assets/solutionstrending1.png", // Replace with your image
     },
     {
-      label: "Major Powersport Company Mordern Application...",
+      label: "RPA utilization helps in accelarated financial dispute...",
 
-      image: "/assets/arrowup.png", // Replace with your image
+      image: "/assets/solutionstrending2.png", // Replace with your image
     },
     {
-      label: "Scaling tech-Innovations: Unleash impact that matters...",
+      label: "Robotic Process Automation/Intelligent Automation...",
 
-      image: "/assets/servicesscale.png", // Replace with your image
+      image: "/assets/solutionstrending3.png", // Replace with your image
     },
     {
-      label: "Long term customer relationship management...",
+      label: "e-Commerce Development",
 
-      image: "/assets/customerservices.png", // Replace with your image
+      image: "/assets/solutionstrending4.png", // Replace with your image
     },
     {
-      label: "Digital Consulting & Advisory for Organizations of the future...",
+      label: "Healthcare and Telemedicine Solutions",
 
-      image: "/assets/digitalservices.jpg", // Replace with your image
+      image: "/assets/solutionstrending5.png", // Replace with your image
     },
     {
-      label: "Are you driving the change or are you driven by the change ?",
+      label: "Taxi Booking App Development Solution",
 
-      image: "/assets/drivingservices.png", // Replace with your image
+      image: "/assets/solutionstrending6.png", // Replace with your image
     },
     {
-      label: "Kalven  Intelligent Automation Services",
+      label: "KALVEN Intelligent Automation Services",
 
-      image: "/assets/automationservices.png", // Replace with your image
+      image: "/assets/solutionstrending7.png", // Replace with your image
     },
-    {
-      label: "Get 'Future-Ready' - Migrate to the Cloud with Kalven ",
-
-      image: "/assets/futureservices.png", // Replace with your image
-    },
-    {
-      label: "Data Integration and Migration Services @ Kalven ...",
-
-      image: "/assets/dataintegrationservices.png", // Replace with your image
-    },
-    {
-      label: "KALVEN Artificial Intelligence & Machine Learning Services...",
-
-      image: "/assets/aiservices.png", // Replace with your image
-    },
-    {
-      label: "Create a Dynamic Business with Microsoft Dynamic CRM...",
-
-      image: "/assets/crmservices.png", // Replace with your image
-    },
-    {
-      label: "Reinvent your banking enterprise to prepare for the...",
-
-      image: "/assets/bankingservices.jpg", // Replace with your image
-    },
-    {
-      label: "Big Data Analytics How to Use Hadoop to Excel in Excel",
-
-      image: "/assets/bigdataservices.png", // Replace with your image
-    },
-    {
-      label: "Accelerate your App migration and mordernization using...",
-
-      image: "/assets/appmigrateservices.jpg", // Replace with your image
-    },
-    {
-      label: "Listen to customer stories on how AI has transformed...",
-
-      image: "/assets/customerstoriesservices.png", // Replace with your image
-    },
+    
+    
   ];
 
   // State for controlling scroll position
@@ -171,7 +133,7 @@ const Solutionstrending = () => {
                 {/* Content */}
                 <div className="relative top-32 left-28 lg:top-36 z-10 bg-gray-500 p-4 w-72 text-white ">
                   <span className="bg-black text-sm px-2 py-1 rounded">
-                    Case study
+                    Brochure
                   </span>
                   <h3 className="text-lg sm:text-xl hover:underline font-bold mt-4">
                     {item.label}

@@ -1,44 +1,37 @@
 "use client"
 import React, { useRef } from "react";
-import "./Solutionsperspective.css";
+import "./Solutionsperspectives.css";
 
 const Solutionsperspective = () => {
   // Array of card data
   const cardData = [
     {
       id: 1,
-      title: "Digital Transformation Scenario in Higher Education",    
-      image: "/assets/perspectiveservices1.png",
-      category: "Automation, SAP",
-      author: "Hussain Sab",
+      title: "Evolving role of IT being a catalyst to a business driver in M & As",    
+      image: "/assets/solutionsperspectives0.png",
+      category: "IT",
+      author: "Ranga Rajan",
     },
     {
       id: 2,
-      title: "Mordernization as a Service - Create a new legacy",   
-      image: "/assets/perspectiveservices2.png",
-      category: "Automation",
-      author: "Brian C. Joseph",
+      title: "Liquid Template: The perfect tool for object transformation",   
+      image: "/assets/solutionsperspectives1.png",
+      category: "Technology",
+      author: "Kumareswar kandimalia",
     },
     {
       id: 3,
-      title: "Connected Common Sense",
-      image: "/assets/perspectiveservices3.png",
-      category: "Automation",
-      author: "Shishir Choudhary",
+      title: "Servitization for manufacturing propels the industry in the era propels the industry in the era of hyper digitalization",
+      image: "/assets/solutionsperspectives2.png",
+      category: "Automation, Manufacturing",
+      author: "Dinesh Gadade",
     },
     {
         id: 4,
-        title: "Emergence of Artificial Intelligence and Big Data in Healthcare",
-        image: "/assets/perspectiveservices4.png",
-        category: "Automation , Big Data , Cloud , Healthcare , Mobility",
-        author: "Damian Bonadonna",
-      },
-      {
-        id: 5,
-        title: "Customer Co-creation, Steppingstone to Customer Success...",
-        image: "/assets/perspectiveservices5.png",
-        category: "Customer Management , Enterprise Services",
-        author: "Lakshmi Nanduri",
+        title: "Top seven tips so you can create a reliable embedded system",
+        image: "/assets/solutionsperspectives3.png",
+        category: "Embedded Systems",
+        author: "Krenal Chauhan",
       },
       
   ];
@@ -58,7 +51,7 @@ const Solutionsperspective = () => {
   return (
     <div className="relative w-full mb-10 -mt-20">
       <h2 className="text-3xl mx-4 mb-10 lg:px-20">
-        YASH Perspectives <span className="text-red-500 font-semibold">.</span>
+        KALVEN Perspectives <span className="text-red-500 font-semibold">.</span>
       </h2>
       <div className="flex items-center m-4 mb-8 lg:mx-40 justify-between">
         {/* Scroll Left Button */}

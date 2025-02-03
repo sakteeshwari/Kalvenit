@@ -58,7 +58,7 @@ const Servicesperspective = () => {
   return (
     <div className="relative w-full mb-10 -mt-20">
       <h2 className="text-3xl mx-4 mb-10 lg:px-20">
-        YASH Perspectives <span className="text-red-500 font-semibold">.</span>
+        KALVEN Perspectives <span className="text-red-500 font-semibold">.</span>
       </h2>
       <div className="flex items-center m-4 mb-8 lg:mx-40 justify-between">
         {/* Scroll Left Button */}

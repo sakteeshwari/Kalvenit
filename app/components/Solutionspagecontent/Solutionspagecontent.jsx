@@ -6,44 +6,88 @@ import { motion } from 'framer-motion';
 const Solutionspagecontent = () => {
   const content = [
     {
-      label: 'Digitalization',
-      desc: 'Design and deliver engaging experiences that resonate better with customers, employees, and other stakeholders',
+      label: 'Digital Shop Floor',
+      desc: 'Get a single source of truth for all manufacturing metrics across departments, transactions, assets, and people and with KALVEN factory Scheduling Solution',
     },
     {
-      label: 'Connected Convergence Platform',
-      desc: 'Harness the hidden power of data and technology to unlock multifold amplified outcomes for your business',
+      label: 'Marketplace and E=Commerce',
+      desc: 'Discover how digital technologies have transformed the core of e-commerce to allow sellers to connect with thier customers through the web,mobile, and intelligent platforms',
     },
     {
-      label: 'Customer Centric Ecosystem',
-      desc: 'Create an experience-based ecosystem for your customers to nurture and strengthen the relationship',
+      label: 'Factory Process Automation',
+      desc: 'Solve business problems with strategic digital tools and accelarators',
     },
     {
-      label: 'Infrastructure Management Services',
-      desc: 'Simplify and strengthen your IT foundation to accelerate the Digital evolution',
+      label: 'E-Learning Solution',
+      desc: 'With an extensive portfolio of elegant on-demand education apps from KALVEN Software Solutions,discover how you can facilitate the fast and widespread dissemination of skills and knowledge.',
     },
     {
-      label: 'Sustainability Services',
-      desc: 'Develop a resilient and future-fit business to build a healthy and safe environment',
+      label: 'Health Care and Tele-medicine Solution',
+      desc: 'With custom on-demand virtual healthcare technologies and solutions, our solutions allow you to optimize clinical workflows, reduce operating costs, and improve patient care - from anywhere and anytime.',
     },
     {
-      label: 'Modernization',
-      desc: 'Modernize your enterprise technology landscape to drive optimal performance of your IT environment',
+      label: 'iExtractor',
+      desc: 'Discover how you can obtain and analyse rich intelligence from unstructured data quickly, effortlessly, and accurately - to address business challenges and embrace oppurtunities - in real - time.',
     },
     {
-      label: 'Intelligence Services',
-      desc: 'Technology-driven enterprise intelligence to help you identify, decide, and innovate',
+      label: 'Logical & Transport Solution',
+      desc: 'With several versatile, out-of-the-box, and open-to-customization solutions, we help you tackle the daily challenges in on-demand logistics for positive balance-sheet gains.',
     },
     {
-      label: 'Co-Innovation Lab Services',
-      desc: "Co-laborate, Co-create, and Co-Innovate - Let's #Do It Together",
+      label: 'Taxi App',
+      desc: "Discover outstanding busniess outcomes with KALVEN expertise, Optimize, costs and minimize deployment timelines by leveraging proven methodologies, assets, repositories and conversion capabilities.",
     },
     {
-      label: 'Application Maintenance & Support',
-      desc: 'Nimble, connected, and intelligent application services to provide a superior user experience',
+      label: 'KALVEN4HANA',
+      desc: 'Discover outstanding business outcomes with KALVEN expertise, Optimize costs and minimize deployment timelines by leveraging proven methodologies, assets, repositories, and conversion capabilities.',
     },
     {
-      label: 'Corporate Real Estate IT (CRES-IT)',
-      desc: 'Eliminate the operational hindrances for extracting business performance',
+      label: 'Mobile Inventory Manager',
+      desc: 'Get real-time control and visibilty of your inventory and wasrehousing operations',
+    },
+    {
+      label: 'Safe @Work',
+      desc: 'Enable organizations to manage workplace safety and employee well-being in a systematic and best-practices driven manner with quick turn around times ',
+    },
+    {
+      label: 'ChemOne',
+      desc: 'Construct a robust digital care for chemical enteprises and achieve sustainable cost leadership at optimal costs.',
+    },
+    {
+      label: 'ManufacturingOne',
+      desc: 'Strengthen end-to-end manufacturing performances with a single digital platform.',
+    },
+    {
+      label: 'WholesaleOne',
+      desc: 'Navigate your wholesale enterprise and address business challenges with ease.',
+    },
+    {
+      label: 'TechOne',
+      desc: 'Implement business innovations in your technology business challenges wih ease.',
+    },
+    {
+      label: 'ServicesOne',
+      desc: 'Embrace automation and free up the workforce to focus more on strategic innovation.',
+    },
+    {
+      label: 'PeopleOne',
+      desc: 'Maximize time to value, performance, and visibility of your valuable resources with robust business platform.',
+    },
+    {
+      label: 'FinanceOne',
+      desc: 'Streamline financial operations in line with global standards and enable an enhanced level of decision making',
+    },
+    {
+      label: 'CPGOne',
+      desc: 'Give your organization the SAP digital advantage by reimagining end-to-end business processes in your CP enterprise',
+    },
+    {
+      label: 'SFOne',
+      desc: 'Harness the power of pre-defined best practices, templates, tools, and training accelerators and drive outstanding empolyee experiences',
+    },
+    {
+      label: 'Data and Analytics',
+      desc: 'Share actionable information from across the enterprise with a value-led Data & Analytics Platform and generate value',
     },
   ];
 
@@ -51,18 +95,10 @@ const Solutionspagecontent = () => {
     <div>
       <div className="p-4 mt-10 leading-loose tracking-wider lg:px-32">
         <p className="text-black">
-          The digital technologies catalyze the enterprises looking to transform-at-speed. Although traditional
-          technology services like application development and maintenance, data centers, testing, etc. continue to be
-          vital, newer technologies such as Artificial Intelligence, DevOps, Robotic Automation, Blockchain, Cloud, IoT
-          are pivotal to transformation initiatives. Therefore, enterprises need the ‘right technology partner’ that can
-          empower them to balance between their disparate legacy technology landscapes and emerging technologies.
+        Organizations globally are witnessing some of the most turbulent, volatile, and disruptive times in recent history. As organizations seek to understand the evolving challenges and adapt themselves to the new normal, we observe a variety of approaches that they are taking. Most forward-looking organizations are trying to reimagine their business, build resilience to withstand market pressures, and safeguard themselves from any future disruptions. Digital Transformation and strengthening/accelerating the digital journey is turning out to be vital. Organizations need a right business partner who can understand organization needs – challenges and empower them with advisory, services, platforms, and solutions to facilitate these initiatives.
         </p>
         <p className="mt-6 text-gray-800">
-          KALVEN Software Solutions has the right combination of experience, competencies, people, and architecting capabilities
-          in providing value-centric technology services and solutions for customers across industries. As a full-service
-          technology partner, we offer a comprehensive suite of services across Enterprise Systems, Next-Gen Application
-          Management, Cloud Solutions, Infrastructure services, etc. We leverage cutting-edge solution frameworks to enable
-          our customers to address their business challenges, drive value, optimize costs, and foster enterprise agility.
+        YASH Technologies has built an array of Digital solutions customized to address global organizations’ unique business challenges. Our Digital leaders have architected these easy-to-deploy, easier-to-adapt, and cost-efficient solutions that combine disruptive technologies like Analytics, Cloud, IoT, and Automation, with vertical-functional domain expertise and industry’ best-and-next practices. These change agents are empowering clients across all geographies to differentiate themselves in the market and grow revenues.
         </p>
       </div>
 
