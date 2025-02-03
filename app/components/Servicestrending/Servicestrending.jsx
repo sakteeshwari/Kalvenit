@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useInView from "../../hooks/useInView";
-import { useEffect } from "react";
+
 
 const Servicestrending = () => {
   // Sample content with background images

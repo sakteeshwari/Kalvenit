@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useInView from "../../hooks/useInView";
 import "./Coespagetrending.css"
-import { useEffect } from "react";
+
 
 const Coespagetrending = () => {
   // Sample content with background images
