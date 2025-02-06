@@ -4,7 +4,7 @@ import "./Contactus.css";
 const Contactus = () => {
     return (
         <div
-            className="h-[1200px] w-full object-cover flex items-center  justify-start px-4 bg-cover bg-center"
+            className="h-[1200px] w-full object-cover flex items-center  justify-center px-4 bg-cover bg-center"
             style={{
                 backgroundImage: "url('/assets/contactusbg.jpg')", // Replace with your desired image URL
             }}

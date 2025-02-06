@@ -47,7 +47,7 @@ const Biznextpagespotlight = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-8 px-4">
+    <div className="relative bg-gradient-to-b pt-20 from-gray-900 via-gray-800 to-gray-900 text-white py-8 px-4">
       <h2 className="text-4xl font-semibold text-center mb-6">Spotlight</h2>
 
       {/* Scrollable Container */}
