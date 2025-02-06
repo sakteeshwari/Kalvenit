@@ -1,5 +1,5 @@
 ""
-import "../styles/globals.css";
+import "../../app/globals.css"
 import Navbar from "../components/Navbar/Navbar.jsx";
 import Footer from "../components/Footer/Footer.jsx";
 
