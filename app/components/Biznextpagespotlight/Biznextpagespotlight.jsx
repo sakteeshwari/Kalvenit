@@ -5,36 +5,36 @@ const spotlightTopics = [
   {
     id: 1, 
     title: "Powering Mining Operations to the Next Level with IoT and Microsoft",
-    image: "/assets/Biznextspotlight1.png",
+    image: "/assets/biznextspotlight1.png",
   },
   {
     id: 2,  
     title: "A MedTech Manufacturing Leader transforms operation with a state-of-the-art monitoring solution",
-    image: "/assets/Biznextspotlight2.png",
+    image: "/assets/biznextspotlight2.png",
   },
   {
     id: 3,  
     title: "Elevating Battery Recycling to a Sustainable Future with SAP S/4HANA Cloud and RISE with SAP",
-    image: "/assets/Biznextspotlight3.png",
+    image: "/assets/biznextspotlight3.png",
   },
   {
     id: 4,  
     title: "An Expert-Designed Digital Roadmap that Goes Beyond Automation",
-    image: "/assets/Biznextspotlight4.png",
+    image: "/assets/biznextspotlight4.png",
   },
   {
     id: 5,  
     title: "Designing Unparallelled Customer Experiences for a Medtech Leader",
-    image: "/assets/Biznextspotlight5.png",
+    image: "/assets/biznextspotlight5.png",
   },
   {
     id: 6, 
     title: "Sustainability Transformation - Blueprint fro Lasting Impact",
-    image: "/assets/Biznextspotlight6.png",
+    image: "/assets/biznextspotlight6.png",
   },
 ];
 
-const Biznextpagespotlight = () => {
+const biznextpagespotlight = () => {
   const scrollRef = React.useRef(null);
 
   const scroll = (direction) => {
