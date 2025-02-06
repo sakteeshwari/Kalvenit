@@ -34,7 +34,7 @@ const spotlightTopics = [
   },
 ];
 
-const biznextpagespotlight = () => {
+const Biznextpagespotlight = () => {
   const scrollRef = React.useRef(null);
 
   const scroll = (direction) => {
