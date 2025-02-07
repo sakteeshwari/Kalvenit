@@ -3,15 +3,7 @@
     transition: 2s;
 }
 
-  /* .sidenav>li:hover::after {
-    content: "";
-    display: block;
-    width: 100%; 
-    border-bottom: 2px solid purple;
-   
-  } */
-
-
+ 
   /* Highlight effect for the arrow */
 .arrow {
     transition: transform 0.3s ease, box-shadow 0.3s ease;

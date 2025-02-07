@@ -267,10 +267,7 @@ const Navbar = () => {
         { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence" }
       ],
     },
-    {
-      href: "/Kalven Software Solutionstai", label: "Kalven Software SolutionsTech.AI",
-     
-    },
+   
     {
       href: "/industries", label: "Industries",
       subItems: [
