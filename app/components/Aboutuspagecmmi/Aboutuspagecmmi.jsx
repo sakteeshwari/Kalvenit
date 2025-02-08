@@ -1,8 +1,9 @@
+"use client"
 import React from "react";
 
 const Aboutuspagecmmi = () => {
     return (
-        <div className="bg-gray-100 mt-10 py-12 px-6">
+        <div className="bg-gray-100 mt-10 py-12 px-6 lg:px-20 lg:py-20">
             <div className="container mx-auto flex flex-col lg:flex-row items-center">
                 {/* Statistics Section */}
                 <div className="flex justify-center   gap-8 lg:gap-36 text-left">
