@@ -14,9 +14,9 @@ const Page = () => {
   return (
     <div>
       {/* Content of your page */}
-      <Navbar></Navbar>
+     
       <Homepage></Homepage>
-      <Footer></Footer>
+     
     </div>
   );
 };

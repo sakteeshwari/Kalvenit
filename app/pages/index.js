@@ -24,8 +24,8 @@ const Homepage = () => {
       <Solutions />
       <Befuture />
       <Careers />
-      <Address />
-      <Inbox />
+      <Address /> 
+      
       
     </div>
   );
