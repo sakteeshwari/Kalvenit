@@ -9,7 +9,7 @@ import Solutions from "../components/Solutionscomp/Solutionscomp";
 import Befuture from "../components/Befuture/Befuture";
 import Careers from "../components/Careers/Careers";
 import Address from "../components/Address/Address";
-import Inbox from "../components/Inbox/Inbox";
+
 
 
 
