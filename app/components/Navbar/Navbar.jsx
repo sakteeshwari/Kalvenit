@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import "./Navbar.css"
 import { motion } from 'framer-motion';
+import Searchbarpage from "../searchbarpage/Searchbarpage.jsx"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,7 +57,7 @@ const Navbar = () => {
       href: "/services",
       label: "Services",
       subItems: [ 
-        { href: "/services/digitalization/digitalization", label: "Digitalization",  className: "font-bold text-black" },
+        { href: "/services/digitalization", label: "Digitalization",  className: "font-bold text-black" },
             { href: "/services/digitalization/ai-automation", label: "AI & Automation"},
             { href: "/services/digitalization/ar-vr-mr", label: "AR/VR/MR" },
             { href: "/services/digitalization/blockchain", label: "Blockchain" },
@@ -368,11 +369,7 @@ const Navbar = () => {
 
         {/* Search and Contact */}
         <div className="search-container flex gap-4">
-          <img
-            src="./assets/searchbox.png"
-            className="w-7 h-7 mt-2"
-            alt="Search"
-          />
+         <Searchbarpage></Searchbarpage>
           <div className="p-2 border bg-purple-500 rounded-full hover:shadow-lg hover:bg-white hover:text-purple-500 transition duration-300">
             <Link
               href="/contact"

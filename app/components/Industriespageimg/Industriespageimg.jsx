@@ -18,7 +18,7 @@ const Industriespageimg = () => {
   return (
     <div className="content relative">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black opacity-30 lg:opacity-50 z-10"></div> {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black opacity-10 lg:opacity-50 z-10"></div> {/* Dark overlay */}
 
       {/* Shared Background Image */}
       <motion.img

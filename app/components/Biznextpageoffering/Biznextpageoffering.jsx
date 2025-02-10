@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from "lucide-react";
-import useInView from "../../hooks/useInView";
-import { div } from 'framer-motion/client';
+
+
 
 const data = [
     {
@@ -25,7 +25,7 @@ const data = [
 ];
 
 const Biznextpageoffering = () => {
-    const [elementRef, inView] = useInView(1);
+    
 
     return (
     
@@ -44,7 +44,7 @@ const Biznextpageoffering = () => {
                       <p className="text-sm mt-2">{item.description}</p>
 
                       {/* Know More Button - Fixed Hover Effect */}
-                      <div ref={elementRef} className={`py-3 text-lg ${inView ? "slide-up" : ""}`}>
+                      <div  className={`py-3 text-lg `}>
                           <button className="relative flex items-center space-x-2 text-yellow-400 font-medium transition-all duration-300 hover:bg-yellow-500 hover:text-black px-4 py-1 rounded-3xl overflow-hidden border border-yellow-400">
                               {/* Arrow (Hidden by default, shows on hover) */}
                               <div className="transform transition-transform duration-500 ease-in-out group-hover:translate-x-1">

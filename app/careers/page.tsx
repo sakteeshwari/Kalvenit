@@ -10,6 +10,7 @@ import Careerspagehyper from "../components/Careerspagehyper/Careerspagehyper.js
 import Careerspagecome from "../components/Careerspagecome/Careerspagecome.jsx";
 import Careerspagecommunity from "../components/Careerspagecommunity/Careerspagecommunity.jsx"
 import Careerspagepartner from "../components/Careerspagepartner/Careerspagepartner.jsx"
+import Careerspagehover from "../components/Careerspagehover/Careerspagehover.jsx"
 
 const page = () => {
   return (
@@ -22,6 +23,7 @@ const page = () => {
       <Careerspagefamily></Careerspagefamily>
       <Careerspagehyper></Careerspagehyper>
       <Careerspagecome></Careerspagecome>
+      <Careerspagehover></Careerspagehover>
       <Careerspagecommunity></Careerspagecommunity>
       <Careerspagepartner></Careerspagepartner>
 

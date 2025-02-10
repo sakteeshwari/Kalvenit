@@ -15,14 +15,14 @@ const Careerspagecome = () => {
 
             <div className="mt-10 leading-relaxed tracking-wide relative z-10">
                 <p>
-                At YASH, we define happiness as a feeling that stems from the impactful contributions we make. We excel at the purpose we set for ourselves. And we center that purpose with curiosity to question & learn from everything.
+                At KALVEN, we define happiness as a feeling that stems from the impactful contributions we make. We excel at the purpose we set for ourselves. And we center that purpose with curiosity to question & learn from everything.
                 </p>
                 <p className="mt-6">
                 If you decide to join this bandwagon of outliers of all shapes and sizes who are passionately motivated with the challenging adventure that they are on, constantly awed by new thoughts, ideas and learnings.
                 </p>
                
                 <p className="mt-6">
-                Our culture is therefore, not defined by a rigid set of rules, but keeps evolving in-line with the world around us. Our self-assurance is not defined by subservience to the status quo, but by challenging it every step of the way. Since 2015, YASH has been named “Great Place to Work” consistently – a testimony to the ethos of the organization and its employee-focus.
+                Our culture is therefore, not defined by a rigid set of rules, but keeps evolving in-line with the world around us. Our self-assurance is not defined by subservience to the status quo, but by challenging it every step of the way. Since 2015, KALVEN has been named “Great Place to Work” consistently – a testimony to the ethos of the organization and its employee-focus.
                 </p>
 
             </div>
