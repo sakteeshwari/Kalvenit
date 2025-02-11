@@ -1,16 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./Navbar.css"
 import { motion } from 'framer-motion';
 import Searchbarpage from "../searchbarpage/Searchbarpage.jsx"
+import { usePathname } from "next/navigation"; // Import usePathname to track route changes
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState({}); // Track expanded menu items
   const [hoveredIndex, setHoveredIndex] = useState(null); // Track hovered item index
   const [showSubMenu, setShowSubMenu] = useState(false);
+  const pathname = usePathname(); // Detect route changes
+
 
   const toggleMenu = (index) => {
     setExpandedItems((prev) => {
@@ -43,7 +46,23 @@ const Navbar = () => {
       }
     });
   };
-  
+
+
+  // Close the submenu when navigating to a different page
+  useEffect(() => {
+    setHoveredIndex(null);
+    setShowSubMenu(false);
+  }, [pathname]); // Runs whenever the URL path changes
+
+
+
+  // Automatically close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false); // Close the menu when navigating to another page
+    setExpandedItems({}); // Close all submenus
+  }, [pathname]); // Runs whenever the URL path changes
+
+
 
   const menuItems = [
     {
@@ -56,81 +75,81 @@ const Navbar = () => {
     {
       href: "/services",
       label: "Services",
-      subItems: [ 
-        { href: "/services/digitalization", label: "Digitalization",  className: "font-bold text-black" },
-            { href: "/services/digitalization/ai-automation", label: "AI & Automation"},
-            { href: "/services/digitalization/ar-vr-mr", label: "AR/VR/MR" },
-            { href: "/services/digitalization/blockchain", label: "Blockchain" },
-            { href: "/services/digitalization/cloud", label: "Cloud" },
-            { href: "/services/digitalization/data-analytics", label: "Data Analytics" },
-            { href: "/services/digitalization/iot", label: "IoT" },
-            { href: "/services/digitalization/mobility", label: "Mobility" },
-            { href: "/services/digitalization/social-media-marketing", label: "Social Media Marketing" },
-            { href: "/services/digitalization/embedded-factory-automation", label: "Embedded & Factory Automation" },
-            { href: "/services/digitalization/modernization", label: "Modernization",className: "font-bold text-black"  },
-            { href: "/services/digitalization/application-migration", label: "Application Migration and Modernization Services" },
-            { href: "/services/digitalization/cloud-transformation", label: "Cloud Transformation Services" },
-            { href: "/services/digitalization/enterprise-mobile-transformation", label: "Enterprise Mobile Transformation" },
-            { href: "/services/digitalization/co-innovation-lab", label: "Co-Innovation Lab Services" ,className: "font-bold text-black" },
-            { href: "/services/digitalization/consulting", label: "Consulting Services" },
-            { href: "/services/digitalization/ideation", label: "Ideation Services" },
-            { href: "/services/digitalization/implementation", label: "Implementation Services" },
-            { href: "/services/digitalization/gccs", label: "Global Capability Centers (GCCs)" ,className: "font-bold text-black" },
-            { href: "/services/digitalization/application-services", label: "Application Services",className: "font-bold text-black"  },
-            { href: "/services/digitalization/application-management", label: "Application Management Services" },
-            { href: "/services/digitalization/packaged-application", label: "Packaged Application Services" },
-            { href: "/services/digitalization/nextgen-ams", label: "NextGen AMS",className: "font-bold text-black"  },
-            { href: "/services/digitalization/shared-ams", label: "Shared AMS for MSMEs",className: "font-bold text-black"  },
-            { href: "/services/digitalization/cloud-infrastructure", label: "Cloud & Infrastructure Management Services",className: "font-bold text-black"  },
-            { href: "/services/digitalization/cloud-infrastructure-services", label: "Cloud Infrastructure Services" },
-            { href: "/services/digitalization/core-infrastructure", label: "Core Infrastructure Support Services" },
-            { href: "/services/digitalization/devxops", label: "DevXOps" },
-            { href: "/services/digitalization/digital-workplace", label: "Digital Workplace Services" },
-            { href: "/services/digitalization/intelligent-business-services", label: "Intelligent Business Services Monitoring" },
-            { href: "/services/digitalization/unified-it-experience", label: "Unified IT Experience Desk" },
-            { href: "/services/digitalization/finops", label: "FinOps Services" },
-            { href: "/services/digitalization/Kalven Software Solutions-amuraa", label: "Kalven Software Solutions AMURAA® Digital Platform" },
-            { href: "/services/digitalization/well-architected", label: "Well-Architected Framework Assessment" },
-            { href: "/services/digitalization/intelligence", label: "Intelligence Services",className: "font-bold text-black"  },
-            { href: "/services/digitalization/ai-services", label: "Artificial Intelligence Services" },
-            { href: "/services/digitalization/business-intelligence", label: "Business Intelligence Solutions" },
-            { href: "/services/digitalization/cognitive-3d", label: "Cognitive 3D Services" },
-            { href: "/services/digitalization/conversational-ai", label: "Conversational AI" },
-            { href: "/services/digitalization/data-visualization", label: "Data Visualization" },
-            { href: "/services/digitalization/rpa", label: "Robotic Process Automation Services" },
-            { href: "/services/digitalization/connected-convergence", label: "Connected Convergence Platform",className: "font-bold text-black"  },
-            { href: "/services/digitalization/api-integration", label: "API Enablement and Integration Services" },
-            { href: "/services/digitalization/data-lifecycle", label: "Data Lifecycle Management Services" },
-            { href: "/services/digitalization/customer-ecosystem", label: "Customer Centric Ecosystem",className: "font-bold text-black"  },
-            { href: "/services/digitalization/crm", label: "CRM" },
-            { href: "/services/digitalization/customer-experience", label: "Customer Experience" },
-            { href: "/services/digitalization/digital-marketing", label: "Digital Marketing" },
-            { href: "/services/digitalization/digital-experience", label: "Digital Experience" },
-            { href: "/services/digitalization/social-listening", label: "Social Listening" },
-            { href: "/services/digitalization/cyber-security", label: "Cyber Security Services",className: "font-bold text-black"  },
-            { href: "/services/digitalization/nexgen-soc", label: "NexGen SOC" },
-            { href: "/services/digitalization/mdr", label: "Managed Detection and Response (MDR)" },
-            { href: "/services/digitalization/vms", label: "Vulnerability Mgmt Services (VMS)" },
-            { href: "/services/digitalization/penetration-testing", label: "Penetration Testing" },
-            { href: "/services/digitalization/cyber-posture", label: "3600 Cyber Posture Management" },
-            { href: "/services/digitalization/breach-simulation", label: "Breach & Attack Simulation (BAS) Service" },
-            { href: "/services/digitalization/third-party-risk", label: "Third Party Risk Management" },
-            { href: "/services/digitalization/vciso", label: "Ondemand vCISO Services" },
-            { href: "/services/digitalization/attack-surface", label: "Know Your Attack Surface (KYAS)" },
-            { href: "/services/digitalization/sustainability", label: "Sustainability",className: "font-bold text-black"  },
-            { href: "/services/digitalization/regulatory", label: "Regulatory (SDS) Documentation" },
-            { href: "/services/digitalization/safetyone", label: "SafetyOne" },
-            { href: "/services/digitalization/sap-ehs", label: "SAP Environment, Health & Safety Management" },
-            { href: "/services/digitalization/sap-product-safety", label: "SAP Product Safety & Stewardship" },
-            { href: "/services/digitalization/cres-it", label: "Corporate Real Estate IT (CRES-IT)",className: "font-bold text-black"  },
-          ],
-        },
-        
-    
+      subItems: [
+        { href: "/services/digitalization", label: "Digitalization", className: "font-bold text-black" },
+        { href: "/services/digitalization/ai-automation", label: "AI & Automation" },
+        { href: "/services/digitalization/ar-vr-mr", label: "AR/VR/MR" },
+        { href: "/services/digitalization/blockchain", label: "Blockchain" },
+        { href: "/services/digitalization/cloud", label: "Cloud" },
+        { href: "/services/digitalization/data-analytics", label: "Data Analytics" },
+        { href: "/services/digitalization/iot", label: "IoT" },
+        { href: "/services/digitalization/mobility", label: "Mobility" },
+        { href: "/services/digitalization/social-media-marketing", label: "Social Media Marketing" },
+        { href: "/services/digitalization/embedded-factory", label: "Embedded & Factory Automation" },
+        { href: "/services/modernization", label: "Modernization", className: "font-bold text-black" },
+        { href: "/services/modernization/application-migration", label: "Application Migration and Modernization Services" },
+        { href: "/services/modernization/cloud-transformation", label: "Cloud Transformation Services" },
+        { href: "/services/modernization/enterprise-mobile", label: "Enterprise Mobile Transformation" },
+        { href: "/services/digitalization/co-innovation-lab", label: "Co-Innovation Lab Services", className: "font-bold text-black" },
+        { href: "/services/digitalization/consulting", label: "Consulting Services" },
+        { href: "/services/digitalization/ideation", label: "Ideation Services" },
+        { href: "/services/digitalization/implementation", label: "Implementation Services" },
+        { href: "/services/digitalization/gccs", label: "Global Capability Centers (GCCs)", className: "font-bold text-black" },
+        { href: "/services/digitalization/application-services", label: "Application Services", className: "font-bold text-black" },
+        { href: "/services/digitalization/application-management", label: "Application Management Services" },
+        { href: "/services/digitalization/packaged-application", label: "Packaged Application Services" },
+        { href: "/services/digitalization/nextgen-ams", label: "NextGen AMS", className: "font-bold text-black" },
+        { href: "/services/digitalization/shared-ams", label: "Shared AMS for MSMEs", className: "font-bold text-black" },
+        { href: "/services/digitalization/cloud-infrastructure", label: "Cloud & Infrastructure Management Services", className: "font-bold text-black" },
+        { href: "/services/digitalization/cloud-infrastructure-services", label: "Cloud Infrastructure Services" },
+        { href: "/services/digitalization/core-infrastructure", label: "Core Infrastructure Support Services" },
+        { href: "/services/digitalization/devxops", label: "DevXOps" },
+        { href: "/services/digitalization/digital-workplace", label: "Digital Workplace Services" },
+        { href: "/services/digitalization/intelligent-business-services", label: "Intelligent Business Services Monitoring" },
+        { href: "/services/digitalization/unified-it-experience", label: "Unified IT Experience Desk" },
+        { href: "/services/digitalization/finops", label: "FinOps Services" },
+        { href: "/services/digitalization/Kalven Software Solutions-amuraa", label: "Kalven Software Solutions AMURAA® Digital Platform" },
+        { href: "/services/digitalization/well-architected", label: "Well-Architected Framework Assessment" },
+        { href: "/services/digitalization/intelligence", label: "Intelligence Services", className: "font-bold text-black" },
+        { href: "/services/digitalization/ai-services", label: "Artificial Intelligence Services" },
+        { href: "/services/digitalization/business-intelligence", label: "Business Intelligence Solutions" },
+        { href: "/services/digitalization/cognitive-3d", label: "Cognitive 3D Services" },
+        { href: "/services/digitalization/conversational-ai", label: "Conversational AI" },
+        { href: "/services/digitalization/data-visualization", label: "Data Visualization" },
+        { href: "/services/digitalization/rpa", label: "Robotic Process Automation Services" },
+        { href: "/services/digitalization/connected-convergence", label: "Connected Convergence Platform", className: "font-bold text-black" },
+        { href: "/services/digitalization/api-integration", label: "API Enablement and Integration Services" },
+        { href: "/services/digitalization/data-lifecycle", label: "Data Lifecycle Management Services" },
+        { href: "/services/digitalization/customer-ecosystem", label: "Customer Centric Ecosystem", className: "font-bold text-black" },
+        { href: "/services/digitalization/crm", label: "CRM" },
+        { href: "/services/digitalization/customer-experience", label: "Customer Experience" },
+        { href: "/services/digitalization/digital-marketing", label: "Digital Marketing" },
+        { href: "/services/digitalization/digital-experience", label: "Digital Experience" },
+        { href: "/services/digitalization/social-listening", label: "Social Listening" },
+        { href: "/services/digitalization/cyber-security", label: "Cyber Security Services", className: "font-bold text-black" },
+        { href: "/services/digitalization/nexgen-soc", label: "NexGen SOC" },
+        { href: "/services/digitalization/mdr", label: "Managed Detection and Response (MDR)" },
+        { href: "/services/digitalization/vms", label: "Vulnerability Mgmt Services (VMS)" },
+        { href: "/services/digitalization/penetration-testing", label: "Penetration Testing" },
+        { href: "/services/digitalization/cyber-posture", label: "3600 Cyber Posture Management" },
+        { href: "/services/digitalization/breach-simulation", label: "Breach & Attack Simulation (BAS) Service" },
+        { href: "/services/digitalization/third-party-risk", label: "Third Party Risk Management" },
+        { href: "/services/digitalization/vciso", label: "Ondemand vCISO Services" },
+        { href: "/services/digitalization/attack-surface", label: "Know Your Attack Surface (KYAS)" },
+        { href: "/services/digitalization/sustainability", label: "Sustainability", className: "font-bold text-black" },
+        { href: "/services/digitalization/regulatory", label: "Regulatory (SDS) Documentation" },
+        { href: "/services/digitalization/safetyone", label: "SafetyOne" },
+        { href: "/services/digitalization/sap-ehs", label: "SAP Environment, Health & Safety Management" },
+        { href: "/services/digitalization/sap-product-safety", label: "SAP Product Safety & Stewardship" },
+        { href: "/services/digitalization/cres-it", label: "Corporate Real Estate IT (CRES-IT)", className: "font-bold text-black" },
+      ],
+    },
+
+
     {
       href: "/coes", label: "CoEs",
       subItems: [
-        { href: "/coes/sap", label: "SAP",className: "font-bold text-black" },
+        { href: "/coes/sap", label: "SAP", className: "font-bold text-black" },
         { href: "/coes/sap-s4hana", label: "SAP S/4HANA" },
         { href: "/coes/rise-with-sap", label: "Rise with SAP" },
         { href: "/coes/sap-on-cloud", label: "SAP on Cloud" },
@@ -141,7 +160,7 @@ const Navbar = () => {
         { href: "/coes/sap-ibp", label: "SAP IBP" },
         { href: "/coes/sap-dm", label: "SAP DM" },
         { href: "/coes/sap-dam", label: "SAP DAM" },
-        { href: "/coes/aws", label: "AWS",className: "font-bold text-black" },
+        { href: "/coes/aws", label: "AWS", className: "font-bold text-black" },
         { href: "/coes/aws-migration", label: "AWS Migration Services" },
         { href: "/coes/Kalven Software Solutions-ascent", label: "Kalven Software Solutions Ascent Framework" },
         { href: "/coes/aws-managed", label: "AWS Managed Services" },
@@ -160,7 +179,7 @@ const Navbar = () => {
         { href: "/coes/windows-on-aws", label: "Microsoft Windows Workloads on AWS" },
         { href: "/coes/aws-api-gateway", label: "Amazon API Gateway" },
         { href: "/coes/aws-ecs", label: "Amazon Elastic Container Service" },
-        { href: "/coes/microsoft", label: "Microsoft",className: "font-bold text-black" },
+        { href: "/coes/microsoft", label: "Microsoft", className: "font-bold text-black" },
         { href: "/coes/azure-infrastructure", label: "Azure Infrastructure Services" },
         { href: "/coes/microsoft-teams", label: "Collaboration - Microsoft Teams and SharePoint" },
         { href: "/coes/modern-workplace", label: "Modern Workplace – M365" },
@@ -173,7 +192,7 @@ const Navbar = () => {
         { href: "/coes/embedded-systems", label: "Embedded Systems" },
         { href: "/coes/factory-automation", label: "Factory Automation" },
         { href: "/coes/smart-iot", label: "Smart IoT" },
-        { href: "/coes/servicenow", label: "Service Now" ,className: "font-bold text-black"},
+        { href: "/coes/servicenow", label: "Service Now", className: "font-bold text-black" },
         { href: "/coes/irm", label: "Integrated Risk Management (IRM)" },
         { href: "/coes/hr-service-delivery", label: "HR Service Delivery" },
         { href: "/coes/intelligent-app-dev", label: "Intelligent Application Development" },
@@ -186,21 +205,21 @@ const Navbar = () => {
         { href: "/coes/field-service", label: "Field Service Management" },
         { href: "/coes/vendor-risk", label: "Vendor Risk Management" },
         { href: "/coes/legal-service", label: "Legal Service Delivery" },
-        { href: "/coes/salesforce", label: "Salesforce",className: "font-bold text-black" },
+        { href: "/coes/salesforce", label: "Salesforce", className: "font-bold text-black" },
         { href: "/coes/salesforce-advisory", label: "Advisory & Consulting Services" },
         { href: "/coes/salesforce-implementation", label: "Implementation Services" },
         { href: "/coes/salesforce-support", label: "Application Support" },
         { href: "/coes/mulesoft", label: "MuleSoft Services" },
         { href: "/coes/accelerators-tools", label: "Accelerators & Tools" },
-        { href: "/coes/rpa", label: "RPA",className: "font-bold text-black" },
+        { href: "/coes/rpa", label: "RPA", className: "font-bold text-black" },
         { href: "/coes/rpa-advisory", label: "Advisory Services" },
         { href: "/coes/rpa-alliance", label: "Alliance" },
         { href: "/coes/rpa-support", label: "Implementation and Support" },
         { href: "/coes/iExtractor", label: "Solutioning - iExtractor" },
-        { href: "/coes/gcp", label: "GCP",className: "font-bold text-black" },
+        { href: "/coes/gcp", label: "GCP", className: "font-bold text-black" },
         { href: "/coes/data-analytics-gcp", label: "Data and Analytics on GCP" },
         { href: "/coes/sap-gcp", label: "SAP on GCP" },
-        { href: "/coes/oracle", label: "Oracle",className: "font-bold text-black" },
+        { href: "/coes/oracle", label: "Oracle", className: "font-bold text-black" },
         { href: "/coes/cloud-transformation", label: "Cloud Transformation" },
         { href: "/coes/managed-services", label: "Managed Services" },
         { href: "/coes/oracle-app-services", label: "Oracle Application Services" },
@@ -208,29 +227,29 @@ const Navbar = () => {
         { href: "/coes/integration-services", label: "Integration Services" },
         { href: "/coes/oracle-advisory", label: "Oracle Advisory & Consulting" },
         { href: "/coes/oracle-e-business", label: "Oracle E-Business Suite Services" },
-        { href: "/coes/blockchain", label: "Blockchain",className: "font-bold text-black" },
-        { href: "/coes/qad", label: "QAD",className: "font-bold text-black" },
+        { href: "/coes/blockchain", label: "Blockchain", className: "font-bold text-black" },
+        { href: "/coes/qad", label: "QAD", className: "font-bold text-black" },
         { href: "/coes/qad-consulting", label: "Consulting Services" },
         { href: "/coes/qad-cloud", label: "Cloud Services" },
         { href: "/coes/qad-data-ai", label: "QAD Data and AI Services" },
         { href: "/coes/qad-consulting", label: "Business Consulting" },
         { href: "/coes/qad-support", label: "Support Services" },
-        { href: "/coes/mobility", label: "Mobility",className: "font-bold text-black" },
+        { href: "/coes/mobility", label: "Mobility", className: "font-bold text-black" },
         { href: "/coes/app-dev", label: "Application Development Services" },
         { href: "/coes/codiant", label: "Codiant" },
         { href: "/coes/implementation-support", label: "Implementation and Support Services" },
         { href: "/coes/intelligent-mobility", label: "Intelligent Mobility" },
-        { href: "/coes/pega", label: "Pega",className: "font-bold text-black" },
-        { href: "/coes/pega-integration", label: "Integration Services",className: "font-bold text-black" },
+        { href: "/coes/pega", label: "Pega", className: "font-bold text-black" },
+        { href: "/coes/pega-integration", label: "Integration Services", className: "font-bold text-black" },
         { href: "/coes/pega-advisory", label: "Advisory Services" },
         { href: "/coes/pega-support", label: "Implementation and Support Services" },
-        { href: "/coes/workday", label: "Workday",className: "font-bold text-black" },
-        { href: "/coes/tricentis", label: "Tricentis",className: "font-bold text-black" },
+        { href: "/coes/workday", label: "Workday", className: "font-bold text-black" },
+        { href: "/coes/tricentis", label: "Tricentis", className: "font-bold text-black" },
         { href: "/coes/enterprise-testing", label: "Transform Your Enterprise Testing with Kalven Software Solutions Technologies" },
       ],
     },
     {
-      href: "/solutions", label: "Solutions",className: "font-bold text-black",
+      href: "/solutions", label: "Solutions", className: "font-bold text-black",
       subItems: [
         { href: "/solutions/digital-shop-floor", label: "Digital Shop Floor" },
         { href: "/solutions/e-commerce", label: "E-Commerce" },
@@ -268,7 +287,7 @@ const Navbar = () => {
         { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence" }
       ],
     },
-   
+
     {
       href: "/industries", label: "Industries",
       subItems: [
@@ -303,7 +322,7 @@ const Navbar = () => {
     },
     {
       href: "/careers", label: "Careers",
-     
+
     },
   ];
 
@@ -314,62 +333,66 @@ const Navbar = () => {
         <div className="text-xl font-bold py-3">
           <Link href="/">
             <motion.img src="/assets/Kalven-logo.png"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 120 }}
-            whileHover={{ scale: 1.1, rotate: 2 }} 
-            whileTap={{ scale: 0.9 }}
-             className="h-12" alt="Logo" />
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 120 }}
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9 }}
+              className="h-12" alt="Logo" />
           </Link>
         </div>
 
-      {/* Desktop Menu */}
-<div className="hidden  lg:flex   text-sm">
-  {menuItems.map((item, index) => (
-    <div
-      key={index}
-      className=" group"
-      onMouseEnter={() => handleMouseEnter(index)}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Parent Menu Item */}
-      <Link href={item.href} className="hover:text-purple-700 px-4 py-7">
-        {item.label}
-      </Link>
-      
-
-      {/* Submenu */}
-      {item.subItems && showSubMenu && hoveredIndex === index && (
-        <div
-          className="absolute top-full left-0 bg-gray-100 shadow-lg z-10"
-          style={{
-            width: '100vw', // Make the submenu span the full width of the viewport
-            left: '0', // Align the submenu with the left of the viewport
-            right: '0', // Make sure the submenu stretches across the full width
-          }}
-        >
-          <div className="p-4 grid grid-cols-4 gap-4">
-            {item.subItems.map((subItem, subIndex) => (
-              <Link
-                key={subIndex}
-                href={subItem.href}
-                className= {`block px-4 py-2 text-sm text-gray-700 hover:underline  ${subItem.className || ""}`}
-              >
-                {subItem.label}
+        {/* Desktop Menu */}
+        <div className="hidden  lg:flex   text-sm">
+          {menuItems.map((item, index) => (
+            <div
+              key={index}
+              className=" group"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Parent Menu Item */}
+              <Link href={item.href} className="hover:text-purple-700 px-4 py-7">
+                {item.label}
               </Link>
-            ))}
-          </div>
+
+
+              {/* Submenu */}
+              {item.subItems && showSubMenu && hoveredIndex === index && (
+                <div
+                  className="absolute top-full left-0 bg-gray-100 shadow-lg z-10 overflow-y-auto"
+                  style={{
+                    width: "98.5vw", // Stretching submenu across viewport
+
+                    left: "0",
+                    right: "0",
+                    maxHeight: "80vh", // Limit height to 90% of viewport
+                  }}
+                >
+                  <div className="columns-4 gap-4 p-4 space-y-2">
+                    {item.subItems.map((subItem, subIndex) => (
+                      <Link
+                        key={subIndex}
+                        href={subItem.href}
+                        className={`block px-4 py-2 text-sm text-gray-700 hover:underline break-inside-avoid ${subItem.className || ""}`}
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
+
+                </div>
+              )}
+
+            </div>
+          ))}
         </div>
-      )}
-    </div>
-  ))}
-</div>
 
 
 
         {/* Search and Contact */}
         <div className="search-container flex gap-4">
-         <Searchbarpage></Searchbarpage>
+          <Searchbarpage></Searchbarpage>
           <div className="p-2 border bg-purple-500 rounded-full hover:shadow-lg hover:bg-white hover:text-purple-500 transition duration-300">
             <Link
               href="/contact"
@@ -416,7 +439,7 @@ const Navbar = () => {
       >
         {menuItems.map((item, index) => (
           <div
-            key={index}  onClick={() => toggleItem(index)}
+            key={index} onClick={() => toggleItem(index)}
             className="relative flex justify-between items-center py-4 px-6"
             // onMouseEnter={() => setHoveredIndex(index)}
             // onMouseLeave={() => setHoveredIndex(null)}
@@ -431,7 +454,7 @@ const Navbar = () => {
             {/* Submenu Toggle Button */}
             {item.subItems && (
               <button
-                
+
                 className="focus:outline-none"
               >
                 <svg

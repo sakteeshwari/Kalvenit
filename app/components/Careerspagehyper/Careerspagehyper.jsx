@@ -4,7 +4,9 @@ import useInView from "../../hooks/useInView"; // Assuming your custom hook is i
 import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow icon
 
 const Careerspagehyper = () => {
+
     const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
+    
     return (
         <div className="relative bg-gradient-to-b from-gray-50 to-gray-100 p-4 my-10 mt-10 lg:px-32 rounded-xl shadow-lg">
             {/* Subtle Pattern Background */}

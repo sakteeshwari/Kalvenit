@@ -3,58 +3,24 @@ import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow i
 export default function ServiceOfferings() {
     const services = [
       {
-        title: "Cloud",
+        title: "Enterprise Cloud Transformation Services",
         description:
-          "KALVEN gets involved in designing and re-engineering cloud architectures powered by digital accelerators and strategic frameworks to navigate the customers through their digital journey.",
-        link:"/services/digitalization/cloud"
+          "Leveraging a simplified cloud environment for promoting a culture of innovation and experimentation.",
+       
       },
       {
-        title: "Mobility",
+        title: "Application Migration and Modernization Services",
         description:
-          "Our integrated suite of offerings enables customers to differentiate, engineer, implement, and sustain on-the-go mobility solutions to make a seamless transition of your autonomous mobile journey.",
+          "Simplify and optimize your digital journey in a cloud-first world by enhancing the benefits of seamless migration.",
         
       },
       {
-        title: "Data Analytics",
+        title: "Enterprise Mobility Services",
         description:
-          "Data Analytics services from KALVEN help categorize, contextualize, scope, and derive data insights, and add value with machine learning paradigms.",
+          "Incorporate innovative capabilities that enable your employees to work, connect, and collaborate on the go.",
         
       },
-      {
-        title: "Blockchain",
-        description:
-          "Blockchain services include comprehensive blockchain solutions for innovation, prototyping, re-engineering processes, and addressing issues in real-time.",
-        
-      },
-      {
-        title: "Social Media Marketing",
-        description:
-          "KALVEN offers social media marketing services by managing web presence on global websites and various social media platforms like Facebook, LinkedIn, Twitter, Instagram, YouTube, and a lot more.",
-        
-      },
-      {
-        title: "AR/ VR/ MR",
-        description:
-          "AR/VR/MR capabilities at KALVEN includes experimental designing to visualizing complex industrial projects and theoretical modeling.",  
-      },
-      {
-        title: "AI & Automation",
-        description:
-          "KALVEN conducts automation need assessments, provides advisory on framing strategies, and facilitating change management using cognitive solutions from Automation Anywhere, UiPath, Pega, and more.",
-        
-      },
-      {
-        title: "IoT and Embedded Systems",
-        description:
-          "KALVEN offers a full range of IoT and embedded systems services and help organizations in end-to-end Development, supplementing it with power-packed Analytics and Application Development and management.",
-        
-      },
-      {
-        title: "Manufacturing Operations Management",
-        description:
-          "We offer a unique Manufacturing Operations Management (MOM) services portfolio and customized strategies to blend advanced manufacturing concepts with real-time visibility and intelligent industrial Automation.",
-        
-      },
+     
 
     ];
   

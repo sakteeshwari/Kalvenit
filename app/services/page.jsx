@@ -11,7 +11,7 @@ import Servicesperspective from "../components/Servicesperspective/Servicespersp
  return(
   <>
  
-  <Servicespageimg></Servicespageimg>
+  <Servicespageimg imgSrc={"/assets/servicepage1.jpg"}  text=" Drive Operational Excellence, Innovation and Transformation."></Servicespageimg>
   <Servicespagecontent></Servicespagecontent>
   <Servicestrending></Servicestrending>
   <Servicesperspective></Servicesperspective>
