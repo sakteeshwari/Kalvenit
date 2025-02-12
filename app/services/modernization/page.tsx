@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Modernizationlayout from "../../components/Modernizationlayout/Modernizationlayout" 
+import Modernizationlayout from "../../components/LayoutSubpages/Modernizationlayout/Modernizationlayout" 
 
 const DigitalizationPage = () => {
   return (
