@@ -5,13 +5,13 @@ export default function ServiceOfferings() {
       {
         title: "AI - Driven SOC",
         description:
-          "YASH offers comprehensive AI-Driven Security Operation Center (SOC) services designed to safeguard your digital assets. Our services encompass a wide range of capabilities, including 24/7, 16/7, and 8/5 L1 and L2 security monitoring.",
+          "KALVEN offers comprehensive AI-Driven Security Operation Center (SOC) services designed to safeguard your digital assets. Our services encompass a wide range of capabilities, including 24/7, 16/7, and 8/5 L1 and L2 security monitoring.",
        
       },
       {
         title: "Managed Detection and Response (MDR)",
         description:
-          "YASH Managed Detection and Response (MDR) Services provide 24×7 security monitoring, threat intelligence, threat hunting, User and entity behaviour analysis, incident validations, incident response, and Log Management. We help your organization discover hard-to-find threats, disrupt complex and sophisticated cyber-attacks, and improve cyber resilience.",
+          "KALVEN Managed Detection and Response (MDR) Services provide 24×7 security monitoring, threat intelligence, threat hunting, User and entity behaviour analysis, incident validations, incident response, and Log Management. We help your organization discover hard-to-find threats, disrupt complex and sophisticated cyber-attacks, and improve cyber resilience.",
         
       },
       {
