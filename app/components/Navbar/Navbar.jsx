@@ -237,23 +237,29 @@ const Navbar = () => {
         { href: "/coes/oracle/oracle-e-business", label: "Oracle E-Business Suite Services" },
 
         { href: "/coes/blockchain", label: "Blockchain", className: "font-bold text-black" },
+
         { href: "/coes/qad", label: "QAD", className: "font-bold text-black" },
-        { href: "/coes/qad-consulting", label: "Consulting Services" },
-        { href: "/coes/qad-cloud", label: "Cloud Services" },
-        { href: "/coes/qad-data-ai", label: "QAD Data and AI Services" },
-        { href: "/coes/qad-consulting", label: "Business Consulting" },
+        { href: "/coes/qad/consult-services", label: "Consulting Services" },
+        { href: "/coes/qad/qad-cloud", label: "Cloud Services" },
+        { href: "/coes/qad/qad-dataai", label: "QAD Data and AI Services" },
+        { href: "/coes/qad/business-consult", label: "Business Consulting" },
         { href: "/coes/qad-support", label: "Support Services" },
+
         { href: "/coes/mobility", label: "Mobility", className: "font-bold text-black" },
         { href: "/coes/app-dev", label: "Application Development Services" },
         { href: "/coes/codiant", label: "Codiant" },
-        { href: "/coes/implementation-support", label: "Implementation and Support Services" },
-        { href: "/coes/intelligent-mobility", label: "Intelligent Mobility" },
+        { href: "/coes/implementation", label: "Implementation and Support Services" },
+        { href: "/coes/intelligent", label: "Intelligent Mobility" },
+
         { href: "/coes/pega", label: "Pega", className: "font-bold text-black" },
-        { href: "/coes/pega-integration", label: "Integration Services", className: "font-bold text-black" },
-        { href: "/coes/pega-advisory", label: "Advisory Services" },
-        { href: "/coes/pega-support", label: "Implementation and Support Services" },
+
+       
+        { href: "/coes/pega/pega-advisory", label: "Advisory Services" },
+        { href: "/coes/pega/pega-support", label: "Implementation and Support Services" },
+
         { href: "/coes/workday", label: "Workday", className: "font-bold text-black" },
         { href: "/coes/tricentis", label: "Tricentis", className: "font-bold text-black" },
+        
         { href: "/coes/enterprise-testing", label: "Transform Your Enterprise Testing with Kalven Software Solutions Technologies" },
       ],
     },
