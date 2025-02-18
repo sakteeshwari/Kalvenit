@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Solutionspageimg.css";
 
-const Solutionspageimg = () => {
+const Solutionspageimg = ({ imgSrc }: { imgSrc: string }) => {
   const [showFirstContent, setShowFirstContent] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Solutionspageimg = () => {
 
       {/* Shared Background Image */}
       <motion.img
-        src="/assets/solutionspageimg.png"
+        src={imgSrc}
         className="relative w-full h-full lg:h-[600px] object-cover"
         alt="Background"
         initial={{ opacity: 1, scale: 1.1 }} 
