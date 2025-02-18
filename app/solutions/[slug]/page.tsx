@@ -110,23 +110,30 @@ const defaultContent = {
   image: "/images/default.jpg",
 };
 
-const SolutionPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
-  const solution = solutionsData[slug] || defaultContent;
+// Define a type for the page props to handle params
+interface SolutionPageProps {
+    params: {
+      slug: string;
+    };
+  }
+  
 
-  return (
-    <div>
-      {/* Pass the image dynamically based on the slug */}
-      <Solutionspageimg imgSrc={solution.image} />
-      <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
-        <p className="mt-6">{solution.content}</p>
-      </div>
-      <Solutionservices></Solutionservices>
-      <Solutionstrending />
-      <Solutionsperspectives />
-     
-    </div>
-  );
-};
+const SolutionPage = ({ params }: SolutionPageProps) => {
+    const { slug } = params;
+    const solution = solutionsData[slug] || defaultContent;
+
+    return (
+        <div>
+          {/* Pass the image dynamically based on the slug */}
+          <Solutionspageimg imgSrc={solution.image} />
+          <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
+            <p className="mt-6">{solution.content}</p>
+          </div>
+          <Solutionservices />
+          <Solutionstrending />
+          <Solutionsperspectives />
+        </div>
+      );
+    };
 
 export default SolutionPage;
