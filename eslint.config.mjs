@@ -1,3 +1,5 @@
+// eslint.config.mjs
+
 import { FlatCompat } from "@eslint/eslintrc";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -9,7 +11,7 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-export default {
+export default compat.config({
   extends: [
     "next/core-web-vitals",
     "next/typescript",
@@ -19,6 +21,4 @@ export default {
     "@next/next/no-img-element": "off",
     "react-hooks/exhaustive-deps": "off",
   },
-};
-
-
+});
