@@ -3,7 +3,7 @@ import Solutionspageimg from "@/app/components/Solutionspageimg/Solutionspageimg
 import Solutionservices from "@/app/components/Subpages/Solutionservices/Solutionservices";
 import Solutionstrending from "@/app/components/Solutionstrending/Solutionstrending";
 import Solutionsperspectives from "@/app/components/Solutionsperspectives/Solutionsperspectives";
-
+import { GetServerSidePropsContext } from "next";
 // Define content and images for each solution dynamically
 const solutionsData: Record<string, { content: string; image: string }> = {
   "digital-shop": {
@@ -106,27 +106,37 @@ const solutionsData: Record<string, { content: string; image: string }> = {
 
 // Default message and image for unknown solutions
 const defaultContent = {
-  content: "Solution not found. Please check the URL.",
-  image: "/images/default.jpg",
-};
+    content: "Solution not found. Please check the URL.",
+    image: "/images/default.jpg",
+  };
 
+// Update the type for SolutionPage
 const SolutionPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
-  const solution = solutionsData[slug] || defaultContent;
-
-  return (
-    <div>
-      {/* Pass the image dynamically based on the slug */}
-      <Solutionspageimg imgSrc={solution.image} />
-      <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
-        <p className="mt-6">{solution.content}</p>
+    const { slug } = params;
+    const solution = solutionsData[slug] || defaultContent;
+  
+    return (
+      <div>
+        {/* Pass the image dynamically based on the slug */}
+        <Solutionspageimg imgSrc={solution.image} />
+        <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
+          <p className="mt-6">{solution.content}</p>
+        </div>
+        <Solutionservices />
+        <Solutionstrending />
+        <Solutionsperspectives />
       </div>
-      <Solutionservices></Solutionservices>
-      <Solutionstrending />
-      <Solutionsperspectives />
-     
-    </div>
-  );
-};
+    );
+  };
+  
+ // If you're using getServerSideProps for dynamic pages
+export async function getServerSideProps({ params }: GetServerSidePropsContext) {
+    return {
+      props: {
+        params: params || {},
+      },
+    };
+  }
+  
 
 export default SolutionPage;
