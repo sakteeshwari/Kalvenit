@@ -1,11 +1,9 @@
+"use client"
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
-
 import Solutionspageimg from "@/app/components/Solutionspageimg/Solutionspageimg";
 import Solutionservices from "@/app/components/Subpages/Solutionservices/Solutionservices";
 import Solutionstrending from "@/app/components/Solutionstrending/Solutionstrending";
 import Solutionsperspectives from "@/app/components/Solutionsperspectives/Solutionsperspectives";
-
 
 // Define content and images for each solution dynamically
 const solutionsData: Record<string, { content: string; image: string }> = {
@@ -110,48 +108,25 @@ const solutionsData: Record<string, { content: string; image: string }> = {
 // Default message and image for unknown solutions
 const defaultContent = {
   content: "Solution not found. Please check the URL.",
-  image: "/assets/hey.jpg",
+  image: "/images/default.jpg",
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.keys(solutionsData).map((slug) => ({
-    params: { slug },
-  }));
 
-  return {
-    paths,
-    fallback: "blocking", // Set to blocking to avoid partial loading
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
+const SolutionPage = ({ params }: { params: { slug: string } }) => {
+  const { slug } = params;
   const solution = solutionsData[slug] || defaultContent;
 
-  return {
-    props: {
-      solution,
-    },
-  };
-};
-
-interface SolutionPageProps {
-  solution: { content: string; image: string };
-}
-
-const SolutionPage = ({ solution }: SolutionPageProps) => {
   return (
     <div>
       {/* Pass the image dynamically based on the slug */}
       <Solutionspageimg imgSrc={solution.image} />
-
       <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
         <p className="mt-6">{solution.content}</p>
       </div>
-
-      <Solutionservices />
+      <Solutionservices></Solutionservices>
       <Solutionstrending />
       <Solutionsperspectives />
+     
     </div>
   );
 };
