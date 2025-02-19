@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
+import { useParams } from "next/navigation";
 import Industriespageimg from "@/app/components/Industriespageimg/Industriespageimg";
-import Industriespagecontent from "@/app/components/Industriespagecontent/Industriespagecontent";
 import Industriestrending from "@/app/components/Industriestrending/Industriestrending";
 import Industriesperspectives from "@/app/components/Industriesperspectives/Industriesperspectives";
 
@@ -75,13 +75,11 @@ const defaultContent = {
   image: "/images/default.jpg",
 };
 
-// Define TypeScript types for props
-interface IndustryPageProps {
-  params: { slug: string };
-}
 
-const IndustryPage: React.FC<IndustryPageProps> = ({ params }) => {
-  const { slug } = params;
+
+const IndustrySlugpage = () => {
+   const params = useParams();
+      const slug = params?.slug as string; // Ensure we are treating the slug as a string
   const industry = industriesData[slug] || defaultContent;
 
   return (
@@ -117,4 +115,4 @@ const IndustryPage: React.FC<IndustryPageProps> = ({ params }) => {
   );
 };
 
-export default IndustryPage;
+export default IndustrySlugpage;
