@@ -1,12 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; 
 import "./Imgcontent.css";
 import { motion } from "framer-motion";
 
 
 const Imgcontent = () => {
   const [showFirstContent, setShowFirstContent] = useState(true);
+  const router = useRouter(); // Initialize useRouter for navigation
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,7 +56,7 @@ const Imgcontent = () => {
               <p className="text-2xl text-white mt-3 lg:text-5xl">
                 Large Enough to Transform
               </p>
-              <button className="mt-6 border px-5 text-white py-2 rounded-full lg:text-3xl lg:p-3 lg:px-7 hover:bg-purple-500">
+              <button  onClick={() => router.push("/contact")} className="mt-6 border px-5 text-white py-2 rounded-full lg:text-3xl lg:p-3 lg:px-7 hover:bg-purple-500">
                 Explore Now &nbsp; &rarr;
               </button>
             </div>
@@ -62,7 +65,7 @@ const Imgcontent = () => {
               <h2 className="text-4xl text-white font-bold lg:text-7xl lg:leading-relaxed">
                 Aim Higher, Lead Smarter: Innovate with Agentic AI
               </h2>
-              <button className="mt-6 border px-5 text-white py-2 rounded-full lg:text-3xl lg:p-3 lg:px-7 hover:bg-purple-500">
+              <button  onClick={() => router.push("/contact")} className="mt-6 border px-5 text-white py-2 rounded-full lg:text-3xl lg:p-3 lg:px-7 hover:bg-purple-500">
                 Ask our Expert &nbsp; &rarr;
               </button>
             </div>

@@ -306,34 +306,26 @@ const Navbar = () => {
     {
       href: "/industries", label: "Industries",
       subItems: [
-        { href: "/Kalven-Software-Solutions-ai/manufacturing", label: "Manufacturing" },
-        { href: "/Kalven-Software-Solutions-ai/lifesciences", label: "Lifesciences" },
-        { href: "/Kalven-Software-Solutions-ai/bfsi", label: "BFSI" },
-        { href: "/Kalven-Software-Solutions-ai/mining", label: "Mining" },
-        { href: "/Kalven-Software-Solutions-ai/agribusiness", label: "Agribusiness" },
-        { href: "/Kalven-Software-Solutions-ai/healthcare", label: "Healthcare" },
-        { href: "/Kalven-Software-Solutions-ai/government", label: "Government" },
-        { href: "/Kalven-Software-Solutions-ai/utilities", label: "Utilities" },
-        { href: "/Kalven-Software-Solutions-ai/logistics", label: "Logistics" },
-        { href: "/Kalven-Software-Solutions-ai/dairy-farming", label: "Dairy Farming" },
-        { href: "/Kalven-Software-Solutions-ai/aviation", label: "Aviation" },
-        { href: "/Kalven-Software-Solutions-ai/education", label: "Education" },
-        { href: "/Kalven-Software-Solutions-ai/retail", label: "Retail" },
-        { href: "/Kalven-Software-Solutions-ai/telecom", label: "Telecom" },
-        { href: "/Kalven-Software-Solutions-ai/media-entertainment", label: "Media & Entertainment" }
+        { href: "/industries/manufacturing", label: "Manufacturing" },
+        { href: "/industries/lifesciences", label: "Lifesciences" },
+        { href: "/industries/bfsi", label: "BFSI" },
+        { href: "/industries/mining", label: "Mining" },
+        { href: "/industries/agribusiness", label: "Agribusiness" },
+        { href: "/industries/healthcare", label: "Healthcare" },
+        { href: "/industries/government", label: "Government" },
+        { href: "/industries/utilities", label: "Utilities" },
+        { href: "/industries/logistics", label: "Logistics" },
+        { href: "/industries/dairy-farming", label: "Dairy Farming" },
+        { href: "/industries/aviation", label: "Aviation" },
+        { href: "/industries/education", label: "Education" },
+        { href: "/industries/retail", label: "Retail" },
+        { href: "/industries/telecom", label: "Telecom" },
+        { href: "/industries/media-entertainment", label: "Media & Entertainment" }
       ],
     },
     {
       href: "/aboutus", label: "About Us",
-      subItems: [
-        { href: "/alliances", label: "Alliances" },
-        { href: "/blogs", label: "Blogs" },
-        { href: "/case-studies", label: "Case Studies" },
-        { href: "/events", label: "Events" },
-        { href: "/press-releases", label: "Press Releases" },
-        { href: "/webinars", label: "Webinars" },
-        { href: "/podcasts", label: "Podcasts" }
-      ],
+    
     },
     {
       href: "/careers", label: "Careers",
