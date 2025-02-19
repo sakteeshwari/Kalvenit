@@ -1,21 +1,4 @@
-"use client"
-import React from "react";
-import Solutionspageimg from "@/app/components/Solutionspageimg/Solutionspageimg";
-import Solutionservices from "@/app/components/Subpages/Solutionservices/Solutionservices";
-import Solutionstrending from "@/app/components/Solutionstrending/Solutionstrending";
-import Solutionsperspectives from "@/app/components/Solutionsperspectives/Solutionsperspectives";
-
-// Define content and images for each solution dynamically
-const solutionsData: Record<string, { content: string; image: string }> = {
-  "digital-shop": {
-    content: "Factory Scheduling is one of the vital activities performed in manufacturing to ensure that the entire production process performs flawlessly. Manual planning methods with spreadsheets can neither keep up with volatile risks and eliminate plant inefficiencies nor shorten lead cycles. Only by tracking availability, accuracy, priority, performance, quality of operations in real-time will you be able to know if your business goals are met – and if not – why was it missed. Using artificial intelligence and machine learning to model ‘what-if’ scenarios, KALVEN’s Factory Scheduling Solution harmonizes data visibility across plants, machines, supply chain, and people within the shortest time possible so that your operations always stay productive and profitable.",
-    image: "/assets/solutionsdigital1.png",
-  },
-  "e-commerce": {
-    content: "Time, experience, cost, and accessibility are some of the critical priorities for the ever-evolving tastes of the mobile-era customer. This is where personalized shopping with data management, sales insights, and triggered omni-communications within singular channels have proven to boost revenue and spend-efficiency.Discover how Digital technologies have transformed the core of the e-commerce and has employed its astounding capabilities to allow sellers to connect with their customers through the web, mobile and intelligent platforms.",
-    image: "/assets/solutionsdigital2.png",
-  },
-  "factory-automation": {
+"factory-automation": {
     content: "Solve business problems with strategic digital tools and accelerators from the Microsoft stack. Choose from a broad range of industry-specific app scenarios and enable positive balance sheet impact.",
     image: "/assets/solutionsdigital3.png",
   },
@@ -103,32 +86,3 @@ const solutionsData: Record<string, { content: string; image: string }> = {
     content: "Our solution components are plug n play in nature and helps Customers design an efficient and compliant Digital Customer on-boarding solution. KALVEN Digital Onboarding Solution is a mobile-first user journey for hassle-free customer on-boarding process covering",
     image: "/assets/solutionsdigital3.png",
   },
-};
-
-// Default message and image for unknown solutions
-const defaultContent = {
-  content: "Solution not found. Please check the URL.",
-  image: "/images/default.jpg",
-};
-
-
-const SolutionPage = ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
-  const solution = solutionsData[slug] || defaultContent;
-
-  return (
-    <div>
-      {/* Pass the image dynamically based on the slug */}
-      <Solutionspageimg imgSrc={solution.image} />
-      <div className="bg-gray-200 p-4 leading-relaxed tracking-wider">
-        <p className="mt-6">{solution.content}</p>
-      </div>
-      <Solutionservices></Solutionservices>
-      <Solutionstrending />
-      <Solutionsperspectives />
-     
-    </div>
-  );
-};
-
-export default SolutionPage;
