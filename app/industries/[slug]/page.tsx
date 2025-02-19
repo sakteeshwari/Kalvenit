@@ -7,9 +7,11 @@ import Industriesperspectives from "@/app/components/Industriesperspectives/Indu
 
 // Industry data mapping
 const industriesData: Record<string, { content: string; image: string }> = {
+
+
   "manufacturing": {
     content: "A powerful combination of speed, adaptability, and business agility has become crucial for manufacturers to thrive despite business volatilities. Discrete manufacturers are challenged with shrinking windows for developing new products, product inconsistencies, supply chain issues, enabling accurate enterprise-wide visibility,  optimizing business processes, and moving quickly towards digital manufacturing. On the other hand, process manufacturers need to manage the evolving regulatory environment, handle EHS issues, ensure traceability, and manage supply chain inconsistencies.  ",
-    image: "/assets/manufacturing1.png",
+    image: "/assets/manufacturing1.png", 
   },
   "lifesciences": {
     content: "The pace with which the Lifesciences Industry is evolving and transforming is impressive. The industry moves towards personalized medicine, collaborative innovation, technology-centric drug research and device development, and leveraging enterprise-wide business data. It is also being challenged by escalating drug discovery costs, a stricter regulatory environment, and the time-bound imperative of modernizing and integrating siloed legacy systems. ",
@@ -63,10 +65,14 @@ const industriesData: Record<string, { content: string; image: string }> = {
     content: "The Telecom industry is going through tectonic shifts across IT and Network infrastructures with mobile data explosion, Fiber & 4G/LTE, and the imminent roll-out of 5G networks, IT-Network convergence, need for Real-Time control, and the focus on analytics to monetize data effectively. Also, there is a need to create a differentiated customer experience through digital adoption. Telecom is at the heart of inclusive economic development and fulfillment of evolving human needs with agility. Despite sitting on a golden mountain of data, telecom providers continue to face struggles in using it to ensure cost-efficient network management, creating compelling experiences at every user touchpoint, accelerating market roll-outs, driving lean operations, safeguarding privacy, data, and more. Discover how we put your strategic priorities into overdrive by bringing the speed of software, economies of cloud, and a well-orchestrated digital core designed for a rapidly evolving telecommunications ecosystem.",
     image: "/assets/manufacturing4.png",
   },
+
   "media-entertainment": {
     content: "The media and entertainment industry has been increasingly impacted by evolving market movements, including high OTT and digital content consumptions, along with the omnipresent need to build intimate connections with their audiences. Not only do broadcasters, advertisers, gamers, and entertainers have to push effective content to consistently interest, inform, and delight audiences – they also need to protect their privacy and trust with utmost care.In a world of almost infinite choices and content, media and entertainment enterprises across segments leverage diverse sets of technologies to drive deep, engaging, and personalized relationships at scale.",
     image: "/assets/manufacturing5.png",
+
   },
+  
+
 };
 
 // Default message for unknown industries
@@ -91,7 +97,7 @@ const IndustrySlugpage = () => {
       </div>
       <div className=" mt-6 bg-gray-100 p-6 max-w-2xl mx-auto shadow-md rounded-lg">
       <h2 className="text-xl font-bold text-gray-900 mb-4">
-        As a manufacturer, are you facing any of these challenges?
+        As a manufacturer, are you facing any of these challenges? 
       </h2>
       <ul className="list-disc space-y-3 pl-5 text-gray-700">
         {[

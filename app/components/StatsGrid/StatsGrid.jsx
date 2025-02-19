@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow icon
 import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const StatsGrid = () => {
+    const router = useRouter(); // Initialize router
     const stats = [
         { number: "80+", label: "Fortune 500 customers", bg: "bg-gray-900" },
         {
@@ -76,7 +78,7 @@ const StatsGrid = () => {
                 </p>
 
                 <div ref={elementRef} className={`p-3 text-lg slide-up`}>
-                    <button   className={`relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden  ${
+                    <button   onClick={() => router.push("/aboutus")}   className={`relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden  ${
                         inView ? "slide-up" : ""
                     }`}>
 

@@ -1,43 +1,27 @@
-.slide-images{
-    /* height: 100%; */
-    transition: 2s;
+:root {
+  --arrow-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --arrow-glow: 0 4px 8px rgba(255, 255, 255, 0.8);
 }
 
-  /* .sidenav>li:hover::after {
-    content: "";
-    display: block;
-    width: 100%; 
-    border-bottom: 2px solid purple;
-   
-  } */
-
-
-  /* Highlight effect for the arrow */
 .arrow {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-  }
-  
-  .arrow:hover {
-    transform: scale(1.2); /* Slightly increase size */
-    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.8)); /* Bright glow effect */
-    cursor: pointer; /* Pointer on hover */
-  }
-  
-  .arrow:active {
-    transform: scale(1.1); /* Slightly reduce size when clicked */
-    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 1)); /* More pronounced glow */
-  }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(var(--arrow-shadow));
+}
 
-  /* For webkit browsers (Chrome, Safari, Edge) */
-#slide-img::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* For all other browsers */
-  #slide-img {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-  
-  
+.arrow:hover,
+.arrow:focus {
+  transform: scale(1.2);
+  filter: drop-shadow(var(--arrow-glow));
+  cursor: pointer;
+}
+
+.arrow:active {
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 1));
+}
+
+/* Add smooth scrolling effect */
+#slide-img {
+  scroll-behavior: smooth;
+  transition: transform 0.5s ease-in-out;
+}

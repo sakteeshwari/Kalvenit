@@ -1,121 +1,87 @@
 "use client";
 import React, { useState } from "react";
-import { useEffect } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import "./Serviceimg.css";
-import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 
 const Serviceimg = () => {
-
-  const [elementRef, inView] = useInView(0.5); // Triggers when 50% of the element is in view
-  
-
- 
   const images = [
     {
       Label: "Digitalization",
-      Description:"Drive Innovation, Efficiency, Productivity & Teamwork",
+      Description: "Drive Innovation, Efficiency, Productivity & Teamwork",
       src: "/assets/digitalization.png",
     },
     {
       Label: "Modernization",
-      Description:"Transform Your IT Landscape - Create an agile enterprise",
+      Description: "Transform Your IT Landscape - Create an agile enterprise",
       src: "/assets/mordernization.png",
     },
     {
       Label: "Intelligence Services",
-      Description:"Become a data-driven Business - Reinvent your Organization",
+      Description: "Become a data-driven Business - Reinvent your Organization",
       src: "/assets/intelligence.png",
     },
     {
       Label: "Cloud & Infrastructure Management Services",
-      Description:"Optimized and Smart infrastructure - The Foundation for your digital business",
+      Description: "Optimized and Smart infrastructure - The Foundation for your digital business",
       src: "/assets/nextgen.png",
     },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 for right, -1 for left
 
-  // Function to handle left arrow click
-  const leftSwap = () => {
-    const prevSlide = currentSlide === 0 ? images.length - 1 : currentSlide - 1;
-    setCurrentSlide(prevSlide);
-    document.getElementById(`slide-${prevSlide}`)?.scrollIntoView({
-      behavior: "smooth",
-    });
+  const nextSlide = () => {
+    if (currentSlide < images.length - 1) {
+      setDirection(1);
+      setCurrentSlide(currentSlide + 1);
+    }
   };
 
-  // Function to handle right arrow click
-  const rightSwap = () => {
-    const nextSlide = (currentSlide + 1) % images.length;
-    setCurrentSlide(nextSlide);
-    document.getElementById(`slide-${nextSlide}`)?.scrollIntoView({
-      behavior: "smooth",
-    });
+  const prevSlide = () => {
+    if (currentSlide > 0) {
+      setDirection(-1);
+      setCurrentSlide(currentSlide - 1);
+    }
   };
 
   return (
-    <div >
-      <section
-        className="flex gap-2  mx-3 mt-6 z-10 overflow-hidden relative"
-        style={{ height: "23rem", borderRadius: "5px" }}
+    <div className=" mt-6 relative w-full  h-[23rem] overflow-hidden">
+      {/* Slide container with animation */}
+      <motion.div
+        className="flex w-full h-full md:w-2/5 md:gap-5 lg:gap-20" 
+        animate={{ x: `${-currentSlide * 100}%` }} // Moves slides left or right
+        initial={false}
+        transition={{ type: "spring", stiffness: 100, damping: 15 }} // Smooth animation
       >
-        <div
-          id="slide-img"
-          className="flex xl:gap-16 overflow-x-scroll h-80   xl:h-80 snap-x snap-mandatory z-10"
-          style={{ scrollBehavior: "smooth" }}
-        >
-          {images.map((data, index) => (
-            <div
-              key={index}
-              id={`slide-${index}`}
-              className="flex-shrink-0 xl:w-2/6   xl:h-full  snap-center relative"
-            >
-              <img
-                className="h-full w-full lg: object-cover"
-                src={data.src}
-                alt={`slide-${index}`}
-              />
-              <div className="absolute bottom-0 w-full left-0 bg-black bg-opacity-50 text-white p-2 text-sm">
-               <h2  className={`font-semibold text-red-500 text-lg shadow-xl `}> {data.Label}</h2>
-                <p ref={elementRef} className={`  ${inView ? "slide-up" : ""} `}>{data.Description}</p>
-              </div>
-              <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2 text-sm">
-                
-              </div>
+        {images.map((data, index) => (
+          <div key={index} className="min-w-full  h-full  relative">
+            <img className="h-full w-full object-cover" src={data.src} alt={data.Label} />
+            <div className="absolute bottom-0 w-full left-0 bg-black bg-opacity-50 cursor-pointer text-white p-2 text-sm">
+              <h2 className="font-semibold text-red-500  text-lg">{data.Label}</h2>
+              <p className="">{data.Description}</p>
             </div>
-          ))}
-        </div>
-
-        {/* Slide navigation controls */}
-        <section className="text-white flex items-center absolute left-0 bottom-32 justify-between p-5 text-center rounded-lg w-full h-full md:p-10 lg:px-20">
-          {/* Left arrow */}
-          <div className="absolute z-30 flex items-center left-4">
-            <img
-              src="/assets/left-arrow.png"
-              className="arrow h-8 w-8 md:h-12 md:w-12 cursor-pointer"
-              onClick={leftSwap}
-              alt="Left Arrow"
-              id="arrowslide-img"
-            />
           </div>
+        ))}
+      </motion.div>
 
-         {/* Right arrow */} 
-          <div className="absolute right-5 z-30">
-            <img
-              src="/assets/right-arrow.png"
-              className="arrow text-6xl h-8 xl:h-12 md:text-8xl text-white cursor-pointer"
-              id="arrowslide-img"
-              onClick={rightSwap}
-              alt="Right Arrow"
-            />
-          </div>
-        </section>
-      </section>
+      {/* Left and Right Arrows */}
+      <button
+        className={`absolute left-4 top-14 transform -translate-y-1/2 ${currentSlide === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
+        onClick={prevSlide}
+        disabled={currentSlide === 0}
+      >
+        <img src="/assets/left-arrow.png" alt="Left Arrow" className="h-10 w-10" />
+      </button>
+
+      <button
+        className={`absolute right-4 top-14 transform -translate-y-1/2 ${currentSlide === images.length - 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+        onClick={nextSlide}
+        disabled={currentSlide === images.length - 1}
+      >
+        <img src="/assets/right-arrow.png" alt="Right Arrow" className="h-10 w-10" />
+      </button>
     </div>
   );
 };
 
 export default Serviceimg;
-
-
-
