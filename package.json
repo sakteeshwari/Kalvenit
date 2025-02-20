@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@shadcn/ui": "^0.0.4",
     "eslint-plugin-next": "^0.0.0",
     "framer-motion": "^12.4.4",
     "lucide-react": "^0.474.0",

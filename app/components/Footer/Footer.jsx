@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import "./Footer.css";
+import Link from "next/link";
 import {
   FaTwitter,
   FaLinkedin,
@@ -13,15 +14,19 @@ import { useInView } from "react-intersection-observer";
 
 const Footer = () => {
   const quickLinks = [
-    "SAP",
-    "Digitalization",
-    "Modernization",
-    "Cloud & Infrastructure Management Services",
-    "Cyber Security Services",
-    "IoT",
+    { name: "SAP", url: "/coes/sap" },
+    { name: "Digitalization", url: "/services/digitalization" },
+    { name: "Modernization", url: "/services/modernization" },
+    { name: "Cloud & Infrastructure Management Services", url: "/services/cloud-infrastructure" },
+    { name: "Cyber Security Services", url: "/services/cyber-security" },
+    { name: "IoT", url: "/coes/iot-embedded" },
   ];
 
-  const subsidiaries = ["Aaseya IT Services", "Codiant Technologies", "Intellents"];
+  const subsidiaries = [
+    { name: "Aaseya IT Services", url: "https://www.aaseya.com" },
+    { name: "Codiant Technologies", url: "https://www.codiant.com" },
+    { name: "Intellents", url: "https://www.intellents.com" },
+  ];
 
   const socialLinks = [
     { icon: FaTwitter, url: "https://twitter.com", label: "Twitter" },
@@ -32,7 +37,6 @@ const Footer = () => {
     { icon: FaPinterest, url: "https://www.pinterest.com", label: "Pinterest" },
   ];
 
-  // Animation trigger for sections
   const { ref: footerRef, inView: footerVisible } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -47,7 +51,7 @@ const Footer = () => {
     >
       {/* Quick Links Section */}
       <Section title="Quick Links">
-        <Grid items={quickLinks} />
+        <Grid items={quickLinks} isInternal />
       </Section>
 
       <hr className="border-white my-6" />
@@ -69,19 +73,22 @@ const Footer = () => {
 
       {/* Footer Policies */}
       <div className="text-sm text-center">
-        <p className="leading-loose">
-          CSR / Site Map / Legal / Privacy Policy / Payment Policy / Modern Slavery Act Policy
-        </p>
-        <p className="pt-3 text-gray-400">
-          Copyright &copy; 2025. Kalven Software Solutions Technologies. All Rights Reserved.
-        </p>
-
-        {/* Social Media Section */}
         
+        <p className="leading-loose">
+    <Link href="/aboutus/csr" passHref className="hover:underline">CSR</Link> / 
+    
+    <Link href="/aboutus/legal" passHref className="hover:underline"> Legal</Link> / 
+    <Link href="/aboutus/privacy-policy" passHref className="hover:underline"> Privacy Policy</Link> / 
+    <Link href="/aboutus/payment-policy" passHref className="hover:underline"> Payment Policy</Link> / 
+    <Link href="/aboutus/modern-slavery-act" passHref className="hover:underline"> Modern Slavery Act Policy</Link>
+  </p>
+
+<p className="text-gray-400">  &copy; {new Date().getFullYear()} KALVEN Software Solutions. All rights reserved.</p>
+        {/* Social Media Section */}
         <div className="mt-6">
           <h1 className="text-yellow-400 text-lg mb-4">Follow Us:</h1>
           <div className="flex justify-center gap-6 text-2xl">
-            {socialLinks.map(({ icon: Icon, url, label }, index) => {
+            {socialLinks.map(({ icon: Icon, url, label }) => {
               const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: true });
 
               return (
@@ -124,11 +131,19 @@ const Section = ({ title, children }) => {
   );
 };
 
-// Grid Component
-const Grid = ({ items }) => (
+// Grid Component with Links
+const Grid = ({ items, isInternal = false }) => (
   <div className="grid grid-cols-1 text-sm sm:grid-cols-2 lg:flex lg:gap-10 gap-4">
-    {items.map((item, index) => (
-      <p key={index} className="hover:underline">{item}</p>
+    {items.map(({ name, url }, index) => (
+      isInternal ? (
+        <Link key={index} href={url} passHref className="hover:underline">
+          {name}
+        </Link>
+      ) : (
+        <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+          {name}
+        </a>
+      )
     ))}
   </div>
 );

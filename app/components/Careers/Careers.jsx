@@ -3,6 +3,7 @@ import React from "react";
 import "./Careers.css";
 import { ArrowRight } from "lucide-react";
 import useInView from "../../hooks/useInView"; // Ensure this hook is implemented correctly
+import Link from "next/link"; // Import Link for navigation
 
 const Careers = () => {
     const [elementRef, inView] = useInView(0.5); // Triggers when 40% of the element is in view
@@ -27,23 +28,25 @@ const Careers = () => {
                         </p>
                     </div>
 
-                    {/* Know More Button */}
+                    {/* Know More Button with Navigation */}
                     <div className="px-4 py-3 text-lg">
-                        <button className="relative flex items-center space-x-2 text-white font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
-                            {/* Border animation */}
-                            <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-white rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+                        <Link href="/careers" passHref>
+                            <button className="relative flex items-center space-x-2 text-white font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                                {/* Border animation */}
+                                <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-white rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
 
-                            {/* Arrow */}
-                            <div className="flex justify-center items-center w-8 h-8 border border-white rounded-full group-hover:hidden z-10">
-                                <ArrowRight className="w-4 h-4" />
-                            </div>
-                            <div className="hidden group-hover:block z-10">
-                                <span>&rarr;</span>
-                            </div>
+                                {/* Arrow */}
+                                <div className="flex justify-center items-center w-8 h-8 border border-white rounded-full group-hover:hidden z-10">
+                                    <ArrowRight className="w-4 h-4" />
+                                </div>
+                                <div className="hidden group-hover:block z-10">
+                                    <span>&rarr;</span>
+                                </div>
 
-                            {/* Text */}
-                            <span className="z-10">Know more</span>
-                        </button>
+                                {/* Text */}
+                                <span className="z-10">Know more</span>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

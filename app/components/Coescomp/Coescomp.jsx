@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import "./Coescomp.css";
 import useInView from "../../hooks/useInView";
+import Link from "next/link";
+
 
 const CoEs = () => {
     const data = [
@@ -10,55 +12,65 @@ const CoEs = () => {
             title: "SAP",
             description: "Value realization. Future readiness. Competitive advantage",
             img: "/assets/sap.png",
+            link: "/coes/sap",
         },
         {
             title: "Microsoft",
             description: "Real and Contextual innovation powered by Digital Technologies",
             img: "/assets/microsoft.png",
+            link: "/coes/microsoft",
         },
         {
             title: "Data Science and AI",
             description: "Be the front runner in the accelerating AI race",
             img: "/assets/datascience.png",
+            link: "/coes/microsoft/data-ai",
         },
         {
             title: "RPA",
             description:
                 "Accelerate and scale intelligent automation to improve efficiencies, productivity, and cost savings",
             img: "/assets/rpa.png",
+            link: "/coes/rpa",
         },
         {
             title: "Service Now",
             description: "Deliver exceptional customer, employee, and IT experiences",
             img: "/assets/servicenow.png",
+            link: "/coes/servicenow",
         },
         {
             title: "AWS",
             description:
                 "Seamless cloud journey with flexibility, scalability, and reliability",
             img: "/assets/aws.png",
+            link: "/coes/aws",
         },
         {
             title: "Salesforce",
             description:
                 "Connecting customer-focused cloud with value-driven innovation",
             img: "/assets/salesforce.png",
+            link: "/coes/salesforce",
         },
         {
             title: "IoT",
             description: "Transform your business with our smart IoT Solutions",
             img: "/assets/iot.png",
+            link: "/coes/iot-embedded",
         },
         {
             title: "Embedded & Factory Automation",
             description:
                 "Leverage our Embedded & Factory Automation Solutions across industry verticals",
             img: "/assets/embedded.png",
+            link: "/coes/iot-embedded",
         },
         {
             title: "GCP",
             description: "Embrace cloud for your Digital Transformation journey",
             img: "/assets/googlecloud.png",
+            link: "/coes/gcp",
         },
     ];
 
@@ -80,7 +92,7 @@ const CoEs = () => {
 
     return (
         <div className="bg-gray-200 p-6 mt-6">
-            
+
             {/* Title */}
             <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4 slide-up ${inView ? "slide-up" : ""}`}>CoEs</h1>
             <h1 className={`text-black text-3xl slide-up ${inView ? "slide-up" : ""}`}>
@@ -119,7 +131,7 @@ const CoEs = () => {
                             return (
                                 <div
                                     key={index}
-                                    
+
                                     className={`bg-white lg:rounded-lg p-5 coes-box w-[33.33%] transition-all duration-700 ease-in-out transform `}
                                 >
                                     <h3 ref={elementRef} className={`text-lg font-bold mb-2 text-black ${inView ? "slide-up" : ""}`}>{item.title}</h3>
@@ -132,19 +144,21 @@ const CoEs = () => {
                                         />
                                     </div>
                                     <div ref={elementRef} className={`py-3 text-lg ${inView ? "slide-up" : ""}`}>
-                                        <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
-                                            {/* Border animation */}
-                                            <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+                                        <Link href={item.link} passHref>
+                                            <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                                                {/* Border animation */}
+                                                <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
 
-                                            {/* Content */}
-                                            <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
-                                                <ArrowRight className="w-4 h-4" />
-                                            </div>
-                                            <div className="hidden group-hover:block z-10">
-                                                <span>&rarr;</span>
-                                            </div>
-                                            <span className="z-10">Know more</span>
-                                        </button>
+                                                {/* Content */}
+                                                <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
+                                                    <ArrowRight className="w-4 h-4" />
+                                                </div>
+                                                <div className="hidden group-hover:block z-10">
+                                                    <span>&rarr;</span>
+                                                </div>
+                                                <span className="z-10">Know more</span>
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             );

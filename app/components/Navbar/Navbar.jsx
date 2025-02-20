@@ -226,6 +226,7 @@ const Navbar = () => {
         { href: "/coes/gcp", label: "GCP", className: "font-bold text-black" },
         { href: "/coes/gcp/data-analytics", label: "Data and Analytics on GCP" },
         { href: "/coes/gcp/sap-gcp", label: "SAP on GCP" },
+        
 
         { href: "/coes/oracle", label: "Oracle", className: "font-bold text-black" },
         { href: "/coes/oracle/cloud-transform", label: "Cloud Transformation" },
@@ -324,8 +325,16 @@ const Navbar = () => {
       ],
     },
     {
+      
       href: "/aboutus", label: "About Us",
-    
+      subItems: [
+      {href: "/aboutus/blog", label: "Blog" },
+      {href: "/aboutus/csr", label: "CSR" },
+      {href: "/aboutus/legal", label: "Legal" },
+      {href: "/aboutus/privacy-policy", label: "Privacy Policy" },
+      {href: "/aboutus/payment-policy", label: "Payment Policy" },
+      
+      ]
     },
     {
       href: "/careers", label: "Careers",
