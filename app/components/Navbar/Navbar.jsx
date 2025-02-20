@@ -295,12 +295,12 @@ const Navbar = () => {
     {
       href: "/biznext", label: "BizNeXT",
       subItems: [
-        { href: "/biznext/digital-strategy", label: "Digital Strategy" },
-        { href: "/biznext/people-advisory", label: "People Advisory" },
-        { href: "/biznext/technology-advisory", label: "Technology Advisory" },
-        { href: "/biznext/digital-health", label: "Digital in Health" },
-        { href: "/biznext/supply-chain", label: "Supply Chain" },
-        { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence" }
+        { href: "/biznext/digital-strategy", label: "Digital Strategy", className:"pl-28" },
+        { href: "/biznext/people-advisory", label: "People Advisory", className:"pl-28" },
+        { href: "/biznext/technology-advisory", label: "Technology Advisory", className:"pl-24" },
+        { href: "/biznext/digital-health", label: "Digital in Health", className:"pl-24" },
+        { href: "/biznext/supply-chain", label: "Supply Chain", className:"pl-24" },
+        { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence", className:"pl-24" }
       ],
     },
 
@@ -328,11 +328,11 @@ const Navbar = () => {
       
       href: "/aboutus", label: "About Us",
       subItems: [
-      {href: "/aboutus/blog", label: "Blog" },
-      {href: "/aboutus/csr", label: "CSR" },
-      {href: "/aboutus/legal", label: "Legal" },
-      {href: "/aboutus/privacy-policy", label: "Privacy Policy" },
-      {href: "/aboutus/payment-policy", label: "Payment Policy" },
+      {href: "/aboutus/blog", label: "Blog", className:"pl-40" },
+      {href: "/aboutus/csr", label: "CSR", className:"pl-40"  },
+      {href: "/aboutus/legal", label: "Legal", className:"pl-40"  },
+      {href: "/aboutus/privacy-policy", label: "Privacy Policy", className:"pl-40"  },
+      {href: "/aboutus/payment-policy", label: "Payment Policy", className:"pl-40"  },
       
       ]
     },
