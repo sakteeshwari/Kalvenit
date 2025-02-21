@@ -11,7 +11,7 @@ const Careers = () => {
     return (
         <div>
             {/* Image Section */}
-            <div className="img_sale relative">
+            <div className="img_sale  relative">
                 <img src="/assets/happy.png" alt="section_image" className="w-full" />
 
                 {/* Animated Box */}
