@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+
 import "./Navbar.css"
 import { motion } from 'framer-motion';
 import Searchbarpage from "../searchbarpage/Searchbarpage.jsx"
@@ -13,7 +14,14 @@ const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null); // Track hovered item index
   const [showSubMenu, setShowSubMenu] = useState(false);
   const pathname = usePathname(); // Detect route changes
+ 
 
+ 
+  const [activePage, setActivePage] = useState("");
+
+  useEffect(() => {
+    setActivePage(pathname); // Update activePage based on current route
+  }, [pathname]);
 
   const toggleMenu = (index) => {
     setExpandedItems((prev) => {
@@ -46,7 +54,7 @@ const Navbar = () => {
       }
     });
   };
-
+  
 
   // Close the submenu when navigating to a different page
   useEffect(() => {
@@ -62,6 +70,8 @@ const Navbar = () => {
     setExpandedItems({}); // Close all submenus
   }, [pathname]); // Runs whenever the URL path changes
 
+
+  
 
 
   const menuItems = [
@@ -368,7 +378,12 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               {/* Parent Menu Item */}
-              <Link href={item.href} className="hover:text-purple-700 px-4 py-7">
+              <Link href={item.href} className={`px-4 py-7 ${
+                activePage === item.href
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "hover:text-purple-700"
+              }`}
+              onClick={(e) => activePage === item.href && e.preventDefault()} >
                 {item.label}
               </Link>
 
