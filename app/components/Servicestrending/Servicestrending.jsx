@@ -9,28 +9,30 @@ const Servicestrending = () => {
   const content = [
     {
       label: "Milkyway to the cloud, When the Dairy goes Digital...",
+      link: "/services/trending/milkyway",
       image: "/assets/milkman.jpeg",
-      link: "/services/milkyway",
+      
     },
     {
       label: "Major Powersport Company Modern Application...",
+      link: "/services/trending/powersport-modern",
       image: "/assets/arrowup.png",
-      link: "/services/powersport-modern",
+     
     },
     {
       label: "Scaling tech-Innovations: Unleash impact that matters...",
       image: "/assets/servicesscale.png",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
     },
     {
       label: "Long term customer relationship management...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/customerservices.png", // Replace with your image
     },
      
     {
       label: "Digital Consulting & Advisory for Organizations of the future...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/digitalservices.jpg", // Replace with your image
     },
     {
@@ -40,47 +42,47 @@ const Servicestrending = () => {
     },
     {
       label: "Kalven  Intelligent Automation Services",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/automationservices.png", // Replace with your image
     },
     {
       label: "Get 'Future-Ready' - Migrate to the Cloud with Kalven ",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/futureservices.png", // Replace with your image
     },
     {
       label: "Data Integration and Migration Services @ Kalven ...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/dataintegrationservices.png", // Replace with your image
     },
     {
       label: "KALVEN Artificial Intelligence & Machine Learning Services...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/aiservices.png", // Replace with your image
     },
     {
       label: "Create a Dynamic Business with Microsoft Dynamic CRM...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/crmservices.png", // Replace with your image
     },
     {
       label: "Reinvent your banking enterprise to prepare for the...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/bankingservices.jpg", // Replace with your image
     },
     {
       label: "Big Data Analytics How to Use Hadoop to Excel in Excel",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/bigdataservices.png", // Replace with your image
     },
     {
       label: "Accelerate your App migration and mordernization using...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/appmigrateservices.jpg", // Replace with your image
     },
     {
       label: "Listen to customer stories on how AI has transformed...",
-      link: "/services/tech-innovations",
+      link: "/services/trending/tech-innovations",
       image: "/assets/customerstoriesservices.png", // Replace with your image
     },
   ];
