@@ -22,11 +22,7 @@ const Footer = () => {
     { name: "IoT", url: "/coes/iot-embedded" },
   ];
 
-  const subsidiaries = [
-    { name: "Aaseya IT Services", url: "https://www.aaseya.com" },
-    { name: "Codiant Technologies", url: "https://www.codiant.com" },
-    { name: "Intellents", url: "https://www.intellents.com" },
-  ];
+  
 
   const socialLinks = [
     { icon: FaTwitter, url: "https://twitter.com", label: "Twitter" },
@@ -54,12 +50,7 @@ const Footer = () => {
         <Grid items={quickLinks} isInternal />
       </Section>
 
-      <hr className="border-white my-6" />
-
-      {/* Subsidiaries Section */}
-      <Section title="Subsidiaries">
-        <Grid items={subsidiaries} />
-      </Section>
+      
 
       <hr className="border-white my-6" />
 
