@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Favicon Link */}
-        <link rel="icon" href="/kalvenlogo.ico" sizes="32/32" className="w-52"   type="image/x-icon" />
+        <link rel="icon" href="/kalvenlogotitlebar.ico" sizes="32/32" className="w-52"   type="image/x-icon" />
         
         {/* Optional: For PNG or SVG Logos */}
         {/* <link rel="icon" href="/logo.png" type="image/png" /> */}
