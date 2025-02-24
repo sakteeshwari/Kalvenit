@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaLinkedin, FaFacebook, FaTwitter, FaPlus } from "react-icons/fa";
 import Servicespageimg from "../../../components/Servicespageimg/Servicespageimg";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CaseStudy() {
     const [activeSection, setActiveSection] = useState("overview");
@@ -129,15 +130,31 @@ export default function CaseStudy() {
                     </div>
                 </motion.section>
 
+
                 {/* Footer with Social Icons */}
                 <div className="bg-gray-100 px-6 py-4 flex justify-between items-center border-t border-gray-300">
-                    <div className="text-gray-700 font-semibold text-sm">Categories: <a href="#" className="text-blue-600 hover:underline">AWS</a> <a href="#" className="text-blue-600 hover:underline">Cloud</a></div>
+                    <div className="text-gray-700 font-semibold text-sm">
+                        Categories:
+                        <Link href="/coes/aws" className="text-blue-600 hover:underline ml-1">
+                            AWS
+                        </Link>
+                        <Link href="/services/cloud-infrastructure" className="text-blue-600 hover:underline ml-2">
+                            Cloud
+                        </Link>
+                    </div>
                     <div className="flex space-x-3">
-                        {[FaLinkedin, FaFacebook, FaTwitter, FaPlus].map((Icon, index) => (
-                            <a key={index} href="#" className="bg-blue-600 text-white p-2 rounded">
-                                <Icon size={16} />
-                            </a>
-                        ))}
+                        <Link href="https://www.linkedin.com/" target="_blank" className="bg-blue-600 text-white p-2 rounded">
+                            <FaLinkedin size={16} />
+                        </Link>
+                        <Link href="https://www.facebook.com/" target="_blank" className="bg-blue-600 text-white p-2 rounded">
+                            <FaFacebook size={16} />
+                        </Link>
+                        <Link href="https://twitter.com/" target="_blank" className="bg-blue-600 text-white p-2 rounded">
+                            <FaTwitter size={16} />
+                        </Link>
+                        <Link href="#" className="bg-blue-600 text-white p-2 rounded">
+                            <FaPlus size={16} />
+                        </Link>
                     </div>
                 </div>
             </div>
