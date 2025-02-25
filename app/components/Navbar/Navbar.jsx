@@ -427,7 +427,7 @@ const Navbar = () => {
           <div className="p-2 border bg-purple-500 rounded-full hover:shadow-lg hover:bg-white hover:text-purple-500 transition duration-300">
             <Link
               href="/contact"
-              className="block px-4 text-sm text-white hover:text-gray-600"
+              className=" text-xs px-2  block md:px-4 md:text-sm text-white hover:text-gray-600"
             >
               Contact Us
             </Link>

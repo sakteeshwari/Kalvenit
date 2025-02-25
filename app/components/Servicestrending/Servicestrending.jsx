@@ -11,79 +11,76 @@ const Servicestrending = () => {
       label: "Milkyway to the cloud, When the Dairy goes Digital...",
       link: "/services/trending/milkyway",
       image: "/assets/milkman.jpeg",
-      
     },
     {
       label: "Major Powersport Company Modern Application...",
       link: "/services/trending/powersport-modern",
       image: "/assets/arrowup.png",
-     
     },
     {
       label: "Scaling tech-Innovations: Unleash impact that matters...",
+      link: "/contact",
       image: "/assets/servicesscale.png",
-      link: "/services/trending/tech-innovations",
     },
     {
       label: "Long term customer relationship management...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/customerservices.png", // Replace with your image
-    },
-     
-    {
-      label: "Digital Consulting & Advisory for Organizations of the future...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/digitalservices.jpg", // Replace with your image
+      link: "/services/trending/customer-relationship",
+      image: "/assets/customerservices.png",
     },
     {
-      label: "Are you driving the change or are you driven by the change ?",
-      link: "/services/tech-innovations",
-      image: "/assets/drivingservices.png", // Replace with your image
+      label: "Digital Consulting & Advisory for the future...",
+      link: "/services/trending/digital-consulting",
+      image: "/assets/digitalservices.jpg",
     },
     {
-      label: "Kalven  Intelligent Automation Services",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/automationservices.png", // Replace with your image
+      label: "Are you driving the change or are you driven by the change?",
+      link: "/services/trending/driving-change",
+      image: "/assets/drivingservices.png",
     },
     {
-      label: "Get 'Future-Ready' - Migrate to the Cloud with Kalven ",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/futureservices.png", // Replace with your image
+      label: "Kalven Intelligent Automation Services",
+      link: "/services/trending/intelligent-automation",
+      image: "/assets/automationservices.png",
     },
     {
-      label: "Data Integration and Migration Services @ Kalven ...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/dataintegrationservices.png", // Replace with your image
+      label: "Get 'Future-Ready' - Migrate to the Cloud with Kalven",
+      link: "/services/trending/cloud-migration",
+      image: "/assets/futureservices.png",
+    },
+    {
+      label: "Data Integration and Migration Services @ Kalven...",
+      link: "/services/trending/data-integration",
+      image: "/assets/dataintegrationservices.png",
     },
     {
       label: "KALVEN Artificial Intelligence & Machine Learning Services...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/aiservices.png", // Replace with your image
+      link: "/services/trending/ai-ml",
+      image: "/assets/aiservices.png",
     },
     {
       label: "Create a Dynamic Business with Microsoft Dynamic CRM...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/crmservices.png", // Replace with your image
+      link: "/services/trending/microsoft-crm",
+      image: "/assets/crmservices.png",
     },
     {
-      label: "Reinvent your banking enterprise to prepare for the...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/bankingservices.jpg", // Replace with your image
+      label: "Reinvent banking enterprise to prepare for future...",
+      link: "/services/trending/banking-enterprise",
+      image: "/assets/bankingservices.jpg",
     },
     {
-      label: "Big Data Analytics How to Use Hadoop to Excel in Excel",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/bigdataservices.png", // Replace with your image
+      label: "Big Data Analytics: How to Use Hadoop to Excel in Excel",
+      link: "/services/trending/big-data-analytics",
+      image: "/assets/bigdataservices.png",
     },
     {
-      label: "Accelerate your App migration and mordernization using...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/appmigrateservices.jpg", // Replace with your image
+      label: "Accelerate your App migration and modernization using...",
+      link: "/services/trending/app-migration",
+      image: "/assets/appmigrateservices.jpg",
     },
     {
-      label: "Listen to customer stories on how AI has transformed...",
-      link: "/services/trending/tech-innovations",
-      image: "/assets/customerstoriesservices.png", // Replace with your image
+      label: "Listen to customer stories on how AI has businesses...",
+      link: "/services/trending/ai-customer-stories",
+      image: "/assets/customerstoriesservices.png",
     },
   ];
 
