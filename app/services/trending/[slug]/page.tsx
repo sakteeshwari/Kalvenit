@@ -293,7 +293,7 @@ export default function CaseStudy() {
         <div>
             <Servicespageimg imgSrc={caseStudy.imgSrc} text={caseStudy.title} />
             <div className="bg-gray-100 min-h-screen">
-                <nav className="bg-blue-900 text-white flex justify-around py-4 text-sm font-semibold">
+                <nav className="bg-purple-600 text-white flex justify-around py-4 text-sm font-semibold">
                     {["overview", "challenge", "solution", "impact"].map((section) => (
                         <button
                             key={section}
