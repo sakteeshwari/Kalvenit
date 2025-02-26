@@ -11,6 +11,7 @@ const Solutionsperspective = () => {
       image: "/assets/solutionsperspectives0.png",
       category: "IT",
       author: "Ranga Rajan",
+      link:"/solutions/taxi-app",
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const Solutionsperspective = () => {
       image: "/assets/solutionsperspectives1.png",
       category: "Technology",
       author: "Kumareswar kandimalia",
+      link:"/solutions/healthcare-telemedicine",
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ const Solutionsperspective = () => {
       image: "/assets/solutionsperspectives2.png",
       category: "Automation, Manufacturing",
       author: "Dinesh Gadade",
+      link:"/solutions/digital-shop",
     },
     {
         id: 4,
@@ -32,6 +35,7 @@ const Solutionsperspective = () => {
         image: "/assets/solutionsperspectives3.png",
         category: "Embedded Systems",
         author: "Krenal Chauhan",
+        link:"/coes/iot-embedded/embedded-systems",
       },
       
   ];

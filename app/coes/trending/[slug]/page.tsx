@@ -193,7 +193,7 @@ const caseStudies = {
     ],
     "categories": [
         { "name": "Vendor Risk", "link": "/coes/servicenow/vendor-risk" },
-        { "name": "Legacy Service", "link": "/services/servicenow/legal-service" }
+        { "name": "Legacy Service", "link": "/coes/servicenow/legal-service" }
     ]
 }
 
