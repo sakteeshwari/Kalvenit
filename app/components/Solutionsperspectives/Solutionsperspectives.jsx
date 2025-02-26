@@ -1,5 +1,6 @@
 "use client"
 import React, { useRef } from "react";
+import Link from "next/link";
 import "./Solutionsperspectives.css";
 
 const Solutionsperspective = () => {
@@ -79,27 +80,25 @@ const Solutionsperspective = () => {
       <div
             ref={scrollRef}
             className="flex just gap-4 sm: lg:gap-10  2xl:w-[1200px] m-4 lg:mx-40 overflow-x-hidden scroll-smooth scrollbar-hide"
-          
           >
             {cardData.map((card) => (
-              <div
-                key={card.id}
-                className="flex-shrink-0 bg-purple-100 w-[220px] h-[400px] sm:w-1/2 lg:w-[370px] group"
-              >
-                <div className="bg-white">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="h-40 lg:h-48 object-cover w-64 mb-4 group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                
-                <p className="text-sm px-2 text-purple-500 mb-2">{card.category}</p>
-                <h3 className="text-lg px-2 font-semibold tracking-wide hover:underline cursor-pointer">{card.title}</h3>
-                <p className="text-sm px-2 text-gray-500 mt-2">By, {card.author}</p>
-              </div>
-            ))}
+              <Link key={card.id} href={card.link} passHref>
+                <div className="flex-shrink-0 bg-purple-100 w-[220px] h-[400px] sm:w-1/2 lg:w-[370px] group cursor-pointer">
+                  <div className="bg-white">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="h-40 lg:h-48 object-cover w-64 mb-4 group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
+                  
+                  <p className="text-sm px-2 text-purple-500 mb-2">{card.category}</p>
+                  <h3 className="text-lg px-2 font-semibold tracking-wide hover:underline cursor-pointer">{card.title}</h3>
+                  <p className="text-sm px-2 text-gray-500 mt-2">By, {card.author}</p>
+                </div>
+              </Link>
+            ))}
+      </div>
     </div>
   );
 };

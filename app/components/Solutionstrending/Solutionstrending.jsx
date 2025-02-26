@@ -11,37 +11,37 @@ const Solutionstrending = () => {
     {
       label: "Equipment manufacturer improves operational efficiency...",
       image: "/assets/solutionstrending1.png",
-      link: "/solutions/equipment-manufacturer", // Add respective links
+      link: "/solutions/trending/equipment-manufacturer", // Add respective links
     },
     {
       label: "RPA utilization helps in accelerated financial dispute...",
       image: "/assets/solutionstrending2.png",
-      link: "/solutions/rpa-financial-dispute",
+      link: "/solutions/trending/rpa-financial-dispute",
     },
     {
       label: "Robotic Process Automation/Intelligent Automation...",
       image: "/assets/solutionstrending3.png",
-      link: "/solutions/rpa-intelligent-automation",
+      link: "/solutions/trending/rpa-intelligent-automation",
     },
     {
       label: "e-Commerce Development",
       image: "/assets/solutionstrending4.png",
-      link: "/solutions/ecommerce-development",
+      link: "/solutions/trending/ecommerce-development",
     },
     {
       label: "Healthcare and Telemedicine Solutions",
       image: "/assets/solutionstrending5.png",
-      link: "/solutions/healthcare-telemedicine",
+      link: "/solutions/trending/healthcare-telemedicine",
     },
     {
       label: "Taxi Booking App Development Solution",
       image: "/assets/solutionstrending6.png",
-      link: "/solutions/taxi-booking-app",
+      link: "/solutions/trending/taxi-booking-app",
     },
     {
       label: "KALVEN Intelligent Automation Services",
       image: "/assets/solutionstrending7.png",
-      link: "/solutions/kalven-automation",
+      link: "/solutions/trending/kalven-automation",
     },
   ];
 
@@ -112,13 +112,14 @@ const Solutionstrending = () => {
                 style={{ backgroundImage: `url(${item.image})` }}
               >
                 {/* Content */}
+                <Link href={item.link}>
                 <div className="relative top-32 left-28 lg:top-36 z-10 bg-gray-500 p-4 w-72 text-white">
                   <span className="bg-black text-sm px-2 py-1 rounded">Brochure</span>
                   <h3 className="text-lg sm:text-xl hover:underline font-bold mt-4">{item.label}</h3>
                   
                   {/* Learn More Button with Link */}
                   <div ref={elementRef} className={`py-3 text-lg ${inView ? "slide-up" : ""}`}>
-                    <Link href={item.link}>
+                   
                       <button className="relative flex items-center space-x-2 text-yellow-400 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
                         {/* Border animation */}
                         <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-yellow-400 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
@@ -131,9 +132,11 @@ const Solutionstrending = () => {
                         </div>
                         <span className="z-10">Learn more</span>
                       </button>
-                    </Link>
+                    
                   </div>
+                  
                 </div>
+                </Link>
               </div>
             </div>
           ))}
