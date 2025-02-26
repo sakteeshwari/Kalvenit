@@ -2,6 +2,7 @@
 import React from 'react'
 import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow icon
+import Link from 'next/link';
 
 const Aboutuspagestory = () => {
   const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
@@ -20,7 +21,8 @@ const Aboutuspagestory = () => {
           With steady and planned growth, KALVEN’s vision went global in 2000, with its introduction of offshore operations in Indore, India. Since then, we have grown exponentially and scaled our services globally.
         </p>
       </div>
-      <div ref={elementRef} className={`pb-4 px-6 text-lg slide-up`}>
+     <Link href={"/aboutus"}>
+     <div ref={elementRef} className={`pb-4 px-6 text-lg slide-up`}>
         <button className={`relative flex items-center space-x-2 text-purple-400 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden  ${inView ? "slide-up" : ""
           }`}>
 
@@ -39,6 +41,7 @@ const Aboutuspagestory = () => {
           <span className="z-10">Know more</span>
         </button>
       </div>
+     </Link>
     </div>
   )
 }
