@@ -305,12 +305,12 @@ const Navbar = () => {
     {
       href: "/biznext", label: "BizNeXT",
       subItems: [
-        { href: "/biznext/digital-strategy", label: "Digital Strategy", className:"pl-28" },
-        { href: "/biznext/people-advisory", label: "People Advisory", className:"pl-28" },
-        { href: "/biznext/technology-advisory", label: "Technology Advisory", className:"pl-24" },
-        { href: "/biznext/digital-health", label: "Digital in Health", className:"pl-24" },
-        { href: "/biznext/supply-chain", label: "Supply Chain", className:"pl-24" },
-        { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence", className:"pl-24" }
+        { href: "/biznext/digital-strategy", label: "Digital Strategy", className:"lg:pl-28" },
+        { href: "/biznext/people-advisory", label: "People Advisory", className:"lg:pl-28" },
+        { href: "/biznext/technology-advisory", label: "Technology Advisory", className:"lg:pl-24" },
+        { href: "/biznext/digital-health", label: "Digital in Health", className:"lg:pl-24" },
+        { href: "/biznext/supply-chain", label: "Supply Chain", className:"lg:pl-24" },
+        { href: "/biznext/it-ot-convergence", label: "IT-OT Convergence", className:"lg:pl-24" }
       ],
     },
 
@@ -338,11 +338,11 @@ const Navbar = () => {
       
       href: "/aboutus", label: "About Us",
       subItems: [
-      {href: "/aboutus/blog", label: "Blog", className:"pl-40" },
-      {href: "/aboutus/csr", label: "CSR", className:"pl-40"  },
-      {href: "/aboutus/legal", label: "Legal", className:"pl-40"  },
-      {href: "/aboutus/privacy-policy", label: "Privacy Policy", className:"pl-40"  },
-      {href: "/aboutus/payment-policy", label: "Payment Policy", className:"pl-40"  },
+      {href: "/aboutus/blog", label: "Blog", className:"lg:pl-40" },
+      {href: "/aboutus/csr", label: "CSR", className:"lg:pl-40"  },
+      {href: "/aboutus/legal", label: "Legal", className:"lg:pl-40"  },
+      {href: "/aboutus/privacy-policy", label: "Privacy Policy", className:"lg:pl-40"  },
+      {href: "/aboutus/payment-policy", label: "Payment Policy", className:"lg:pl-40"  },
       
       ]
     },
@@ -506,7 +506,7 @@ const Navbar = () => {
             {/* Submenu */}
             {item.subItems && expandedItems[index] && (
               <div
-                className="absolute top-full left-0 w-full  bg-gray-100 shadow-lg  z-10 overflow-y-auto"
+                className="absolute top-full left-0 h-80 w-full  bg-gray-100 shadow-lg  z-10 overflow-y-auto"
                 style={{ maxHeight: '537px', scrollbarWidth: 'none', }} // Set a maximum height for the submenu
                 onMouseEnter={() => setHoveredIndex(index)} // Keep hover state when cursor enters submenu
                 onMouseLeave={() => setHoveredIndex(null)} // Remove hover state when cursor leaves submenu

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useInView from "../../hooks/useInView";
+import Link from "next/link";
 
 
 const Industriestrending = () => {
@@ -11,45 +12,44 @@ const Industriestrending = () => {
   const content = [
     {
       label: "KALVEN Optimizes ServiceNow Application Landscape for a major...",
-
-      image: "/assets/industriestrending1.png", // Replace with your image
+      image: "/assets/industriestrending1.png",
+      link: "/industries/trending/servicenow-optimization",
     },
     {
       label: "Leading higher Education entity deploys Sustainable IT Model...",
-
-      image: "/assets/industriestrending2.png", // Replace with your image
+      image: "/assets/industriestrending2.png",
+      link: "/industries/trending/sustainable-it-education",
     },
     {
-      label: "Labanon based Hospital goes tech savy ; Automates EMR...",
-
-      image: "/assets/industriestrending3.png", // Replace with your image
+      label: "Labanon based Hospital goes tech savvy; Automates EMR...",
+      image: "/assets/industriestrending3.png",
+      link: "/industries/trending/hospital-emr-automation",
     },
     {
       label: 'KALVEN as a "Digital partner" for food processing and dairy...',
-
-      image: "/assets/industriestrending4.png", // Replace with your image
+      image: "/assets/industriestrending4.png",
+      link: "/industries/trending/digital-partner-food-dairy",
     },
     {
       label: "How KALVEN delivers value to the Education Industries...",
-
-      image: "/assets/industriestrending5.png", // Replace with your image
+      image: "/assets/industriestrending5.png",
+      link: "/industries/trending/education-industry-value",
     },
     {
       label: "Rethink higher Education in a World after Covid-19...",
-
-      image: "/assets/industriestrending6.png", // Replace with your image
+      image: "/assets/industriestrending6.png",
+      link: "/industries/trending/rethink-education-post-covid",
     },
     {
       label: "Digital Learning - A new Normal Way to Up-Skill...",
-
-      image: "/assets/industriestrending7.png", // Replace with your image
+      image: "/assets/industriestrending7.png",
+      link: "/industries/trending/digital-learning-upskill",
     },
     {
       label: "Why 7 of 12 Largest Pharmaceutical Companies SumTotal...",
-
-      image: "/assets/industriestrending8.png", // Replace with your image
+      image: "/assets/industriestrending8.png",
+      link: "/industries/trending/pharma-sumtotal",
     },
-    
     
   ];
 
@@ -136,6 +136,7 @@ const Industriestrending = () => {
               >
 
                 {/* Content */}
+                <Link href={item.link}>
                 <div className="relative top-32 left-28 lg:top-36 z-10 bg-gray-500 p-4 w-72 text-white ">
                   <span className="bg-black text-sm px-2 py-1 rounded">
                     Case study
@@ -160,6 +161,7 @@ const Industriestrending = () => {
                     </button>
                   </div>
                 </div>
+                </Link>
                 {/* Learn More */}
 
               </div>
