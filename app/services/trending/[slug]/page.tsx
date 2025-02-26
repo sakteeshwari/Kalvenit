@@ -75,8 +75,8 @@ const caseStudies = {
             { title: "Innovative business models", description: "leveraging emerging technologies" },
         ],
         categories: [
-            { name: "Digital Strategy", link: "/services/digital-strategy" },
-            { name: "Innovation", link: "/services/innovation" },
+            { name: "Digital Strategy", link: "/services/customer-ecosystem/digital-marketing" },
+            { name: "Kalven", link: "/services/cloud-infrastructure/Kalven-amuraa" },
         ],
     },
 
@@ -93,8 +93,8 @@ const caseStudies = {
             { title: "Competitive edge", description: "by embracing technological advancements" },
         ],
         categories: [
-            { name: "Change Management", link: "/services/change-management" },
-            { name: "Business Transformation", link: "/services/business-transformation" },
+            { name: "Management", link: "/services/gccs/application-management" },
+            { name: "Business Transformation", link: "/services/cloud-infrastructure/intelligent-business" },
         ],
     },
     "intelligent-automation": {
@@ -110,8 +110,8 @@ const caseStudies = {
             { title: "Enhanced scalability", description: "with intelligent workflow optimization" },
         ],
         categories: [
-            { name: "Automation", link: "/services/automation" },
-            { name: "AI & ML", link: "/services/ai-ml" },
+            { name: "Automation", link: "/services/digitalization/ai-automation" },
+            { name: "AI & ML", link: "/services/digitalization/ar-vr-mr" },
         ],
     },
     "cloud-migration": {
@@ -127,8 +127,8 @@ const caseStudies = {
             { title: "Cost optimization", description: "through efficient cloud resource management" },
         ],
         categories: [
-            { name: "Cloud Services", link: "/services/cloud-infrastructure" },
-            { name: "Migration", link: "/services/migration" },
+            { name: "Cloud Services", link: "/services/modernization/cloud-transformation" },
+            { name: "Migration", link: "/services/modernization/application-migration" },
         ],
     },
     "data-integration": {
@@ -144,8 +144,8 @@ const caseStudies = {
             { title: "Seamless data migration", description: "reducing downtime and data loss" },
         ],
         categories: [
-            { name: "Data Management", link: "/services/data-management" },
-            { name: "Integration", link: "/services/integration" },
+            { name: "Data Management", link: "/services/digitalization/data-analytics" },
+            { name: "Integration", link: "/services/intelligence/api-integration" },
         ],
     },
     "ai-ml": {
@@ -161,8 +161,8 @@ const caseStudies = {
             { title: "Personalized user experiences", description: "leveraging AI-powered recommendations" },
         ],
         categories: [
-            { name: "Artificial Intelligence", link: "/services/ai" },
-            { name: "Machine Learning", link: "/services/machine-learning" },
+            { name: "Artificial Intelligence", link: "/services/digitalization/ai-automation" },
+            { name: "Machine Learning", link: "/services/intelligence/cognitive-3d" },
         ],
     },
 
@@ -180,8 +180,8 @@ const caseStudies = {
             { title: "Data-driven decision making", description: "using CRM analytics" },
         ],
         categories: [
-            { name: "CRM", link: "/services/crm" },
-            { name: "Microsoft Dynamics", link: "/services/microsoft-dynamics" },
+            { name: "CRM", link: "/services/customer-ecosystem/crm" },
+            { name: "Microsoft Dynamics", link: "/coes/microsoft/microsoft-dynamics" },
         ],
     },
     "banking-enterprise": {
@@ -197,8 +197,8 @@ const caseStudies = {
             { title: "Faster transactions", description: "with cloud-based infrastructure" },
         ],
         categories: [
-            { name: "Banking & Finance", link: "/services/banking-finance" },
-            { name: "FinTech", link: "/services/fintech" },
+            { name: "Banking & Finance", link: "/coes/servicenow/legal-service" },
+            { name: "FinTech", link: "/coes/servicenow/financial-institute" },
         ],
     },
     "big-data-analytics": {
@@ -214,8 +214,8 @@ const caseStudies = {
             { title: "Faster decision making", description: "with real-time data visualization" },
         ],
         categories: [
-            { name: "Big Data", link: "/services/big-data" },
-            { name: "Analytics", link: "/services/analytics" },
+            { name: "IRM", link: "/coes/servicenow/irm" },
+            { name: "Security", link: "/coes/servicenow/security-operations" },
         ],
     },
     "app-migration": {
@@ -231,8 +231,8 @@ const caseStudies = {
             { title: "Reduced costs", description: "through optimized cloud resource allocation" },
         ],
         categories: [
-            { name: "Application Modernization", link: "/services/app-modernization" },
-            { name: "Cloud Migration", link: "/services/cloud-migration" },
+            { name: "Application Modernization", link: "/services/modernization/application-migration" },
+            { name: "Cloud Migration", link: "/services/modernization/enterprise-mobile" },
         ],
     },
     "ai-customer-stories": {
@@ -248,8 +248,8 @@ const caseStudies = {
             { title: "Better customer experiences", description: "using AI-powered personalization" },
         ],
         categories: [
-            { name: "AI & ML", link: "/services/ai-ml" },
-            { name: "Customer Success", link: "/services/customer-success" },
+            { name: "Blockchain", link: "/services/digitalization/blockchain" },
+            { name: "Customer Success", link: "/services/customer-ecosystem/customer-experience" },
         ],
     }
 }
@@ -292,8 +292,8 @@ export default function CaseStudy() {
     return (
         <div>
             <Servicespageimg imgSrc={caseStudy.imgSrc} text={caseStudy.title} />
-            <div className="bg-gray-100 min-h-screen">
-                <nav className="bg-purple-600 text-white flex justify-around py-4 text-sm font-semibold">
+            <div className="bg-gray-100 relative min-h-screen">
+                <nav className="bg-purple-600 sticky top-[72px] text-white flex justify-around py-4 text-sm font-semibold">
                     {["overview", "challenge", "solution", "impact"].map((section) => (
                         <button
                             key={section}

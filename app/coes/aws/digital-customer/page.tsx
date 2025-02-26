@@ -4,7 +4,7 @@ import Awslayout from "../../../components/LayoutSubpages/Awslayout/Awslayout";
 
 const CloudPage = () => {
     return (
-        <Awslayout imgSrc="/assets/sapimg.png">
+        <Awslayout imgSrc="/assets/awsimg2.png">
             <div className="m-4 bg-white text-black lg:flex justify-between items-center mt-10 lg:px-32 lg:gap-32 lg:text-xl">
            <div>
            <p className="tracking-wide leading-loose">In the fiercely competitive landscape of modern business, nurturing a solid customer relationship reigns supreme. Today’s customers crave personalized, meaningful interactions that demonstrate a deep understanding of their preferences and desires.</p>  
