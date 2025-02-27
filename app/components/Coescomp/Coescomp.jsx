@@ -5,7 +5,6 @@ import "./Coescomp.css";
 import useInView from "../../hooks/useInView";
 import Link from "next/link";
 
-
 const CoEs = () => {
     const data = [
         {
@@ -75,6 +74,7 @@ const CoEs = () => {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [elementRef, inView] = useInView(0.4);
 
     const handleNext = () => {
         if (currentIndex < data.length - 3) {
@@ -88,20 +88,15 @@ const CoEs = () => {
         }
     };
 
-    const [elementRef, inView] = useInView(1); // Each card has its own ref
-
     return (
         <div className="bg-gray-200 p-6 mt-6">
-
-            {/* Title */}
-            <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4 slide-up ${inView ? "slide-up" : ""}`}>CoEs</h1>
-            <h1 className={`text-black text-3xl slide-up ${inView ? "slide-up" : ""}`}>
+            <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4 transition-opacity duration-700 ${inView ? "opacity-100 slide-up" : "opacity-0"}`}>CoEs</h1>
+            <h1 className={`text-black text-3xl transition-opacity duration-700 ${inView ? "opacity-100 slide-up" : "opacity-0"}`}>
                 Change gears <span className="text-red-600 font-semibold">.</span> Accelerate{" "}
                 <span className="text-red-600 font-semibold">.</span> Drive value{" "}
                 <span className="text-red-600 font-semibold">.</span>
             </h1>
             <div className="relative mt-6 xl:mx-10 rounded-lg overflow-hidden mx-auto">
-                {/* Arrow Buttons */}
                 <button
                     onClick={handlePrev}
                     disabled={currentIndex === 0}
@@ -109,7 +104,6 @@ const CoEs = () => {
                 >
                     <ArrowLeft className="w-6 h-6 text-gray-600" />
                 </button>
-
                 <button
                     onClick={handleNext}
                     disabled={currentIndex >= data.length - 3}
@@ -117,8 +111,6 @@ const CoEs = () => {
                 >
                     <ArrowRight className="w-6 h-6 text-gray-600" />
                 </button>
-
-                {/* Cards */}
                 <div className="flex lg:p-10 overflow-hidden">
                     <div
                         className="flex gap-5 transition-transform duration-500"
@@ -126,43 +118,32 @@ const CoEs = () => {
                             transform: `translateX(-${currentIndex * 10}%)`,
                         }}
                     >
-                        {data.map((item, index) => {
-                            const [elementRef, inView] = useInView(0.4); // Each card has its own ref
-                            return (
-                                <div
-                                    key={index}
-
-                                    className={`bg-white lg:rounded-lg p-5 coes-box w-[33.33%] transition-all duration-700 ease-in-out transform `}
-                                >
-                                    <h3 ref={elementRef} className={`text-lg font-bold mb-2 text-black ${inView ? "slide-up" : ""}`}>{item.title}</h3>
-                                    <p ref={elementRef} className={`text-gray-700 ${inView ? "slide-up" : ""}`}>{item.description}</p>
-                                    <div className="p-4 rounded flex flex-col items-center text-center">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="w-20 h-32 mb-4"
-                                        />
-                                    </div>
-                                    <div ref={elementRef} className={`py-3 text-lg ${inView ? "slide-up" : ""}`}>
-                                        <Link href={item.link} passHref>
-                                            <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
-                                                {/* Border animation */}
-                                                <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
-
-                                                {/* Content */}
-                                                <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
-                                                    <ArrowRight className="w-4 h-4" />
-                                                </div>
-                                                <div className="hidden group-hover:block z-10">
-                                                    <span>&rarr;</span>
-                                                </div>
-                                                <span className="z-10">Know more</span>
-                                            </button>
-                                        </Link>
-                                    </div>
+                        {data.map((item, index) => (
+                            <div key={index} className="bg-white lg:rounded-lg p-5 coes-box w-[33.33%] transition-all duration-700 ease-in-out transform">
+                                <h3 className="text-lg font-bold mb-2 text-black">{item.title}</h3>
+                                <p className="text-gray-700">{item.description}</p>
+                                <div className="p-4 rounded flex flex-col items-center text-center">
+                                    <img src={item.img} alt={item.title} className="w-20 h-32 mb-4" />
                                 </div>
-                            );
-                        })}
+                                <div className="py-3 text-lg">
+                                    <Link href={item.link} passHref>
+                                        <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
+                                            {/* Border animation */}
+                                            <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+
+                                            {/* Content */}
+                                            <div className="flex justify-center items-center w-8 h-8 border border-red-500 rounded-full group-hover:hidden z-10">
+                                                <ArrowRight className="w-4 h-4" />
+                                            </div>
+                                            <div className="hidden group-hover:block z-10">
+                                                <span>&rarr;</span>
+                                            </div>
+                                            <span className="z-10">Know more</span>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

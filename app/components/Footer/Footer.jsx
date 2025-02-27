@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Footer.css";
 import Link from "next/link";
 import {
@@ -10,9 +10,30 @@ import {
   FaFacebook,
   FaPinterest,
 } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // Animation triggers when 30% of the footer is visible
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   const quickLinks = [
     { name: "SAP", url: "/coes/sap" },
     { name: "Digitalization", url: "/services/digitalization" },
@@ -21,8 +42,6 @@ const Footer = () => {
     { name: "Cyber Security Services", url: "/services/cyber-security" },
     { name: "IoT", url: "/coes/iot-embedded" },
   ];
-
-  
 
   const socialLinks = [
     { icon: FaTwitter, url: "https://twitter.com", label: "Twitter" },
@@ -33,30 +52,25 @@ const Footer = () => {
     { icon: FaPinterest, url: "https://www.pinterest.com", label: "Pinterest" },
   ];
 
-  const { ref: footerRef, inView: footerVisible } = useInView({
-    threshold: 0.2,
-    triggerOnce: true,
-  });
-
   return (
     <div
-      ref={footerRef}
-      className={`bg-black text-white p-6 cursor-pointer lg:p-32 transition-all duration-700 ease-out ${
-        footerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      ref={ref}
+      className={`bg-black text-white p-6 cursor-pointer lg:p-32 transition-all duration-1000 ease-out transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {/* Quick Links Section */}
-      <Section title="Quick Links">
+      <Section title="Quick Links" isVisible={isVisible}>
         <Grid items={quickLinks} isInternal />
       </Section>
-
-      
 
       <hr className="border-white my-6" />
 
       {/* Footer Logo */}
       <div className="lg:flex items-center gap-5">
-       <Link href={"/"}> <img src="/assets/Kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" /></Link>
+        <Link href={"/"}>
+          <img src="/assets/Kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" />
+        </Link>
         <img src="/assets/footerimg1.png" className="mt-2" alt="Footer Image" />
       </div>
 
@@ -64,40 +78,36 @@ const Footer = () => {
 
       {/* Footer Policies */}
       <div className="text-sm text-center">
-        
-        <p className="leading-loose">
-    <Link href="/aboutus/csr" passHref className="hover:underline">CSR</Link> / 
-    
-    <Link href="/aboutus/legal" passHref className="hover:underline"> Legal</Link> / 
-    <Link href="/aboutus/privacy-policy" passHref className="hover:underline"> Privacy Policy</Link> / 
-    <Link href="/aboutus/payment-policy" passHref className="hover:underline"> Payment Policy</Link> / 
-    <Link href="/aboutus/modern-slavery-act" passHref className="hover:underline"> Modern Slavery Act Policy</Link>
-  </p>
+        <p className={`leading-loose transition-all duration-1000 ease-out transform delay-200 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
+          <Link href="/aboutus/csr" passHref className="hover:underline">CSR</Link> /
+          <Link href="/aboutus/legal" passHref className="hover:underline"> Legal</Link> /
+          <Link href="/aboutus/privacy-policy" passHref className="hover:underline"> Privacy Policy</Link> /
+          <Link href="/aboutus/payment-policy" passHref className="hover:underline"> Payment Policy</Link> /
+          <Link href="/aboutus/modern-slavery-act" passHref className="hover:underline"> Modern Slavery Act Policy</Link>
+        </p>
 
-<p className="text-gray-400">  &copy; {new Date().getFullYear()} KALVEN Software Solutions. All rights reserved.</p>
+        <p className="text-gray-400">© {new Date().getFullYear()} KALVEN Software Solutions. All rights reserved.</p>
+
         {/* Social Media Section */}
         <div className="mt-6">
           <h1 className="text-yellow-400 text-lg mb-4">Follow Us:</h1>
           <div className="flex justify-center gap-6 text-2xl">
-            {socialLinks.map(({ icon: Icon, url, label }) => {
-              const { ref, inView } = useInView({ threshold: 0.4, triggerOnce: true });
-
-              return (
-                <a
-                  ref={ref}
-                  key={label}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className={`hover:text-yellow-400 transition-transform duration-500 ease-out ${
-                    inView ? "slide-up opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                  }`}
-                >
-                  <Icon />
-                </a>
-              );
-            })}
+            {socialLinks.map(({ icon: Icon, url, label }, index) => (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className={`hover:text-yellow-400 transition-transform duration-1000 ease-out transform delay-${index * 100} ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                }`}
+              >
+                <Icon />
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -106,14 +116,11 @@ const Footer = () => {
 };
 
 // Section Component
-const Section = ({ title, children }) => {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
+const Section = ({ title, children, isVisible }) => {
   return (
     <div
-      ref={ref}
-      className={`flex flex-col lg:flex-row lg:items-start lg:gap-7 transition-all duration-700 ease-out ${
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      className={`flex flex-col lg:flex-row lg:items-start lg:gap-7 transition-all duration-1000 ease-out transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       <h1 className="text-yellow-400 lg:text-xl mb-4 lg:mb-0">{title}:</h1>

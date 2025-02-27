@@ -53,7 +53,7 @@ const Serviceimg = () => {
     <div className="mt-6 relative w-full h-[23rem] overflow-hidden">
       {/* Slide container with animation */}
       <motion.div
-        className="flex w-full h-full md:w-2/5 md:gap-5 lg:gap-20"
+        className="flex w-full h-full md:w-2/5 md:gap-5 lg:gap-20 lg:w-96"
         animate={{ x: `${-currentSlide * 100}%` }} // Moves slides left or right
         initial={false}
         transition={{ type: "spring", stiffness: 100, damping: 15 }} // Smooth animation
