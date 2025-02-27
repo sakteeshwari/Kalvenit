@@ -1,29 +1,38 @@
 import { useState } from "react";
-
+import { useRouter } from "next/navigation"; // For navigation in Next.js
+import { useEffect } from "react";
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter(); // Next.js router
+
+  useEffect(() => {
+    console.log(router.pathname); // Ensure it's running inside useEffect
+  }, [router]);
+  // Function to handle search
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
+      setIsSearchOpen(false);
+    }
+  };
 
   return (
     <div className="search-container flex gap-4">
       {/* Search Icon */}
       <img
-  src="/assets/searchbox.png"
-  className="w-7 h-7 mt-2 cursor-pointer"
-  alt="Search"
-  onClick={() => {
-    console.log("Search Icon Clicked!"); // Debugging
-    setIsSearchOpen(true);
-  }}
-/>
-
-     
+        src="/assets/searchbox.png"
+        className="w-7 h-7 mt-2 cursor-pointer"
+        alt="Search"
+        onClick={() => setIsSearchOpen(true)}
+      />
 
       {/* Search Popup */}
       {isSearchOpen && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
           {/* Close Button */}
           <button
-            onClick={() => setIsSearchOpen(false)} // Close popup on click
+            onClick={() => setIsSearchOpen(false)}
             className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full"
           >
             <span className="text-gray-600 text-xl">&times;</span>
@@ -36,8 +45,14 @@ export default function Navbar() {
                 type="text"
                 placeholder="To search, type and hit enter."
                 className="flex-1 outline-none px-4 py-2 text-lg"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
               />
-              <button className="bg-purple-500 text-white px-4 py-2 rounded-full">
+              <button
+                className="bg-purple-500 text-white px-4 py-2 rounded-full"
+                onClick={handleSearch}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -62,15 +77,25 @@ export default function Navbar() {
               Popular Searches
             </h2>
             <div className="grid grid-cols-3 gap-4 text-purple-500">
-              <a href="#">S/4HANA</a>
-              <a href="#">SAP Services</a>
-              <a href="#">IoT & Embedded Systems</a>
-              <a href="#">Cloud</a>
-              <a href="#">Digitalization</a>
-              <a href="#">Application Management Services</a>
-              <a href="#">Artificial Intelligence</a>
-              <a href="#">Data Analytics</a>
-              <a href="#">Cyber Security Services</a>
+              {[
+                "S/4HANA",
+                "SAP Services",
+                "IoT & Embedded Systems",
+                "Cloud",
+                "Digitalization",
+                "Application Management Services",
+                "Artificial Intelligence",
+                "Data Analytics",
+                "Cyber Security Services",
+              ].map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => router.push(`/search?query=${encodeURIComponent(item)}`)}
+                  className="cursor-pointer text-purple-500 hover:underline"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         </div>

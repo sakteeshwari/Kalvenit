@@ -26,13 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <head>
+       
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Kalven IT Group</title>
           <meta name="description" content="Kalven IT Group is a leading Digital Solution Company for Business IT Solutions." />
           <link rel="icon" href="/kalvenlogotitlebar.ico" sizes="32x32" type="image/x-icon" />
-        </head>
+        
         {/* Favicon Link */}
         <link rel="icon" href="/kalvenlogotitlebar.ico" sizes="32/32" className="w-52" type="image/x-icon" />
 
