@@ -26,8 +26,6 @@ const Aboutuspagestory = () => {
         <button className={`relative flex items-center space-x-2 text-purple-400 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden  ${inView ? "slide-up" : ""
           }`}>
 
-
-
           {/* Border animation */}
           <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-purple-400 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
 
