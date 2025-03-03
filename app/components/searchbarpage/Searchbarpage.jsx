@@ -1,15 +1,42 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // For navigation in Next.js
-import { useEffect } from "react";
+import { useRouter } from "next/navigation"; // Next.js router
+
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter(); // Next.js router
+  const [filteredResults, setFilteredResults] = useState([]);
+  const router = useRouter();
 
-  useEffect(() => {
-    console.log(router.pathname); // Ensure it's running inside useEffect
-  }, [router]);
-  // Function to handle search
+  // Popular search items
+  const popularSearches = [
+    "S/4HANA",
+    "SAP Services",
+    "IoT & Embedded Systems",
+    "Cloud",
+    "Digitalization",
+    "Application Management Services",
+    "Artificial Intelligence",
+    "Data Analytics",
+    "Cyber Security Services",
+  ];
+
+  // Function to handle search query change
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Filter results dynamically
+    if (query.trim()) {
+      const filtered = popularSearches.filter((item) =>
+        item.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredResults(filtered);
+    } else {
+      setFilteredResults([]);
+    }
+  };
+
+  // Function to handle search navigation
   const handleSearch = () => {
     if (searchQuery.trim()) {
       router.push(`/search?query=${encodeURIComponent(searchQuery)}`);
@@ -18,7 +45,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="search-container flex gap-4">
+    <div className="search-container flex gap-4 relative">
       {/* Search Icon */}
       <img
         src="/assets/searchbox.png"
@@ -39,14 +66,14 @@ export default function Navbar() {
           </button>
 
           {/* Search Bar */}
-          <div className="w-full max-w-3xl px-4">
-            <div className="flex items-center border border-gray-300 rounded-full p-2 shadow-sm">
+          <div className="w-full max-w-3xl px-4 relative">
+            <div className="flex items-center border border-gray-300 rounded-full p-2 shadow-sm relative">
               <input
                 type="text"
                 placeholder="To search, type and hit enter."
                 className="flex-1 outline-none px-4 py-2 text-lg"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearchChange}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
               />
               <button
@@ -69,35 +96,48 @@ export default function Navbar() {
                 </svg>
               </button>
             </div>
+
+            {/* Dropdown for filtered search results */}
+            {filteredResults.length > 0 && (
+              <div className="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-md shadow-lg">
+                {filteredResults.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      setSearchQuery(item);
+                      handleSearch();
+                    }}
+                    className="cursor-pointer px-4 py-2 hover:bg-gray-100 text-gray-700"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Popular Searches */}
-          <div className="mt-8 text-center">
-            <h2 className="text-lg font-bold text-gray-700 mb-4">
-              Popular Searches
-            </h2>
-            <div className="grid grid-cols-3 gap-4 text-purple-500">
-              {[
-                "S/4HANA",
-                "SAP Services",
-                "IoT & Embedded Systems",
-                "Cloud",
-                "Digitalization",
-                "Application Management Services",
-                "Artificial Intelligence",
-                "Data Analytics",
-                "Cyber Security Services",
-              ].map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => router.push(`/search?query=${encodeURIComponent(item)}`)}
-                  className="cursor-pointer text-purple-500 hover:underline"
-                >
-                  {item}
-                </button>
-              ))}
+          {/* Popular Searches (if no filtering is applied) */}
+          {!searchQuery && (
+            <div className="mt-8 text-center">
+              <h2 className="text-lg font-bold text-gray-700 mb-4">
+                Popular Searches
+              </h2>
+              <div className="grid grid-cols-3 gap-4 text-purple-500">
+                {popularSearches.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSearchQuery(item);
+                      handleSearch();
+                    }}
+                    className="cursor-pointer text-purple-500 hover:underline"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>

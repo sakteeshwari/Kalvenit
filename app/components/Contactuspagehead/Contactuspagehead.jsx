@@ -23,8 +23,9 @@ export default function GlobalHeadquarters() {
           </div>
           <h3 className="text-lg font-semibold">United States</h3>
         </div>
-        <p>7200 Preston Rd, Plano,</p>
-        <p>TX 75024, USA</p>
+        <p>7220 McCallum Blvd,</p>
+        <p>Unit 1109</p>
+        <p>Dallas 75252</p>
 
         <div className="mt-4">
           <h4 className="font-semibold">Fax all employment verification requests to:</h4>
