@@ -20,6 +20,10 @@ export default function Navbar({ menuItems }) {
     { label: "Data Analytics", href: "/services/digitalization/data-analytics" },
     { label: "Internet of Things (IoT)", href: "/services/digitalization/iot" },
     { label: "Blockchain Technology", href: "/coes/block-chain" },
+    { label: "Pega", href: "/coes/pega" },
+    { label: "Tricentis", href: "/coes/tricentis" },
+    { label: "Workday", href: "/coes/workday" },
+
   ];
 
   // Flatten menu for searching and remove duplicates
