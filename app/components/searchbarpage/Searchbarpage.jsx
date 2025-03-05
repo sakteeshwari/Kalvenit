@@ -6,7 +6,23 @@ export default function Navbar({ menuItems }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const router = useRouter();
-
+  const [selectedIndex, setSelectedIndex] = useState(-1); // Track selected item index
+  
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      // Move down but don't exceed the list length
+      setSelectedIndex((prev) => Math.min(prev + 1, filteredResults.length - 1));
+    } else if (e.key === "ArrowUp") {
+      // Move up but don't go below 0
+      setSelectedIndex((prev) => Math.max(prev - 1, 0));
+    } else if (e.key === "Enter") {
+      if (selectedIndex >= 0 && filteredResults[selectedIndex]) {
+        handleSearch(filteredResults[selectedIndex].href); // Navigate to selected item
+      } else {
+        handleSearch(); // If no selection, do normal search
+      }
+    }
+  };
   // Popular search items (add to menuItems dynamically)
   const popularSearches = [
     { label: "NextGen AMS", href: "/services/nextgen-ams" },
@@ -16,9 +32,8 @@ export default function Navbar({ menuItems }) {
     { label: "Cyber Security", href: "/services/cyber-security" },
     { label: "Artificial Intelligence", href: "/services/intelligence" },
     { label: "Data Analytics", href: "/services/digitalization/data-analytics" },
-    { label: "Internet of Things (IoT)", href:"/services/digitalization/iot" },
+    { label: "Internet of Things (IoT)", href: "/services/digitalization/iot" },
     { label: "Blockchain Technology", href: "/coes/block-chain" },
-    
   ];
 
   // Merge popular searches into menuItems
@@ -83,8 +98,8 @@ export default function Navbar({ menuItems }) {
             <span className="text-gray-600 text-xl">&times;</span>
           </button>
 
-          <div className="w-full max-w-3xl px-4 relative">
-            
+          <div className="w-full  max-w-3xl px-4 relative">
+
             <div className="flex  items-center border border-gray-300 rounded-full p-2 shadow-sm relative">
               <input
                 type="text"
@@ -92,7 +107,7 @@ export default function Navbar({ menuItems }) {
                 className="flex-1 outline-none px-4 lg:py-2 text-lg"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                onKeyDown={handleKeyDown}
               />
               <button
                 className="bg-purple-500 text-white px-4 py-2 rounded-full"
@@ -121,7 +136,8 @@ export default function Navbar({ menuItems }) {
                   <div
                     key={index}
                     onClick={() => handleSearch(item.href)}
-                    className="cursor-pointer px-4 py-2 hover:bg-gray-100 text-gray-700"
+                    className={`cursor-pointer px-4 py-2 ${index === selectedIndex ? "bg-gray-200" : "hover:bg-gray-100"
+                      } text-gray-700`}
                   >
                     {item.label}
                   </div>
@@ -130,7 +146,7 @@ export default function Navbar({ menuItems }) {
             )}
           </div>
 
-          {!searchQuery && (
+         
             <div className="mt-8 text-center">
               <h2 className="text-lg font-bold text-gray-700 mb-4">Popular Searches</h2>
               <div className="grid grid-cols-3 gap-4 text-purple-500">
@@ -145,7 +161,7 @@ export default function Navbar({ menuItems }) {
                 ))}
               </div>
             </div>
-          )}
+         
         </div>
       )}
     </div>
