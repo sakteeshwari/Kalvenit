@@ -1,0 +1,45 @@
+.nav-dropdown{
+    display: none;
+}
+
+.navsearch{
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+    outline: none;  
+}
+
+.select-search{
+    max-width: 50px;
+    outline: none;
+    background-color:rgb(221, 215, 215);
+    height: 42px;
+    border: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: gray;
+    cursor: pointer;
+    
+}
+body{
+    position: relative;
+}
+nav{
+    position: relative;
+}
+.sub-menu{
+    position: absolute;
+    top: 21px;
+    right: -100%;
+    left: -100%;
+    width: fit-content;
+}
+.navsearch{
+    border: 1px solid ;
+    border-color: rgb(16, 1, 28);
+    cursor: pointer;
+    
+}
+
+
+

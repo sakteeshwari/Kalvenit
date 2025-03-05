@@ -1,78 +1,10 @@
 "use client";
 
 
-
-import { useState, useEffect } from "react";
 import "./Navbar.css"
-import { usePathname } from "next/navigation"; // Import usePathname to track route changes
 import Navbardesign from "../Navbardesign/Navbardesign";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [expandedItems, setExpandedItems] = useState({}); // Track expanded menu items
-  const [hoveredIndex, setHoveredIndex] = useState(null); // Track hovered item index
-  const [showSubMenu, setShowSubMenu] = useState(false);
-  const pathname = usePathname(); // Detect route changes
- 
-
- 
-  const [activePage, setActivePage] = useState("");
-
-  useEffect(() => {
-    setActivePage(pathname); // Update activePage based on current route
-  }, [pathname]);
-
-  const toggleMenu = (index) => {
-    setExpandedItems((prev) => {
-      const newState = {};
-      menuItems.forEach((_, idx) => {
-        newState[idx] = idx === index ? !prev[idx] : false;
-      });
-      return newState;
-    });
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleMouseEnter = (index) => {
-    setHoveredIndex(index);
-    setShowSubMenu(true); // Keep submenu visible
-  };
-
-  const handleMouseLeave = () => {
-    setShowSubMenu(false);
-    setHoveredIndex(null); // Reset hovered index
-  };
-
-  const toggleItem = (index) => {
-    setExpandedItems((prev) => {
-      // If clicking the already open submenu, close it
-      if (prev[index]) {
-        return {}; // Close all submenus
-      } else {
-        return { [index]: true }; // Open only the clicked submenu
-      }
-    });
-  };
-  
-
-  // Close the submenu when navigating to a different page
-  useEffect(() => {
-    setHoveredIndex(null);
-    setShowSubMenu(false);
-  }, [pathname]); // Runs whenever the URL path changes
-
-
-
-  // Automatically close mobile menu on route change
-  useEffect(() => {
-    setIsMenuOpen(false); // Close the menu when navigating to another page
-    setExpandedItems({}); // Close all submenus
-  }, [pathname]); // Runs whenever the URL path changes
-
-
-  
-
-
   const menuItems = [
     {
       href: "/", label: "Home",
@@ -352,23 +284,11 @@ const Navbar = () => {
   ];
 
   return (
-   <div>
-    <Navbardesign menuItems={menuItems}
-    isMenuOpen={isMenuOpen}
-    setIsMenuOpen={setIsMenuOpen}
-    expandedItems={expandedItems}
-    setExpandedItems={setExpandedItems}
-    hoveredIndex={hoveredIndex}
-    setHoveredIndex={setHoveredIndex}
-    showSubMenu={showSubMenu}
-    setShowSubMenu={setShowSubMenu}
-    toggleMenu={toggleMenu}
-    handleMouseEnter={handleMouseEnter}
-    handleMouseLeave={handleMouseLeave}
-    toggleItem={toggleItem}
-    activePage={activePage}
-    ></Navbardesign>
-   </div>
+  <>
+  <Navbardesign menuItems={menuItems}></Navbardesign>
+  </>
+    
+   
   );
 };
 

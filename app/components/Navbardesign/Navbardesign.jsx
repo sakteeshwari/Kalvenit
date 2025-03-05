@@ -3,19 +3,81 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion';
 import Searchbarpage from '../../components/searchbarpage/Searchbarpage'; // Adjust the path as necessary
+import { usePathname } from "next/navigation"; // Import usePathname to track route changes
+import { useState, useEffect } from "react";
+import "./Navbar.css"
 
 const Navbardesign = ({menuItems,
-    isMenuOpen,
-    toggleMenu,
-    expandedItems,
-    toggleItem,
-    hoveredIndex,
-    handleMouseEnter,
-    handleMouseLeave,
-    showSubMenu,
-    activePage}) => {
+    }) => {
+
+
+
+
+      const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expandedItems, setExpandedItems] = useState({}); // Track expanded menu items
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Track hovered item index
+  const [showSubMenu, setShowSubMenu] = useState(false);
+  const pathname = usePathname(); // Detect route changes
+ 
+
+ 
+  const [activePage, setActivePage] = useState("");
+
+  useEffect(() => {
+    setActivePage(pathname); // Update activePage based on current route
+  }, [pathname]);
+
+  const toggleMenu = (index) => {
+    setExpandedItems((prev) => {
+      const newState = {};
+      menuItems.forEach((_, idx) => {
+        newState[idx] = idx === index ? !prev[idx] : false;
+      });
+      return newState;
+    });
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+    setShowSubMenu(true); // Keep submenu visible
+  };
+
+  const handleMouseLeave = () => {
+    setShowSubMenu(false);
+    setHoveredIndex(null); // Reset hovered index
+  };
+
+  const toggleItem = (index) => {
+    setExpandedItems((prev) => {
+      // If clicking the already open submenu, close it
+      if (prev[index]) {
+        return {}; // Close all submenus
+      } else {
+        return { [index]: true }; // Open only the clicked submenu
+      }
+    });
+  };
+  
+
+  // Close the submenu when navigating to a different page
+  useEffect(() => {
+    setHoveredIndex(null);
+    setShowSubMenu(false);
+  }, [pathname]); // Runs whenever the URL path changes
+
+
+
+  // Automatically close mobile menu on route change
+  useEffect(() => {
+    setIsMenuOpen(false); // Close the menu when navigating to another page
+    setExpandedItems({}); // Close all submenus
+  }, [pathname]); // Runs whenever the URL path changes
+
+
+  
   return (
-    <div>
+  
        <nav className="flex px-2 sticky top-0 z-30 lg:px-4 2xl:px-6 bg-white shadow-lg ">
       <div className="container  mx-auto flex items-center justify-between ">
         {/* Logo */}
@@ -86,7 +148,7 @@ const Navbardesign = ({menuItems,
 
         {/* Search and Contact */}
         <div className="search-container flex gap-4">
-          <Searchbarpage></Searchbarpage>
+          <Searchbarpage menuItems={menuItems}></Searchbarpage>
           <div className="p-2 border bg-purple-500 rounded-full hover:shadow-lg hover:bg-white hover:text-purple-500 transition duration-300">
             <Link
               href="/contact"
@@ -191,7 +253,7 @@ const Navbardesign = ({menuItems,
         ))}
       </div>
     </nav>
-    </div>
+    
   )
 }
 
