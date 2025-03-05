@@ -105,7 +105,7 @@ const Navbardesign = ({menuItems,
               {/* Parent Menu Item */}
               <Link href={item.href} className={`px-4 py-7 ${
                 activePage === item.href
-                  ? "text-gray-400 cursor-not-allowed"
+                  ? "text-gray-400 "
                   : "hover:text-purple-700"
               }`}
               onClick={(e) => activePage === item.href && e.preventDefault()} >
