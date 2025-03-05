@@ -183,13 +183,13 @@ const Navbar = () => {
         { href: "/coes/qad/qad-cloud", label: "Cloud Services" },
         { href: "/coes/qad/qad-dataai", label: "QAD Data and AI Services" },
         { href: "/coes/qad/business-consult", label: "Business Consulting" },
-        { href: "/coes/qad-support", label: "Support Services" },
+        { href: "/coes/qad/qad-support", label: "Support Services" },
 
         { href: "/coes/mobility", label: "Mobility", className: "font-bold text-black" },
-        { href: "/coes/app-dev", label: "Application Development Services" },
-        { href: "/coes/codiant", label: "Codiant" },
-        { href: "/coes/implementation", label: "Implementation and Support Services" },
-        { href: "/coes/intelligent", label: "Intelligent Mobility" },
+        { href: "/coes/mobility/app-dev", label: "Application Development Services" },
+        { href: "/coes/mobility/codiant", label: "Codiant" },
+        { href: "/coes/mobility/implementation", label: "Implementation and Support Services" },
+        { href: "/coes/mobility/intelligent", label: "Intelligent Mobility" },
 
         { href: "/coes/pega", label: "Pega", className: "font-bold text-black" },
 
