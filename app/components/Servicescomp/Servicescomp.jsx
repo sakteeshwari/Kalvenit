@@ -8,7 +8,14 @@ const Services = () => {
   const [subtitleRef, subtitleInView] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (
-    <div className="bg-white p-4 mt-6">
+    <div
+    className="p-4 py-6"
+    style={{
+      backgroundImage: "url('/assets/servicesbg.png')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
       {/* Service title with animation */}
       <h1
         ref={titleRef}

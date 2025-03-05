@@ -89,7 +89,7 @@ const CoEs = () => {
     };
 
     return (
-        <div className="bg-gray-200 p-6 mt-6">
+        <div className="bg-gray-200 p-6 pt-6">
             <h1 ref={elementRef} className={`text-purple-900 text-2xl font-semibold mb-4 transition-opacity duration-700 ${inView ? "opacity-100 slide-up" : "opacity-0"}`}>CoEs</h1>
             <h1 className={`text-black text-3xl transition-opacity duration-700 ${inView ? "opacity-100 slide-up" : "opacity-0"}`}>
                 Change gears <span className="text-red-600 font-semibold">.</span> Accelerate{" "}

@@ -28,13 +28,13 @@ export default function GlobalHeadquarters() {
         <p>Dallas 75252</p>
 
         <div className="mt-4">
-          <h4 className="font-semibold">Fax all employment verification requests to:</h4>
+          <h4 className="font-semibold">WhatsApp all employment verification requests to:</h4>
           <p className="text-purple-600">+1 3322012159</p>
         </div>
 
         <div className="mt-4">
           <h4 className="font-semibold">Sales & Marketing phone:</h4>
-          <p className="text-purple-600">309-755-0433</p>
+          <p className="text-purple-600">+1 309-755-0433</p>
         </div>
       </div>
     </div>

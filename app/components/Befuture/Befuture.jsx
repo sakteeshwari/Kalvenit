@@ -11,7 +11,7 @@ const Befuture = () => {
       images: "/assets/microdynamics.png",
       title: "Microsoft Dynamics 365",
       description:
-        "Experience better customer retention capacity with Microsoft Dynamics 365",
+        "Experience better customer retention  with Microsoft Dynamics 365",
       link: "/coes/microsoft/microsoft-dynamics",
     },
     {

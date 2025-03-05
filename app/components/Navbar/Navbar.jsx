@@ -8,10 +8,8 @@ const Navbar = () => {
   const menuItems = [
     {
       href: "/", label: "Home",
-      subItems: [
-        { href: "/", label: "Home" },
-
-      ],
+      
+      
     },
     {
       href: "/services",
