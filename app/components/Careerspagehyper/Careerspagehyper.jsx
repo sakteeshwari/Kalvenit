@@ -2,6 +2,7 @@
 import React from 'react'
 import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow icon
+import Link from "next/link";
 
 const Careerspagehyper = () => {
 
@@ -32,7 +33,7 @@ const Careerspagehyper = () => {
                 <p className="mt-6">
                     We leverage career-oriented skilling models that maximize the use of technology for continuous learning, unlearning, and relearning at a rapid pace and scale.
                 </p>
-
+                <Link href={"/services/nextgen-ams"}>
                 <div ref={elementRef} className={`pt-7 text-lg ${inView ? "slide-up" : ""}`}>
                     <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
                         {/* Border animation */}
@@ -45,9 +46,11 @@ const Careerspagehyper = () => {
                         <div className="hidden group-hover:block z-10">
                             <span>&rarr;</span>
                         </div>
+                      
                         <span className="z-10">Join Us</span>
                     </button>
                 </div>
+                </Link>
             </div>
         </div>
     )

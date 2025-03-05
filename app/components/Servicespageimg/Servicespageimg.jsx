@@ -36,15 +36,18 @@ const Servicespageimg = ({ imgSrc,text }) => {  // Accept imgSrc as a prop
       {/* Content Wrapper */}
       <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-6 lg:p-20 z-20">
         <div className="text-left transition-opacity duration-1000 opacity-100">
-          <motion.h2
-            className="text-3xl absolute top-10 w-[300px] left-5 sm:text-5xl sm:w-[500px] sm:leading-normal lg:text-7xl lg:w-[800px] lg:left-20 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-white leading-normal lg:leading-snug tracking-wid z-20 text-shadow"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 4, ease: "easeOut" }}
-          >
-           {text}
-          </motion.h2>
-        </div>
+  <motion.h2
+    className="text-3xl absolute top-10 w-[300px] left-5 sm:text-5xl sm:w-[500px] sm:leading-normal lg:text-7xl lg:w-[800px] lg:left-20 
+    font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-white leading-normal lg:leading-snug 
+    tracking-wide z-20 text-shadow font-[Poppins]"
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 4, ease: "easeOut" }}
+  >
+    {text}
+  </motion.h2>
+</div>
+
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 import React from 'react'
 import useInView from "../../hooks/useInView"; // Assuming your custom hook is in a separate file
 import { ArrowRight } from "lucide-react"; // Using lucide-react for the arrow icon
-
+import Link from "next/link";
 
 const Careerspagecommunity = () => {
     const [elementRef, inView] = useInView(0.4); // Trigger when 40% of the element is in view
@@ -14,7 +14,8 @@ const Careerspagecommunity = () => {
                 <p className="mt-4 text-gray-600 lg:text-xl">
                 Stay connected by joining our network! Enter your e-mail and tell us a bit about yourself, and well keep you informed about upcoming events and opportunities that match your interests.
                 </p>
-                <div ref={elementRef} className={`pt-7 text-lg ${inView ? "slide-up" : ""}`}>
+               <Link href={"/coes/enterprise-testing"}>
+               <div ref={elementRef} className={`pt-7 text-lg ${inView ? "slide-up" : ""}`}>
                     <button className="relative flex items-center space-x-2 text-red-500 font-medium group hover:rounded-3xl hover:px-3 hover:py-1 transition-all duration-300 overflow-hidden">
                         {/* Border animation */}
                         <div className="absolute inset-0 w-0 overflow-hidden group-hover:w-full h-full bg-transparent border border-red-500 rounded-3xl transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100"></div>
@@ -29,6 +30,7 @@ const Careerspagecommunity = () => {
                         <span className="z-10">Join Now</span>
                     </button>
                 </div>
+                </Link>
             </div>
 
         </div>
