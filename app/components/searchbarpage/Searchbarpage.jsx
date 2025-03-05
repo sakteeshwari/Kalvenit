@@ -1,29 +1,15 @@
+"use client"
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Next.js router
+import { useRouter } from "next/navigation";
 
 export default function Navbar({ menuItems }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
   const router = useRouter();
-  const [selectedIndex, setSelectedIndex] = useState(-1); // Track selected item index
-  
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowDown") {
-      // Move down but don't exceed the list length
-      setSelectedIndex((prev) => Math.min(prev + 1, filteredResults.length - 1));
-    } else if (e.key === "ArrowUp") {
-      // Move up but don't go below 0
-      setSelectedIndex((prev) => Math.max(prev - 1, 0));
-    } else if (e.key === "Enter") {
-      if (selectedIndex >= 0 && filteredResults[selectedIndex]) {
-        handleSearch(filteredResults[selectedIndex].href); // Navigate to selected item
-      } else {
-        handleSearch(); // If no selection, do normal search
-      }
-    }
-  };
-  // Popular search items (add to menuItems dynamically)
+
+  // Popular searches
   const popularSearches = [
     { label: "NextGen AMS", href: "/services/nextgen-ams" },
     { label: "S/4HANA", href: "/coes/sap/sap-s4hana" },
@@ -36,41 +22,26 @@ export default function Navbar({ menuItems }) {
     { label: "Blockchain Technology", href: "/coes/block-chain" },
   ];
 
-  // Merge popular searches into menuItems
-  const mergedMenuItems = [...menuItems, ...popularSearches];
+  // Flatten menu for searching and remove duplicates
+  const allSearchableItems = Array.from(
+    new Map(
+      [...menuItems, ...popularSearches].flatMap((item) =>
+        item.subItems ? [item, ...item.subItems] : item
+      ).map((item) => [item.href, item])
+    ).values()
+  );
 
-  // Extract menu items and sub-items for searching
-  const extractMenuItems = (items) => {
-    let flatMenu = [];
-    items.forEach((item) => {
-      flatMenu.push({ label: item.label, href: item.href });
-      if (item.subItems) {
-        item.subItems.forEach((sub) => {
-          flatMenu.push({ label: sub.label, href: sub.href });
-        });
-      }
-    });
-    return flatMenu;
-  };
-
-  const allSearchableItems = extractMenuItems(mergedMenuItems);
-
-  // Function to handle search query change
+  // Handle input change
   const handleSearchChange = (e) => {
-    const query = e.target.value;
+    const query = e.target.value.toLowerCase();
     setSearchQuery(query);
-
-    if (query.trim()) {
-      const filtered = allSearchableItems.filter((item) =>
-        item.label.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredResults(filtered);
-    } else {
-      setFilteredResults([]);
-    }
+    setFilteredResults(
+      query ? allSearchableItems.filter((item) => item.label.toLowerCase().includes(query)) : []
+    );
+    setSelectedIndex(-1); // Reset selection
   };
 
-  // Function to handle search navigation
+  // Handle search action
   const handleSearch = (href) => {
     if (href) {
       router.push(href);
@@ -80,8 +51,19 @@ export default function Navbar({ menuItems }) {
     setIsSearchOpen(false);
   };
 
+  // Handle keyboard navigation
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowDown") {
+      setSelectedIndex((prev) => Math.min(prev + 1, filteredResults.length - 1));
+    } else if (e.key === "ArrowUp") {
+      setSelectedIndex((prev) => Math.max(prev - 1, 0));
+    } else if (e.key === "Enter" && selectedIndex >= 0) {
+      handleSearch(filteredResults[selectedIndex].href);
+    }
+  };
+
   return (
-    <div className="search-container flex gap-4 relative">
+    <div className="relative flex gap-4">
       <img
         src="/assets/searchbox.png"
         className="w-7 h-7 mt-2 cursor-pointer"
@@ -91,6 +73,7 @@ export default function Navbar({ menuItems }) {
 
       {isSearchOpen && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
+          {/* Close Button */}
           <button
             onClick={() => setIsSearchOpen(false)}
             className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full"
@@ -98,9 +81,9 @@ export default function Navbar({ menuItems }) {
             <span className="text-gray-600 text-xl">&times;</span>
           </button>
 
-          <div className="w-full  max-w-3xl px-4 relative">
-
-            <div className="flex  items-center border border-gray-300 rounded-full p-2 shadow-sm relative">
+          {/* Search Box */}
+          <div className="w-full max-w-3xl px-4 relative">
+            <div className="flex items-center border border-gray-300 rounded-full p-2 shadow-sm relative">
               <input
                 type="text"
                 placeholder="To search, type and hit enter."
@@ -108,11 +91,9 @@ export default function Navbar({ menuItems }) {
                 value={searchQuery}
                 onChange={handleSearchChange}
                 onKeyDown={handleKeyDown}
+                autoFocus
               />
-              <button
-                className="bg-purple-500 text-white px-4 py-2 rounded-full"
-                onClick={() => handleSearch()}
-              >
+              <button className="bg-purple-500 text-white px-4 py-2 rounded-full" onClick={() => handleSearch()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -130,14 +111,14 @@ export default function Navbar({ menuItems }) {
               </button>
             </div>
 
+            {/* Search Results */}
             {filteredResults.length > 0 && (
               <div className="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-md shadow-lg">
                 {filteredResults.map((item, index) => (
                   <div
-                    key={index}
+                    key={`${item.href}-${index}`}
                     onClick={() => handleSearch(item.href)}
-                    className={`cursor-pointer px-4 py-2 ${index === selectedIndex ? "bg-gray-200" : "hover:bg-gray-100"
-                      } text-gray-700`}
+                    className={`cursor-pointer px-4 py-2 ${index === selectedIndex ? "bg-gray-200" : "hover:bg-gray-100"} text-gray-700`}
                   >
                     {item.label}
                   </div>
@@ -146,22 +127,21 @@ export default function Navbar({ menuItems }) {
             )}
           </div>
 
-         
-            <div className="mt-8 text-center">
-              <h2 className="text-lg font-bold text-gray-700 mb-4">Popular Searches</h2>
-              <div className="grid grid-cols-3 gap-4 text-purple-500">
-                {popularSearches.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleSearch(item.href)}
-                    className="cursor-pointer text-purple-500 hover:underline"
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
+          {/* Popular Searches */}
+          <div className="mt-8 text-center">
+            <h2 className="text-lg font-bold text-gray-700 mb-4">Popular Searches</h2>
+            <div className="grid grid-cols-3 gap-4">
+              {popularSearches.map((item, index) => (
+                <button
+                  key={`${item.href}-${index}`}
+                  onClick={() => handleSearch(item.href)}
+                  className="text-purple-500 hover:underline"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
-         
+          </div>
         </div>
       )}
     </div>
