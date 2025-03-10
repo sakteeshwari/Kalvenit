@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from "lucide-react";
-
+import Link from "next/link";
 
 
 const data = [
@@ -9,18 +9,21 @@ const data = [
         image: "/assets/biznextoffering1.png",
         title: "Strategy and Industry Transformation Advisory",
         description: "Deep industry experience and business knowledge to help customers develop strategy roadmaps to succeed.",
+        link: "/biznext/people-advisory",
     },
     {
         id: 2,
         image: "/assets/biznextoffering2.png",
         title: "Technology Advisory",
         description: "Assists customers to achieve their goals and objectives while generating maximum value for their business.",
+        link: "/biznext/technology-advisory",
     },
     {
         id: 3,
         image: "/assets/biznextoffering3.png",
-        title: "Innovate with Us",
+        title: "Digital Strategy",
         description: "Drive engagement, productivity, and ability to bring together people, process, and technology and maximize business value while transforming themselves digitally.",
+        link: "/biznext/digital-strategy",
     },
 ];
 
@@ -45,6 +48,7 @@ const Biznextpageoffering = () => {
 
                       {/* Know More Button - Fixed Hover Effect */}
                       <div  className={`py-3 text-lg `}>
+                      <Link href={item.link} legacyBehavior>
                           <button className="relative flex items-center space-x-2 text-yellow-400 font-medium transition-all duration-300 hover:bg-yellow-500 hover:text-black px-4 py-1 rounded-3xl overflow-hidden border border-yellow-400">
                               {/* Arrow (Hidden by default, shows on hover) */}
                               <div className="transform transition-transform duration-500 ease-in-out group-hover:translate-x-1">
@@ -54,6 +58,7 @@ const Biznextpageoffering = () => {
                               {/* Button Text */}
                               <span className="transition-all duration-500 ease-in-out">Know More</span>
                           </button>
+                          </Link>
                       </div>
                   </div>
               </div>
