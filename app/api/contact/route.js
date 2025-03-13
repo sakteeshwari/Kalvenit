@@ -10,18 +10,22 @@ export async function POST(req) {
             return NextResponse.json({ message: "All fields are required" }, { status: 400 });
         }
 
+        // Debugging log: Print environment variables
+        console.log("🔍 EMAIL_USER:", process.env.EMAIL_USER ? "Loaded ✅" : "❌ Not Found");
+        console.log("🔍 EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded ✅" : "❌ Not Found");
+
         // Check environment variables
         if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             console.error("❌ Missing Email Configuration in Environment Variables");
             return NextResponse.json({ message: "Email configuration is missing" }, { status: 500 });
         }
 
-        // Create a Nodemailer transporter for Gmail
+        // Create a Nodemailer transporter
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS, // Use App Password instead of Gmail password
+                pass: process.env.EMAIL_PASS, // Use an App Password, not a regular Gmail password
             },
         });
 
