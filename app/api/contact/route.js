@@ -1,43 +1,43 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-require('dotenv').config();
 
 export async function POST(req) {
     try {
         const { firstName, lastName, email, contactNo, companyName, projectDetails } = await req.json();
 
-        // Check if environment variables exist
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.EMAIL_HOST || !process.env.EMAIL_PORT) {
+        // Validate required fields
+        if (!firstName || !lastName || !email || !contactNo || !companyName || !projectDetails) {
+            return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+        }
+
+        // Check environment variables
+        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
             console.error("❌ Missing Email Configuration in Environment Variables");
             return NextResponse.json({ message: "Email configuration is missing" }, { status: 500 });
         }
 
-        // Create a Nodemailer transporter
+        // Create a Nodemailer transporter for Gmail
         const transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: Number(process.env.EMAIL_PORT), // Convert port to number
-            secure: process.env.EMAIL_PORT === "465", // Use `true` for port 465 (SSL), `false` for 587 (TLS)
+            service: "gmail",
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-            tls: {
-                rejectUnauthorized: false, // Prevents TLS errors in some cases
+                pass: process.env.EMAIL_PASS, // Use App Password instead of Gmail password
             },
         });
 
-        // Verify connection configuration
-        await transporter.verify()
-            .then(() => console.log("✅ SMTP Server is Ready"))
-            .catch(err => {
-                console.error("❌ SMTP Connection Error:", err);
-                return NextResponse.json({ message: "SMTP connection failed", error: err.message }, { status: 500 });
-            });
+        // Verify SMTP connection
+        try {
+            await transporter.verify();
+            console.log("✅ SMTP Server is Ready");
+        } catch (err) {
+            console.error("❌ SMTP Connection Error:", err);
+            return NextResponse.json({ message: "SMTP connection failed", error: err.message }, { status: 500 });
+        }
 
         // Email content
         const mailOptions = {
             from: `"Kalven IT Contact Form" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER, // Your email to receive messages
+            to: process.env.EMAIL_USER, // Receiving email
             subject: "New Contact Form Submission",
             text: `
                 Name: ${firstName} ${lastName}
