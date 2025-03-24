@@ -27,10 +27,7 @@ export default function GlobalHeadquarters() {
         <p>Unit 1109</p>
         <p>Dallas 75252</p>
 
-        <div className="mt-4">
-          <h4 className="font-semibold">WhatsApp all employment verification requests to:</h4>
-          <p className="text-purple-600">+1 3322012159</p>
-        </div>
+       
 
         <div className="mt-4">
           <h4 className="font-semibold">Sales & Marketing phone:</h4>

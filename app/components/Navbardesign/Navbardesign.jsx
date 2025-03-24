@@ -9,11 +9,8 @@ import "./Navbar.css"
 
 const Navbardesign = ({menuItems,
     }) => {
-
-
-
-
-      const [isMenuOpen, setIsMenuOpen] = useState(false);
+      
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState({}); // Track expanded menu items
   const [hoveredIndex, setHoveredIndex] = useState(null); // Track hovered item index
   const [showSubMenu, setShowSubMenu] = useState(false);
