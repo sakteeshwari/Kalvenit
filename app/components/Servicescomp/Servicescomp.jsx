@@ -9,13 +9,8 @@ const Services = () => {
 
   return (
     <div
-    className="p-4 py-6"
-    style={{
-      backgroundImage: "url('/assets/servicesbg.png')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-  >
+    className="p-4 py-6 bg-white"
+   >
       {/* Service title with animation */}
       <h1
         ref={titleRef}

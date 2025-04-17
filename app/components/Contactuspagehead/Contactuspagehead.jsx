@@ -30,7 +30,7 @@ export default function GlobalHeadquarters() {
           <h4>
             <b>Contact No:  &nbsp; </b>
             <a href="tel:+13097550433" className="text-purple-600 hover:underline">
-              +1 309-755-0433
+            +1 3048143494
             </a>
           </h4>
           <p className="mt-4">
