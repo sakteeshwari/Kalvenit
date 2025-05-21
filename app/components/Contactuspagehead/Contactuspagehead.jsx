@@ -23,8 +23,8 @@ export default function GlobalHeadquarters() {
           </div>
           <h3 className="text-lg font-semibold">United States</h3>
         </div>
-        <p><b>Address:</b> &nbsp; 5900 Balcones Drive STE 100</p>
-        <p>Austin, TX 78731</p>
+        <p><b>Address:</b> &nbsp; 3010 LBJ Freeway, Suite 1200</p>
+        <p>Dallas, Texas 75234</p>
 
         <div className="mt-4">
           <h4>
