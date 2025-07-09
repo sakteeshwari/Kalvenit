@@ -10,11 +10,19 @@ import {
   FaFacebook,
   FaPinterest,
 } from "react-icons/fa";
+<<<<<<< HEAD
  
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
  
+=======
+
+const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,18 +30,30 @@ const Footer = () => {
       },
       { threshold: 0.3 } // Animation triggers when 30% of the footer is visible
     );
+<<<<<<< HEAD
  
     if (ref.current) {
       observer.observe(ref.current);
     }
  
+=======
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
       }
     };
   }, []);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
   const quickLinks = [
     { name: "SAP", url: "/coes/sap" },
     { name: "Digitalization", url: "/services/digitalization" },
@@ -42,7 +62,11 @@ const Footer = () => {
     { name: "Cyber Security Services", url: "/services/cyber-security" },
     { name: "IoT", url: "/coes/iot-embedded" },
   ];
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
   const socialLinks = [
     { icon: FaTwitter, url: "https://twitter.com", label: "Twitter" },
     { icon: FaLinkedin, url: "https://www.linkedin.com", label: "LinkedIn" },
@@ -51,6 +75,7 @@ const Footer = () => {
     { icon: FaFacebook, url: "https://www.facebook.com", label: "Facebook" },
     { icon: FaPinterest, url: "https://www.pinterest.com", label: "Pinterest" },
   ];
+<<<<<<< HEAD
  
   return (
     <div
@@ -72,17 +97,41 @@ const Footer = () => {
  
       <hr className="border-white my-6" />
  
+=======
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-black text-white p-6 cursor-pointer lg:p-32 transition-all duration-1000 ease-out transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
+      {/* Quick Links Section */}
+      <Section title="Quick Links" isVisible={isVisible}>
+        <Grid items={quickLinks} isInternal />
+      </Section>
+
+      <hr className="border-white my-6" />
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
       {/* Footer Logo */}
       <div className="lg:flex items-center gap-5">
         <Link href={"/"}>
           <img src="/assets/Kalven-logo.png" className="lg:w-60 w-52" alt="Kalven Logo" />
         </Link>
         <img src="/assets/footerimg1.png" className="mt-2" alt="Footer Image" />
+<<<<<<< HEAD
        
       </div>
  
       <hr className="border-white my-6" />
  
+=======
+      </div>
+
+      <hr className="border-white my-6" />
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
       {/* Footer Policies */}
       <div className="text-sm text-center">
         <p className={`leading-loose transition-all duration-1000 ease-out transform delay-200 ${
@@ -94,9 +143,15 @@ const Footer = () => {
           <Link href="/aboutus/payment-policy" passHref className="hover:underline"> Payment Policy</Link> /
           <Link href="/aboutus/modern-slavery-act" passHref className="hover:underline"> Modern Slavery Act Policy</Link>
         </p>
+<<<<<<< HEAD
  
         <p className="text-gray-400">© {new Date().getFullYear()} KALVEN Software Solutions. All rights reserved.</p>
  
+=======
+
+        <p className="text-gray-400">© {new Date().getFullYear()} KALVEN Software Solutions. All rights reserved.</p>
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
         {/* Social Media Section */}
         <div className="mt-6">
           <h1 className="text-yellow-400 text-lg mb-4">Follow Us:</h1>
@@ -121,7 +176,11 @@ const Footer = () => {
     </div>
   );
 };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
 // Section Component
 const Section = ({ title, children, isVisible }) => {
   return (
@@ -135,7 +194,11 @@ const Section = ({ title, children, isVisible }) => {
     </div>
   );
 };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
 // Grid Component with Links
 const Grid = ({ items, isInternal = false }) => (
   <div className="grid grid-cols-1 text-sm sm:grid-cols-2 lg:flex lg:gap-10 gap-4">
@@ -152,6 +215,11 @@ const Grid = ({ items, isInternal = false }) => (
     ))}
   </div>
 );
+<<<<<<< HEAD
  
 export default Footer;
  
+=======
+
+export default Footer;
+>>>>>>> 2f905c0802b55a2eada76825ad2670b9465fb9d2
