@@ -1,0 +1,15 @@
+.coes-box{
+    width: 435px;
+}
+
+
+/* For webkit browsers (Chrome, Safari, Edge) */
+#slide-img::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* For all other browsers */
+  #slide-img {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }

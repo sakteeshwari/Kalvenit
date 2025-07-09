@@ -1,0 +1,30 @@
+
+.content>h2{
+   line-height:50px;
+}
+.content>div>button{
+    position: absolute;
+    top: 340px;
+}
+
+/* For screens with a maximum width of 600px (phones) */
+@media screen and (max-width: 600px) {
+    .img-content{
+        height: 23rem;
+       
+    }
+    
+    
+
+  }
+
+
+  @media screen and (min-width:600px){
+    
+    .content>div>button{
+        position: absolute;
+        top: 500px;
+        margin-left: 30px;
+    }
+  }
+  

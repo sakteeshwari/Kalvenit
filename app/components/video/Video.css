@@ -1,0 +1,46 @@
+.rounded-video {
+    border: none; /* Removes any border */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensures corners are properly clipped */
+  }
+  
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-up {
+    animation: slideUp 1s ease-out;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-up {
+    animation: slideUp 1s ease-out;
+  }
+  
+  /* Add outline to text */
+  .outlined-text {
+    text-shadow: 
+      1px 1px 1px rgba(0, 0, 0, 0.5), 
+      -1px -1px 2px rgba(0, 0, 0, 0.5),
+      1px -1px 1px rgba(0, 0, 0, 0.5),
+      -1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
